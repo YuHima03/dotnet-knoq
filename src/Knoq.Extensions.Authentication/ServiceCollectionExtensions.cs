@@ -6,7 +6,7 @@ namespace Knoq.Extensions.Authentication
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddAuthenticatedKnoqApiClient(this IServiceCollection services, Action<KnoqApiClientOptions> configureKnoq, Action<IServiceProvider, TraqAuthenticationInfo> configureTraqAuth)
+        public static IServiceCollection AddAuthenticatedKnoqApiClient(this IServiceCollection services, Action<IServiceProvider, KnoqApiClientOptions> configureKnoq, Action<IServiceProvider, TraqAuthenticationInfo> configureTraqAuth)
         {
             return services
                 .AddOptions()
@@ -18,7 +18,7 @@ namespace Knoq.Extensions.Authentication
                         TraqAuthenticationInfo traqAuthInfo = new();
 
                         // configure
-                        configureKnoq.Invoke(options);
+                        configureKnoq.Invoke(sp, options);
                         configureTraqAuth.Invoke(sp, traqAuthInfo);
 
                         var task = AuthenticationExtensions.GetKnoqAccessTokenAsync(options.BaseAddress, traqOptions.BaseAddress, traqAuthInfo, CancellationToken.None).AsTask();

@@ -2,29 +2,27 @@
 
   <PropertyGroup>
     <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
-    <AssemblyName>Knoq.Extensions.Authentication</AssemblyName>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup>
-    <Title>Knoq.Extensions.Authentication</Title>
     <Authors>Yusuke Toyoda</Authors>
     <Description>A dotnet extension library for the knoQ API that provides authentication methods with traQ service.</Description>
     <Copyright>No Copyright</Copyright>
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>0.2.0</Version>
-    <AssemblyVersion>0.2.0</AssemblyVersion>
-    <FileVersion>0.2.0.0</FileVersion>
+    <Version>0.2.1</Version>
+    <AssemblyVersion>0.2.1</AssemblyVersion>
+    <FileVersion>0.2.1.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageId>KnoqNet.Extensions.Authentication</PackageId>
     <NeutralLanguage>ja</NeutralLanguage>
-    <PackageReleaseNotes>First release!</PackageReleaseNotes>
+    <PackageReleaseNotes>Add support for cookie authentication.</PackageReleaseNotes>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <!--Set release notes here-->
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

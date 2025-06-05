@@ -15,14 +15,34 @@
             Knoq.Client.Configuration knoqApiConfig = new() { BasePath = knoqBaseAddress };
 
             // First, login to traQ.
-            // It is needed to pass the OAuth2 authorization flow of knoQ.
+            if (traqAuthInfo.CookieAuthToken is not null)
             {
+                Uri traqBaseUri = new(traqBaseAddress);
+                // Use cookie authentication.
+                // Client must have a token in the cookie to pass the OAuth2 authorization flow of knoQ.
+                clientHandler.CookieContainer.Add(new System.Net.Cookie
+                {
+                    Domain = traqBaseUri.Host,
+                    HttpOnly = true,
+                    Name = "r_session",
+                    Path = "/",
+                    Secure = traqBaseUri.Scheme == Uri.UriSchemeHttps,
+                    Value = traqAuthInfo.CookieAuthToken,
+                });
+            }
+            else if (traqAuthInfo.Username is not null && traqAuthInfo.Password is not null)
+            {
+                // Use password authentication.
                 Traq.Api.AuthenticationApi authApi = new(client, traqApiConfig, clientHandler);
                 Traq.Model.PostLoginRequest req = new(
                     name: traqAuthInfo.Username ?? string.Empty,
                     password: traqAuthInfo.Password ?? string.Empty
                 );
                 await authApi.LoginAsync(null, req, ct).ConfigureAwait(false);
+            }
+            else
+            {
+                throw new ArgumentException("Either CookieAuthToken or Username+Password must be provided.");
             }
 
             // Then, get the uri of traQ's OAuth2 authorization endpoint.

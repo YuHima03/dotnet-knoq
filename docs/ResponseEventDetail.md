@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **Group** | [**ResponseGroup**](ResponseGroup.md) |  | 
 **Admins** | **List&lt;Guid&gt;** | 編集権を持つユーザー | 
 **Tags** | [**List&lt;ResponseEventTagsInner&gt;**](ResponseEventTagsInner.md) |  | 
-**Attendees** | [**List&lt;ResponseEventAttendeesInner&gt;**](ResponseEventAttendeesInner.md) |  | 
+**Attendees** | [**List&lt;ResponseEventDetailAttendeesInner&gt;**](ResponseEventDetailAttendeesInner.md) |  | 
 **CreatedBy** | **Guid** |  | 
 **CreatedAt** | **string** |  | 
 **UpdatedAt** | **string** |  | 

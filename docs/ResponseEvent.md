@@ -11,13 +11,12 @@ Name | Type | Description | Notes
 **TimeStart** | **string** |  | 
 **TimeEnd** | **string** |  | 
 **Place** | **string** |  | 
-**GroupName** | **string** |  | 
 **RoomId** | **Guid** |  | 
 **GroupId** | **Guid** |  | 
 **Open** | **bool** | グループ外のユーザーが参加予定を出来るか | 
 **Admins** | **List&lt;Guid&gt;** | 編集権を持つユーザー | 
 **Tags** | [**List&lt;ResponseEventTagsInner&gt;**](ResponseEventTagsInner.md) |  | 
-**Attendees** | [**List&lt;ResponseEventAttendeesInner&gt;**](ResponseEventAttendeesInner.md) |  | 
+**Attendees** | **List&lt;Guid&gt;** |  | 
 **CreatedBy** | **Guid** |  | 
 **CreatedAt** | **string** |  | 
 **UpdatedAt** | **string** |  | 

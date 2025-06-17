@@ -57,7 +57,7 @@ namespace Knoq.Model
         /// <param name="createdBy">createdBy (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public ResponseEventDetail(Guid eventId = default(Guid), string name = default(string), string description = default(string), bool sharedRoom = default(bool), string timeStart = default(string), string timeEnd = default(string), string place = default(string), string groupName = default(string), bool open = default(bool), ResponseRoom room = default(ResponseRoom), ResponseGroup group = default(ResponseGroup), List<Guid> admins = default(List<Guid>), List<ResponseEventTagsInner> tags = default(List<ResponseEventTagsInner>), List<ResponseEventAttendeesInner> attendees = default(List<ResponseEventAttendeesInner>), Guid createdBy = default(Guid), string createdAt = default(string), string updatedAt = default(string))
+        public ResponseEventDetail(Guid eventId = default(Guid), string name = default(string), string description = default(string), bool sharedRoom = default(bool), string timeStart = default(string), string timeEnd = default(string), string place = default(string), string groupName = default(string), bool open = default(bool), ResponseRoom room = default(ResponseRoom), ResponseGroup group = default(ResponseGroup), List<Guid> admins = default(List<Guid>), List<ResponseEventTagsInner> tags = default(List<ResponseEventTagsInner>), List<ResponseEventDetailAttendeesInner> attendees = default(List<ResponseEventDetailAttendeesInner>), Guid createdBy = default(Guid), string createdAt = default(string), string updatedAt = default(string))
         {
             this.EventId = eventId;
             // to ensure "name" is required (not null)
@@ -246,7 +246,7 @@ namespace Knoq.Model
         /// Gets or Sets Attendees
         /// </summary>
         [DataMember(Name = "attendees", IsRequired = true, EmitDefaultValue = true)]
-        public List<ResponseEventAttendeesInner> Attendees { get; set; }
+        public List<ResponseEventDetailAttendeesInner> Attendees { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedBy

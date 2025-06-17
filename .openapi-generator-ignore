@@ -31,4 +31,4 @@ src/*.Test/**
 git_push.sh
 
 # Modified files:
-src/Traq/Client/WebRequestPathBuilder.cs
+src/Knoq/Client/WebRequestPathBuilder.cs

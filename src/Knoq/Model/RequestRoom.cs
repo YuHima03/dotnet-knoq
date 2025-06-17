@@ -44,7 +44,7 @@ namespace Knoq.Model
         /// <param name="timeStart">timeStart (required).</param>
         /// <param name="timeEnd">timeEnd (required).</param>
         /// <param name="admins">編集権を持つユーザー (required).</param>
-        public RequestRoom(string place = default, string timeStart = default, string timeEnd = default, List<Guid> admins = default)
+        public RequestRoom(string place = default(string), string timeStart = default(string), string timeEnd = default(string), List<Guid> admins = default(List<Guid>))
         {
             // to ensure "place" is required (not null)
             if (place == null)

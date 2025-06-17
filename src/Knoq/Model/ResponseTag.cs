@@ -44,7 +44,7 @@ namespace Knoq.Model
         /// <param name="name">name (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public ResponseTag(Guid tagId = default, string name = default, string createdAt = default, string updatedAt = default)
+        public ResponseTag(Guid tagId = default(Guid), string name = default(string), string createdAt = default(string), string updatedAt = default(string))
         {
             this.TagId = tagId;
             // to ensure "name" is required (not null)

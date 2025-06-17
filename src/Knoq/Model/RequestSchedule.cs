@@ -74,7 +74,7 @@ namespace Knoq.Model
         /// Initializes a new instance of the <see cref="RequestSchedule" /> class.
         /// </summary>
         /// <param name="schedule">pending or absent or attendance (required).</param>
-        public RequestSchedule(ScheduleEnum schedule = default)
+        public RequestSchedule(ScheduleEnum schedule = default(ScheduleEnum))
         {
             this.Schedule = schedule;
         }

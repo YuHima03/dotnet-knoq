@@ -41,7 +41,7 @@ namespace Knoq.Model
         /// Initializes a new instance of the <see cref="AuthParams" /> class.
         /// </summary>
         /// <param name="url">url (required).</param>
-        public AuthParams(string url = default)
+        public AuthParams(string url = default(string))
         {
             // to ensure "url" is required (not null)
             if (url == null)

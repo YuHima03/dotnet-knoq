@@ -43,7 +43,7 @@ namespace Knoq.Model
         /// <param name="tagId">tagId (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="locked">locked.</param>
-        public ResponseEventTagsInner(Guid tagId = default, string name = default, bool locked = default)
+        public ResponseEventTagsInner(Guid tagId = default(Guid), string name = default(string), bool locked = default(bool))
         {
             this.TagId = tagId;
             // to ensure "name" is required (not null)

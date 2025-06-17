@@ -50,7 +50,7 @@ namespace Knoq.Model
         /// <param name="open">グループ外のユーザーが参加予定を出来るか.</param>
         /// <param name="admins">編集権を持つユーザー (required).</param>
         /// <param name="tags">tags.</param>
-        public RequestEventStock(string name = default, string description = default, bool sharedRoom = default, string timeStart = default, string timeEnd = default, Guid roomId = default, Guid groupId = default, bool open = default, List<Guid> admins = default, List<RequestEventInstantTagsInner> tags = default)
+        public RequestEventStock(string name = default(string), string description = default(string), bool sharedRoom = default(bool), string timeStart = default(string), string timeEnd = default(string), Guid roomId = default(Guid), Guid groupId = default(Guid), bool open = default(bool), List<Guid> admins = default(List<Guid>), List<RequestEventInstantTagsInner> tags = default(List<RequestEventInstantTagsInner>))
         {
             // to ensure "name" is required (not null)
             if (name == null)

@@ -47,6 +47,7 @@ namespace Knoq.Model
         /// <param name="timeStart">timeStart (required).</param>
         /// <param name="timeEnd">timeEnd (required).</param>
         /// <param name="place">place (required).</param>
+        /// <param name="groupName">groupName (required).</param>
         /// <param name="roomId">roomId (required).</param>
         /// <param name="groupId">groupId (required).</param>
         /// <param name="open">グループ外のユーザーが参加予定を出来るか (required).</param>
@@ -56,7 +57,7 @@ namespace Knoq.Model
         /// <param name="createdBy">createdBy (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public ResponseEvent(Guid eventId = default, string name = default, string description = default, bool sharedRoom = default, string timeStart = default, string timeEnd = default, string place = default, Guid roomId = default, Guid groupId = default, bool open = default, List<Guid> admins = default, List<ResponseEventTagsInner> tags = default, List<Guid> attendees = default, Guid createdBy = default, string createdAt = default, string updatedAt = default)
+        public ResponseEvent(Guid eventId = default(Guid), string name = default(string), string description = default(string), bool sharedRoom = default(bool), string timeStart = default(string), string timeEnd = default(string), string place = default(string), string groupName = default(string), Guid roomId = default(Guid), Guid groupId = default(Guid), bool open = default(bool), List<Guid> admins = default(List<Guid>), List<ResponseEventTagsInner> tags = default(List<ResponseEventTagsInner>), List<ResponseEventAttendeesInner> attendees = default(List<ResponseEventAttendeesInner>), Guid createdBy = default(Guid), string createdAt = default(string), string updatedAt = default(string))
         {
             this.EventId = eventId;
             // to ensure "name" is required (not null)
@@ -90,6 +91,12 @@ namespace Knoq.Model
                 throw new ArgumentNullException("place is a required property for ResponseEvent and cannot be null");
             }
             this.Place = place;
+            // to ensure "groupName" is required (not null)
+            if (groupName == null)
+            {
+                throw new ArgumentNullException("groupName is a required property for ResponseEvent and cannot be null");
+            }
+            this.GroupName = groupName;
             this.RoomId = roomId;
             this.GroupId = groupId;
             this.Open = open;
@@ -185,6 +192,15 @@ namespace Knoq.Model
         public string Place { get; set; }
 
         /// <summary>
+        /// Gets or Sets GroupName
+        /// </summary>
+        /*
+        <example>room</example>
+        */
+        [DataMember(Name = "groupName", IsRequired = true, EmitDefaultValue = true)]
+        public string GroupName { get; set; }
+
+        /// <summary>
         /// Gets or Sets RoomId
         /// </summary>
         [DataMember(Name = "roomId", IsRequired = true, EmitDefaultValue = true)]
@@ -220,7 +236,7 @@ namespace Knoq.Model
         /// Gets or Sets Attendees
         /// </summary>
         [DataMember(Name = "attendees", IsRequired = true, EmitDefaultValue = true)]
-        public List<Guid> Attendees { get; set; }
+        public List<ResponseEventAttendeesInner> Attendees { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedBy
@@ -261,6 +277,7 @@ namespace Knoq.Model
             sb.Append("  TimeStart: ").Append(TimeStart).Append("\n");
             sb.Append("  TimeEnd: ").Append(TimeEnd).Append("\n");
             sb.Append("  Place: ").Append(Place).Append("\n");
+            sb.Append("  GroupName: ").Append(GroupName).Append("\n");
             sb.Append("  RoomId: ").Append(RoomId).Append("\n");
             sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("  Open: ").Append(Open).Append("\n");

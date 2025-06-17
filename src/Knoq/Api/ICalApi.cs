@@ -37,7 +37,7 @@ namespace Knoq.Api
         /// <param name="icalToken"></param>
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <returns>string</returns>
-        string GetIcal(string icalToken, string? q = default(string?));
+        string GetIcal(string icalToken, string? q = default);
 
         /// <summary>
         /// 
@@ -49,7 +49,7 @@ namespace Knoq.Api
         /// <param name="icalToken"></param>
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> GetIcalWithHttpInfo(string icalToken, string? q = default(string?));
+        ApiResponse<string> GetIcalWithHttpInfo(string icalToken, string? q = default);
         /// <summary>
         /// 
         /// </summary>
@@ -108,7 +108,7 @@ namespace Knoq.Api
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetIcalAsync(string icalToken, string? q = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> GetIcalAsync(string icalToken, string? q = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -121,7 +121,7 @@ namespace Knoq.Api
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> GetIcalWithHttpInfoAsync(string icalToken, string? q = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> GetIcalWithHttpInfoAsync(string icalToken, string? q = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -131,7 +131,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IcalSecret</returns>
-        System.Threading.Tasks.Task<IcalSecret> GetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IcalSecret> GetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -142,7 +142,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IcalSecret)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IcalSecret>> GetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IcalSecret>> GetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -152,7 +152,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IcalSecret</returns>
-        System.Threading.Tasks.Task<IcalSecret> ResetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IcalSecret> ResetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -163,7 +163,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IcalSecret)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IcalSecret>> ResetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IcalSecret>> ResetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -384,7 +384,7 @@ namespace Knoq.Api
         /// <param name="icalToken"></param>
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <returns>string</returns>
-        public string GetIcal(string icalToken, string? q = default(string?))
+        public string GetIcal(string icalToken, string? q = default)
         {
             Knoq.Client.ApiResponse<string> localVarResponse = GetIcalWithHttpInfo(icalToken, q);
             return localVarResponse.Data;
@@ -397,7 +397,7 @@ namespace Knoq.Api
         /// <param name="icalToken"></param>
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <returns>ApiResponse of string</returns>
-        public Knoq.Client.ApiResponse<string> GetIcalWithHttpInfo(string icalToken, string? q = default(string?))
+        public Knoq.Client.ApiResponse<string> GetIcalWithHttpInfo(string icalToken, string? q = default)
         {
             // verify the required parameter 'icalToken' is set
             if (icalToken == null)
@@ -446,7 +446,7 @@ namespace Knoq.Api
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetIcalAsync(string icalToken, string? q = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> GetIcalAsync(string icalToken, string? q = default, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<string> localVarResponse = await GetIcalWithHttpInfoAsync(icalToken, q, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -460,7 +460,7 @@ namespace Knoq.Api
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<string>> GetIcalWithHttpInfoAsync(string icalToken, string? q = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<string>> GetIcalWithHttpInfoAsync(string icalToken, string? q = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'icalToken' is set
             if (icalToken == null)
@@ -558,7 +558,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IcalSecret</returns>
-        public async System.Threading.Tasks.Task<IcalSecret> GetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IcalSecret> GetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<IcalSecret> localVarResponse = await GetIcalSecretWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -570,7 +570,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IcalSecret)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<IcalSecret>> GetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<IcalSecret>> GetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -659,7 +659,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IcalSecret</returns>
-        public async System.Threading.Tasks.Task<IcalSecret> ResetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IcalSecret> ResetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<IcalSecret> localVarResponse = await ResetIcalSecretWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -671,7 +671,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IcalSecret)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<IcalSecret>> ResetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<IcalSecret>> ResetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();

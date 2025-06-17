@@ -19,8 +19,8 @@ docs/RequestRoom.md
 docs/RequestSchedule.md
 docs/RequestTag.md
 docs/ResponseEvent.md
-docs/ResponseEventAttendeesInner.md
 docs/ResponseEventDetail.md
+docs/ResponseEventDetailAttendeesInner.md
 docs/ResponseEventTagsInner.md
 docs/ResponseGroup.md
 docs/ResponseRoom.md
@@ -70,8 +70,8 @@ src/Knoq/Model/RequestRoom.cs
 src/Knoq/Model/RequestSchedule.cs
 src/Knoq/Model/RequestTag.cs
 src/Knoq/Model/ResponseEvent.cs
-src/Knoq/Model/ResponseEventAttendeesInner.cs
 src/Knoq/Model/ResponseEventDetail.cs
+src/Knoq/Model/ResponseEventDetailAttendeesInner.cs
 src/Knoq/Model/ResponseEventTagsInner.cs
 src/Knoq/Model/ResponseGroup.cs
 src/Knoq/Model/ResponseRoom.cs

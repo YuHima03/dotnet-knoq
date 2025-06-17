@@ -37,7 +37,7 @@ namespace Knoq.Model
         /// </summary>
         /// <param name="name">name.</param>
         /// <param name="locked">locked.</param>
-        public RequestEventInstantTagsInner(string name = default(string), bool locked = default(bool))
+        public RequestEventInstantTagsInner(string name = default, bool locked = default)
         {
             this.Name = name;
             this.Locked = locked;

@@ -42,7 +42,7 @@ namespace Knoq.Model
         /// </summary>
         /// <param name="timeStart">timeStart (required).</param>
         /// <param name="timeEnd">timeEnd (required).</param>
-        public Duration(string timeStart = default(string), string timeEnd = default(string))
+        public Duration(string timeStart = default, string timeEnd = default)
         {
             // to ensure "timeStart" is required (not null)
             if (timeStart == null)

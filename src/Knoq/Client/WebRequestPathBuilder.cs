@@ -22,7 +22,7 @@ namespace Knoq.Client
             private string _query = "?";
             public WebRequestPathBuilder(string baseUrl, string path)
             {
-                _baseUrl = (baseUrl[^1]=='/') ? baseUrl[..^1] : baseUrl;
+                _baseUrl = baseUrl;
                 _path = path;
             }
 

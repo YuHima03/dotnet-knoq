@@ -27,10 +27,10 @@ using OpenAPIDateConverter = Knoq.Client.OpenAPIDateConverter;
 namespace Knoq.Model
 {
     /// <summary>
-    /// RequestSchedule
+    /// ユーザの参加状況
     /// </summary>
-    [DataContract(Name = "RequestSchedule")]
-    public partial class RequestSchedule : IValidatableObject
+    [DataContract(Name = "ResponseEventDetail_attendees_inner")]
+    public partial class ResponseEventDetailAttendeesInner : IValidatableObject
     {
         /// <summary>
         /// pending or absent or attendance
@@ -66,18 +66,26 @@ namespace Knoq.Model
         [DataMember(Name = "schedule", IsRequired = true, EmitDefaultValue = true)]
         public ScheduleEnum Schedule { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="RequestSchedule" /> class.
+        /// Initializes a new instance of the <see cref="ResponseEventDetailAttendeesInner" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected RequestSchedule() { }
+        protected ResponseEventDetailAttendeesInner() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="RequestSchedule" /> class.
+        /// Initializes a new instance of the <see cref="ResponseEventDetailAttendeesInner" /> class.
         /// </summary>
+        /// <param name="userId">userId (required).</param>
         /// <param name="schedule">pending or absent or attendance (required).</param>
-        public RequestSchedule(ScheduleEnum schedule = default)
+        public ResponseEventDetailAttendeesInner(Guid userId = default, ScheduleEnum schedule = default)
         {
+            this.UserId = userId;
             this.Schedule = schedule;
         }
+
+        /// <summary>
+        /// Gets or Sets UserId
+        /// </summary>
+        [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]
+        public Guid UserId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -86,7 +94,8 @@ namespace Knoq.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class RequestSchedule {\n");
+            sb.Append("class ResponseEventDetailAttendeesInner {\n");
+            sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  Schedule: ").Append(Schedule).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

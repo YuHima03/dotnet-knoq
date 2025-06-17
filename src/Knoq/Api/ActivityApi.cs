@@ -67,7 +67,7 @@ namespace Knoq.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventActivitiesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventActivitiesAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -79,7 +79,7 @@ namespace Knoq.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventActivitiesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventActivitiesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -350,7 +350,7 @@ namespace Knoq.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventActivitiesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventActivitiesAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = await GetEventActivitiesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -363,7 +363,7 @@ namespace Knoq.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventActivitiesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventActivitiesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();

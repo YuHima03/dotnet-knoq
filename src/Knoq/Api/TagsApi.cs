@@ -85,7 +85,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseTag&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseTag>> GetTagAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ResponseTag>> GetTagAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// タグを全て取得
@@ -96,7 +96,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseTag&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseTag>>> GetTagWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseTag>>> GetTagWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// タグを作成。
         /// </summary>
@@ -107,7 +107,7 @@ namespace Knoq.Api
         /// <param name="requestTag">タグ自体の追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseTag</returns>
-        System.Threading.Tasks.Task<ResponseTag> PostTagAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResponseTag> PostTagAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// タグを作成。
@@ -119,7 +119,7 @@ namespace Knoq.Api
         /// <param name="requestTag">タグ自体の追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseTag)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseTag>> PostTagWithHttpInfoAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResponseTag>> PostTagWithHttpInfoAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -387,7 +387,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseTag&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseTag>> GetTagAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ResponseTag>> GetTagAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<List<ResponseTag>> localVarResponse = await GetTagWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -399,7 +399,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseTag&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseTag>>> GetTagWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseTag>>> GetTagWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -497,7 +497,7 @@ namespace Knoq.Api
         /// <param name="requestTag">タグ自体の追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseTag</returns>
-        public async System.Threading.Tasks.Task<ResponseTag> PostTagAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResponseTag> PostTagAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<ResponseTag> localVarResponse = await PostTagWithHttpInfoAsync(requestTag, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -510,7 +510,7 @@ namespace Knoq.Api
         /// <param name="requestTag">タグ自体の追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseTag)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseTag>> PostTagWithHttpInfoAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseTag>> PostTagWithHttpInfoAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'requestTag' is set
             if (requestTag == null)

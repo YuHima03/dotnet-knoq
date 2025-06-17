@@ -41,7 +41,7 @@ namespace Knoq.Model
         /// <param name="startTime">startTime.</param>
         /// <param name="endTime">endTime.</param>
         /// <param name="location">location.</param>
-        public AddAllRoomsRequestInner(string subject = default(string), string startDate = default(string), string endDate = default(string), string startTime = default(string), string endTime = default(string), string location = default(string))
+        public AddAllRoomsRequestInner(string subject = default, string startDate = default, string endDate = default, string startTime = default, string endTime = default, string location = default)
         {
             this.Subject = subject;
             this.StartDate = startDate;

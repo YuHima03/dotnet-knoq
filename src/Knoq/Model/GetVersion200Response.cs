@@ -37,7 +37,7 @@ namespace Knoq.Model
         /// </summary>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="revision">revision.</param>
-        public GetVersion200Response(string varVersion = default, string revision = default)
+        public GetVersion200Response(string varVersion = default(string), string revision = default(string))
         {
             this.VarVersion = varVersion;
             this.Revision = revision;

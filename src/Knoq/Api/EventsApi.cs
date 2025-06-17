@@ -168,7 +168,7 @@ namespace Knoq.Api
         /// <param name="dateEnd">特定の日時まで。 (optional)</param>
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <returns>List&lt;ResponseEvent&gt;</returns>
-        List<ResponseEvent> GetEvents(string? dateBegin = default, string? dateEnd = default, string? q = default);
+        List<ResponseEvent> GetEvents(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?));
 
         /// <summary>
         /// 使用宣言の情報を取得
@@ -181,7 +181,7 @@ namespace Knoq.Api
         /// <param name="dateEnd">特定の日時まで。 (optional)</param>
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseEvent&gt;</returns>
-        ApiResponse<List<ResponseEvent>> GetEventsWithHttpInfo(string? dateBegin = default, string? dateEnd = default, string? q = default);
+        ApiResponse<List<ResponseEvent>> GetEventsWithHttpInfo(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?));
         /// <summary>
         /// 
         /// </summary>
@@ -233,7 +233,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>List&lt;ResponseEvent&gt;</returns>
-        List<ResponseEvent> GetMyEvents(string? relation = default);
+        List<ResponseEvent> GetMyEvents(string? relation = default(string?));
 
         /// <summary>
         /// 
@@ -244,7 +244,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseEvent&gt;</returns>
-        ApiResponse<List<ResponseEvent>> GetMyEventsWithHttpInfo(string? relation = default);
+        ApiResponse<List<ResponseEvent>> GetMyEventsWithHttpInfo(string? relation = default(string?));
         /// <summary>
         /// 
         /// </summary>
@@ -255,7 +255,7 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>List&lt;ResponseEvent&gt;</returns>
-        List<ResponseEvent> GetUserEvents(Guid userID, string? relation = default);
+        List<ResponseEvent> GetUserEvents(Guid userID, string? relation = default(string?));
 
         /// <summary>
         /// 
@@ -267,7 +267,7 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseEvent&gt;</returns>
-        ApiResponse<List<ResponseEvent>> GetUserEventsWithHttpInfo(Guid userID, string? relation = default);
+        ApiResponse<List<ResponseEvent>> GetUserEventsWithHttpInfo(Guid userID, string? relation = default(string?));
         /// <summary>
         /// 部屋の使用宣言を更新
         /// </summary>
@@ -331,7 +331,7 @@ namespace Knoq.Api
         /// <param name="requestTag">イベントにタグを追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AddEventTagAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task AddEventTagAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// タグを追加
@@ -344,7 +344,7 @@ namespace Knoq.Api
         /// <param name="requestTag">イベントにタグを追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AddEventTagWithHttpInfoAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<Object>> AddEventTagWithHttpInfoAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 部屋の使用宣言を行う
         /// </summary>
@@ -355,7 +355,7 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseEventDetail</returns>
-        System.Threading.Tasks.Task<ResponseEventDetail> AddEventsAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ResponseEventDetail> AddEventsAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 部屋の使用宣言を行う
@@ -367,7 +367,7 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseEventDetail)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseEventDetail>> AddEventsWithHttpInfoAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<ResponseEventDetail>> AddEventsWithHttpInfoAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 使用宣言を削除
         /// </summary>
@@ -378,7 +378,7 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteEventAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task DeleteEventAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 使用宣言を削除
@@ -390,7 +390,7 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEventWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEventWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// タグを削除
         /// </summary>
@@ -402,7 +402,7 @@ namespace Knoq.Api
         /// <param name="tagName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteEventTagAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task DeleteEventTagAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// タグを削除
@@ -415,7 +415,7 @@ namespace Knoq.Api
         /// <param name="tagName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEventTagWithHttpInfoAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEventTagWithHttpInfoAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -426,7 +426,7 @@ namespace Knoq.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventActivitiesAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventActivitiesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -438,7 +438,7 @@ namespace Knoq.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventActivitiesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventActivitiesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 一件取得
         /// </summary>
@@ -449,7 +449,7 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseEventDetail</returns>
-        System.Threading.Tasks.Task<ResponseEventDetail> GetEventDetailAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ResponseEventDetail> GetEventDetailAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 一件取得
@@ -461,7 +461,7 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseEventDetail)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseEventDetail>> GetEventDetailWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<ResponseEventDetail>> GetEventDetailWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 使用宣言の情報を取得
         /// </summary>
@@ -474,7 +474,7 @@ namespace Knoq.Api
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsAsync(string? dateBegin = default, string? dateEnd = default, string? q = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsAsync(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 使用宣言の情報を取得
@@ -488,7 +488,7 @@ namespace Knoq.Api
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventsWithHttpInfoAsync(string? dateBegin = default, string? dateEnd = default, string? q = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventsWithHttpInfoAsync(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -499,7 +499,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -511,7 +511,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventsOfGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventsOfGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -522,7 +522,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -534,7 +534,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventsOfRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventsOfRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -545,7 +545,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseEvent>> GetMyEventsAsync(string? relation = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<ResponseEvent>> GetMyEventsAsync(string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -557,7 +557,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetMyEventsWithHttpInfoAsync(string? relation = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetMyEventsWithHttpInfoAsync(string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -569,7 +569,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseEvent>> GetUserEventsAsync(Guid userID, string? relation = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<ResponseEvent>> GetUserEventsAsync(Guid userID, string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -582,7 +582,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetUserEventsWithHttpInfoAsync(Guid userID, string? relation = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetUserEventsWithHttpInfoAsync(Guid userID, string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 部屋の使用宣言を更新
         /// </summary>
@@ -594,7 +594,7 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseEventDetail</returns>
-        System.Threading.Tasks.Task<ResponseEventDetail> UpdateEventAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ResponseEventDetail> UpdateEventAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 部屋の使用宣言を更新
@@ -607,7 +607,7 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseEventDetail)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseEventDetail>> UpdateEventWithHttpInfoAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<ResponseEventDetail>> UpdateEventWithHttpInfoAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 自分の参加予定を編集
         /// </summary>
@@ -619,7 +619,7 @@ namespace Knoq.Api
         /// <param name="requestSchedule">イベントの参加予定を更新</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateScheduleAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task UpdateScheduleAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 自分の参加予定を編集
@@ -632,7 +632,7 @@ namespace Knoq.Api
         /// <param name="requestSchedule">イベントの参加予定を更新</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateScheduleWithHttpInfoAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateScheduleWithHttpInfoAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -911,7 +911,7 @@ namespace Knoq.Api
         /// <param name="requestTag">イベントにタグを追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AddEventTagAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task AddEventTagAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await AddEventTagWithHttpInfoAsync(eventID, requestTag, cancellationToken).ConfigureAwait(false);
         }
@@ -924,7 +924,7 @@ namespace Knoq.Api
         /// <param name="requestTag">イベントにタグを追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> AddEventTagWithHttpInfoAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> AddEventTagWithHttpInfoAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'requestTag' is set
             if (requestTag == null)
@@ -1028,7 +1028,7 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseEventDetail</returns>
-        public async System.Threading.Tasks.Task<ResponseEventDetail> AddEventsAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ResponseEventDetail> AddEventsAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Knoq.Client.ApiResponse<ResponseEventDetail> localVarResponse = await AddEventsWithHttpInfoAsync(requestEvent, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1041,7 +1041,7 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseEventDetail)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseEventDetail>> AddEventsWithHttpInfoAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseEventDetail>> AddEventsWithHttpInfoAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'requestEvent' is set
             if (requestEvent == null)
@@ -1138,7 +1138,7 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteEventAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task DeleteEventAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await DeleteEventWithHttpInfoAsync(eventID, cancellationToken).ConfigureAwait(false);
         }
@@ -1150,7 +1150,7 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> DeleteEventWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> DeleteEventWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -1249,7 +1249,7 @@ namespace Knoq.Api
         /// <param name="tagName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteEventTagAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task DeleteEventTagAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await DeleteEventTagWithHttpInfoAsync(eventID, tagName, cancellationToken).ConfigureAwait(false);
         }
@@ -1262,7 +1262,7 @@ namespace Knoq.Api
         /// <param name="tagName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> DeleteEventTagWithHttpInfoAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> DeleteEventTagWithHttpInfoAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'tagName' is set
             if (tagName == null)
@@ -1359,7 +1359,7 @@ namespace Knoq.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventActivitiesAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventActivitiesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = await GetEventActivitiesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1372,7 +1372,7 @@ namespace Knoq.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventActivitiesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventActivitiesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -1465,7 +1465,7 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseEventDetail</returns>
-        public async System.Threading.Tasks.Task<ResponseEventDetail> GetEventDetailAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ResponseEventDetail> GetEventDetailAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Knoq.Client.ApiResponse<ResponseEventDetail> localVarResponse = await GetEventDetailWithHttpInfoAsync(eventID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1478,7 +1478,7 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseEventDetail)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseEventDetail>> GetEventDetailWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseEventDetail>> GetEventDetailWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -1522,7 +1522,7 @@ namespace Knoq.Api
         /// <param name="dateEnd">特定の日時まで。 (optional)</param>
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <returns>List&lt;ResponseEvent&gt;</returns>
-        public List<ResponseEvent> GetEvents(string? dateBegin = default, string? dateEnd = default, string? q = default)
+        public List<ResponseEvent> GetEvents(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?))
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = GetEventsWithHttpInfo(dateBegin, dateEnd, q);
             return localVarResponse.Data;
@@ -1536,7 +1536,7 @@ namespace Knoq.Api
         /// <param name="dateEnd">特定の日時まで。 (optional)</param>
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseEvent&gt;</returns>
-        public Knoq.Client.ApiResponse<List<ResponseEvent>> GetEventsWithHttpInfo(string? dateBegin = default, string? dateEnd = default, string? q = default)
+        public Knoq.Client.ApiResponse<List<ResponseEvent>> GetEventsWithHttpInfo(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?))
         {
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
 
@@ -1589,7 +1589,7 @@ namespace Knoq.Api
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsAsync(string? dateBegin = default, string? dateEnd = default, string? q = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsAsync(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = await GetEventsWithHttpInfoAsync(dateBegin, dateEnd, q, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1604,7 +1604,7 @@ namespace Knoq.Api
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventsWithHttpInfoAsync(string? dateBegin = default, string? dateEnd = default, string? q = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventsWithHttpInfoAsync(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -1709,7 +1709,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = await GetEventsOfGroupWithHttpInfoAsync(groupID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1722,7 +1722,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventsOfGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventsOfGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -1816,7 +1816,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = await GetEventsOfRoomWithHttpInfoAsync(roomID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1829,7 +1829,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventsOfRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventsOfRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -1871,7 +1871,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>List&lt;ResponseEvent&gt;</returns>
-        public List<ResponseEvent> GetMyEvents(string? relation = default)
+        public List<ResponseEvent> GetMyEvents(string? relation = default(string?))
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = GetMyEventsWithHttpInfo(relation);
             return localVarResponse.Data;
@@ -1883,7 +1883,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseEvent&gt;</returns>
-        public Knoq.Client.ApiResponse<List<ResponseEvent>> GetMyEventsWithHttpInfo(string? relation = default)
+        public Knoq.Client.ApiResponse<List<ResponseEvent>> GetMyEventsWithHttpInfo(string? relation = default(string?))
         {
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
 
@@ -1926,7 +1926,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetMyEventsAsync(string? relation = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetMyEventsAsync(string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = await GetMyEventsWithHttpInfoAsync(relation, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1939,7 +1939,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetMyEventsWithHttpInfoAsync(string? relation = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetMyEventsWithHttpInfoAsync(string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -1985,7 +1985,7 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>List&lt;ResponseEvent&gt;</returns>
-        public List<ResponseEvent> GetUserEvents(Guid userID, string? relation = default)
+        public List<ResponseEvent> GetUserEvents(Guid userID, string? relation = default(string?))
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = GetUserEventsWithHttpInfo(userID, relation);
             return localVarResponse.Data;
@@ -1998,7 +1998,7 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseEvent&gt;</returns>
-        public Knoq.Client.ApiResponse<List<ResponseEvent>> GetUserEventsWithHttpInfo(Guid userID, string? relation = default)
+        public Knoq.Client.ApiResponse<List<ResponseEvent>> GetUserEventsWithHttpInfo(Guid userID, string? relation = default(string?))
         {
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
 
@@ -2043,7 +2043,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetUserEventsAsync(Guid userID, string? relation = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetUserEventsAsync(Guid userID, string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = await GetUserEventsWithHttpInfoAsync(userID, relation, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2057,7 +2057,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetUserEventsWithHttpInfoAsync(Guid userID, string? relation = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetUserEventsWithHttpInfoAsync(Guid userID, string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -2164,7 +2164,7 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseEventDetail</returns>
-        public async System.Threading.Tasks.Task<ResponseEventDetail> UpdateEventAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ResponseEventDetail> UpdateEventAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Knoq.Client.ApiResponse<ResponseEventDetail> localVarResponse = await UpdateEventWithHttpInfoAsync(eventID, requestEvent, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2178,7 +2178,7 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseEventDetail)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseEventDetail>> UpdateEventWithHttpInfoAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseEventDetail>> UpdateEventWithHttpInfoAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'requestEvent' is set
             if (requestEvent == null)
@@ -2285,7 +2285,7 @@ namespace Knoq.Api
         /// <param name="requestSchedule">イベントの参加予定を更新</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateScheduleAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task UpdateScheduleAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await UpdateScheduleWithHttpInfoAsync(eventID, requestSchedule, cancellationToken).ConfigureAwait(false);
         }
@@ -2298,7 +2298,7 @@ namespace Knoq.Api
         /// <param name="requestSchedule">イベントの参加予定を更新</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> UpdateScheduleWithHttpInfoAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> UpdateScheduleWithHttpInfoAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'requestSchedule' is set
             if (requestSchedule == null)

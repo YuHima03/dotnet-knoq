@@ -87,7 +87,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AuthParams</returns>
-        System.Threading.Tasks.Task<AuthParams> GetAuthParamsAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<AuthParams> GetAuthParamsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -98,7 +98,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuthParams)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuthParams>> GetAuthParamsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<AuthParams>> GetAuthParamsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -110,7 +110,7 @@ namespace Knoq.Api
         /// <param name="code">OAuth2.0のcode</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetCallbackAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task GetCallbackAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -123,7 +123,7 @@ namespace Knoq.Api
         /// <param name="code">OAuth2.0のcode</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetCallbackWithHttpInfoAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetCallbackWithHttpInfoAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -391,7 +391,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AuthParams</returns>
-        public async System.Threading.Tasks.Task<AuthParams> GetAuthParamsAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<AuthParams> GetAuthParamsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Knoq.Client.ApiResponse<AuthParams> localVarResponse = await GetAuthParamsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -403,7 +403,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuthParams)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<AuthParams>> GetAuthParamsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<AuthParams>> GetAuthParamsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -505,7 +505,7 @@ namespace Knoq.Api
         /// <param name="code">OAuth2.0のcode</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetCallbackAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task GetCallbackAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await GetCallbackWithHttpInfoAsync(session, code, cancellationToken).ConfigureAwait(false);
         }
@@ -518,7 +518,7 @@ namespace Knoq.Api
         /// <param name="code">OAuth2.0のcode</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> GetCallbackWithHttpInfoAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> GetCallbackWithHttpInfoAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'session' is set
             if (session == null)

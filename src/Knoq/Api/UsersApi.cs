@@ -74,7 +74,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeSuspended">アカウントがアクティブでないユーザーを含めるかどうか。 | traQ由来のquery。 | de (optional)</param>
         /// <returns>List&lt;ResponseUser&gt;</returns>
-        List<ResponseUser> GetUsers(bool? includeSuspended = default);
+        List<ResponseUser> GetUsers(bool? includeSuspended = default(bool?));
 
         /// <summary>
         /// 
@@ -85,7 +85,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeSuspended">アカウントがアクティブでないユーザーを含めるかどうか。 | traQ由来のquery。 | de (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseUser&gt;</returns>
-        ApiResponse<List<ResponseUser>> GetUsersWithHttpInfo(bool? includeSuspended = default);
+        ApiResponse<List<ResponseUser>> GetUsersWithHttpInfo(bool? includeSuspended = default(bool?));
         /// <summary>
         /// 
         /// </summary>
@@ -163,7 +163,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IcalSecret</returns>
-        System.Threading.Tasks.Task<IcalSecret> GetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<IcalSecret> GetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -174,7 +174,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IcalSecret)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IcalSecret>> GetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<IcalSecret>> GetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 自分のユーザー情報を取得
         /// </summary>
@@ -184,7 +184,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseUser</returns>
-        System.Threading.Tasks.Task<ResponseUser> GetMeAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ResponseUser> GetMeAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 自分のユーザー情報を取得
@@ -195,7 +195,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseUser)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseUser>> GetMeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<ResponseUser>> GetMeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -206,7 +206,7 @@ namespace Knoq.Api
         /// <param name="includeSuspended">アカウントがアクティブでないユーザーを含めるかどうか。 | traQ由来のquery。 | de (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseUser&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseUser>> GetUsersAsync(bool? includeSuspended = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<ResponseUser>> GetUsersAsync(bool? includeSuspended = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -218,7 +218,7 @@ namespace Knoq.Api
         /// <param name="includeSuspended">アカウントがアクティブでないユーザーを含めるかどうか。 | traQ由来のquery。 | de (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseUser&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseUser>>> GetUsersWithHttpInfoAsync(bool? includeSuspended = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseUser>>> GetUsersWithHttpInfoAsync(bool? includeSuspended = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -229,7 +229,7 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GrantPrivilegeAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task GrantPrivilegeAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -241,7 +241,7 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GrantPrivilegeWithHttpInfoAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<Object>> GrantPrivilegeWithHttpInfoAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -251,7 +251,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IcalSecret</returns>
-        System.Threading.Tasks.Task<IcalSecret> ResetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<IcalSecret> ResetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -262,7 +262,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IcalSecret)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IcalSecret>> ResetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<IcalSecret>> ResetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -272,7 +272,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SyncUsersAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task SyncUsersAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -283,7 +283,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SyncUsersWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<Object>> SyncUsersWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -551,7 +551,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IcalSecret</returns>
-        public async System.Threading.Tasks.Task<IcalSecret> GetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<IcalSecret> GetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Knoq.Client.ApiResponse<IcalSecret> localVarResponse = await GetIcalSecretWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -563,7 +563,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IcalSecret)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<IcalSecret>> GetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<IcalSecret>> GetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -652,7 +652,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseUser</returns>
-        public async System.Threading.Tasks.Task<ResponseUser> GetMeAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ResponseUser> GetMeAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Knoq.Client.ApiResponse<ResponseUser> localVarResponse = await GetMeWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -664,7 +664,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseUser)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseUser>> GetMeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseUser>> GetMeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -705,7 +705,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeSuspended">アカウントがアクティブでないユーザーを含めるかどうか。 | traQ由来のquery。 | de (optional)</param>
         /// <returns>List&lt;ResponseUser&gt;</returns>
-        public List<ResponseUser> GetUsers(bool? includeSuspended = default)
+        public List<ResponseUser> GetUsers(bool? includeSuspended = default(bool?))
         {
             Knoq.Client.ApiResponse<List<ResponseUser>> localVarResponse = GetUsersWithHttpInfo(includeSuspended);
             return localVarResponse.Data;
@@ -717,7 +717,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeSuspended">アカウントがアクティブでないユーザーを含めるかどうか。 | traQ由来のquery。 | de (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseUser&gt;</returns>
-        public Knoq.Client.ApiResponse<List<ResponseUser>> GetUsersWithHttpInfo(bool? includeSuspended = default)
+        public Knoq.Client.ApiResponse<List<ResponseUser>> GetUsersWithHttpInfo(bool? includeSuspended = default(bool?))
         {
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
 
@@ -760,7 +760,7 @@ namespace Knoq.Api
         /// <param name="includeSuspended">アカウントがアクティブでないユーザーを含めるかどうか。 | traQ由来のquery。 | de (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseUser&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseUser>> GetUsersAsync(bool? includeSuspended = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<ResponseUser>> GetUsersAsync(bool? includeSuspended = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Knoq.Client.ApiResponse<List<ResponseUser>> localVarResponse = await GetUsersWithHttpInfoAsync(includeSuspended, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -773,7 +773,7 @@ namespace Knoq.Api
         /// <param name="includeSuspended">アカウントがアクティブでないユーザーを含めるかどうか。 | traQ由来のquery。 | de (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseUser&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseUser>>> GetUsersWithHttpInfoAsync(bool? includeSuspended = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseUser>>> GetUsersWithHttpInfoAsync(bool? includeSuspended = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -868,7 +868,7 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GrantPrivilegeAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task GrantPrivilegeAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await GrantPrivilegeWithHttpInfoAsync(userID, cancellationToken).ConfigureAwait(false);
         }
@@ -880,7 +880,7 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> GrantPrivilegeWithHttpInfoAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> GrantPrivilegeWithHttpInfoAsync(Guid userID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -969,7 +969,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IcalSecret</returns>
-        public async System.Threading.Tasks.Task<IcalSecret> ResetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<IcalSecret> ResetIcalSecretAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Knoq.Client.ApiResponse<IcalSecret> localVarResponse = await ResetIcalSecretWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -981,7 +981,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IcalSecret)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<IcalSecret>> ResetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<IcalSecret>> ResetIcalSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
@@ -1068,7 +1068,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SyncUsersAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task SyncUsersAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await SyncUsersWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
         }
@@ -1079,7 +1079,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> SyncUsersWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> SyncUsersWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();

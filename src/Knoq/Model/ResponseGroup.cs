@@ -50,7 +50,7 @@ namespace Knoq.Model
         /// <param name="createdBy">createdBy (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public ResponseGroup(Guid groupId = default, string name = default, string description = default, bool open = default, bool isTraQGroup = default, List<Guid> members = default, List<Guid> admins = default, Guid createdBy = default, string createdAt = default, string updatedAt = default)
+        public ResponseGroup(Guid groupId = default(Guid), string name = default(string), string description = default(string), bool open = default(bool), bool isTraQGroup = default(bool), List<Guid> members = default(List<Guid>), List<Guid> admins = default(List<Guid>), Guid createdBy = default(Guid), string createdAt = default(string), string updatedAt = default(string))
         {
             this.GroupId = groupId;
             // to ensure "name" is required (not null)

@@ -41,7 +41,7 @@ namespace Knoq.Model
         /// Initializes a new instance of the <see cref="RequestTag" /> class.
         /// </summary>
         /// <param name="name">name (required).</param>
-        public RequestTag(string name = default)
+        public RequestTag(string name = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)

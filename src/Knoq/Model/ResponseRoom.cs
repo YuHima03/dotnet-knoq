@@ -51,7 +51,7 @@ namespace Knoq.Model
         /// <param name="createdBy">createdBy (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public ResponseRoom(Guid roomId = default, string place = default, string timeStart = default, string timeEnd = default, bool verified = default, List<Duration> freeTimes = default, List<Duration> sharedTimes = default, List<Guid> admins = default, Guid createdBy = default, string createdAt = default, string updatedAt = default)
+        public ResponseRoom(Guid roomId = default(Guid), string place = default(string), string timeStart = default(string), string timeEnd = default(string), bool verified = default(bool), List<Duration> freeTimes = default(List<Duration>), List<Duration> sharedTimes = default(List<Duration>), List<Guid> admins = default(List<Guid>), Guid createdBy = default(Guid), string createdAt = default(string), string updatedAt = default(string))
         {
             this.RoomId = roomId;
             // to ensure "place" is required (not null)

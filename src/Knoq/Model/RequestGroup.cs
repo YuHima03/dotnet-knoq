@@ -45,7 +45,7 @@ namespace Knoq.Model
         /// <param name="open">open (required).</param>
         /// <param name="members">グループのメンバー.</param>
         /// <param name="admins">編集権を持つユーザー (required).</param>
-        public RequestGroup(string name = default, string description = default, bool open = default, List<Guid> members = default, List<Guid> admins = default)
+        public RequestGroup(string name = default(string), string description = default(string), bool open = default(bool), List<Guid> members = default(List<Guid>), List<Guid> admins = default(List<Guid>))
         {
             // to ensure "name" is required (not null)
             if (name == null)

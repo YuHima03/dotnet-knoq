@@ -46,7 +46,7 @@ namespace Knoq.Model
         /// <param name="icon">icon (required).</param>
         /// <param name="privileged">privileged (required).</param>
         /// <param name="state">ユーザーアカウント状態 0: 停止 1: 有効 2: 一時停止 (required).</param>
-        public ResponseUser(Guid userId = default, string name = default, string displayName = default, string icon = default, bool privileged = default, int state = default)
+        public ResponseUser(Guid userId = default(Guid), string name = default(string), string displayName = default(string), string icon = default(string), bool privileged = default(bool), int state = default(int))
         {
             this.UserId = userId;
             // to ensure "name" is required (not null)

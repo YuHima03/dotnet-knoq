@@ -41,7 +41,7 @@ namespace Knoq.Model
         /// Initializes a new instance of the <see cref="IcalSecret" /> class.
         /// </summary>
         /// <param name="secret">secret (required).</param>
-        public IcalSecret(string secret = default)
+        public IcalSecret(string secret = default(string))
         {
             // to ensure "secret" is required (not null)
             if (secret == null)

@@ -16,9 +16,7 @@ namespace Knoq
         /// <returns></returns>
         public static IServiceCollection AddKnoqApiClient(this IServiceCollection services, Action<KnoqApiClientOptions> configure)
         {
-            return services
-                .Configure(configure)
-                .AddSingleton<IKnoqApiClient, KnoqApiClient>();
+            throw new NotImplementedException();
         }
     }
 }

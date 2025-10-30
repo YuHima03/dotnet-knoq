@@ -66,8 +66,8 @@ For more information, please check [Kiota Official Documentation](https://learn.
 
 To generate API client for certain version of knoQ, set it to the `KNOQ_TAG_NAME` variable and run `task`, `task gen` or `task generate-client`.
 
-The following command generates API client for knoQ v3.26.0.
+The following command generates API client for knoQ v2.5.12.
 
 ```bash
-TRAQ_TAG_NAME="v3.26.0" task
+KNOQ_TAG_NAME="v2.5.12" task
 ```

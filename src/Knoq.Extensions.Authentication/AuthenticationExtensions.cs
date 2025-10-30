@@ -49,7 +49,7 @@ namespace Knoq.Extensions.Authentication
 
             // Then, get the uri of traQ's OAuth2 authorization endpoint.
             // The uri should be like "https://q.trap.jp/oauth2/authorize"
-            var knoqAuthParams = await knoqApiClient.AuthParams.PostAsync(cancellationToken: ct);
+            var knoqAuthParams = await knoqApiClient.AuthParams.PostAsync(cancellationToken: ct).ConfigureAwait(false);
             Guard.IsNotNull(knoqAuthParams);
             Guard.IsNotNullOrWhiteSpace(knoqAuthParams.Url);
             Uri oAuth2Uri = new(knoqAuthParams.Url, UriKind.Absolute);
@@ -76,7 +76,7 @@ namespace Knoq.Extensions.Authentication
             {
                 var reqInfo = traqApiClient.Oauth2.Authorize.Decide.ToPostRequestInformation(new() { Submit = "approve" });
                 using StreamContent reqContent = new(reqInfo.Content);
-                using var res = await client.PostAsync(reqInfo.URI, reqContent, ct);
+                using var res = await client.PostAsync(reqInfo.URI, reqContent, ct).ConfigureAwait(false);
                 if (res.StatusCode == System.Net.HttpStatusCode.Found)
                 {
                     if (Uri.TryCreate(res.Headers.GetValues("Location").FirstOrDefault(), UriKind.RelativeOrAbsolute, out var location))

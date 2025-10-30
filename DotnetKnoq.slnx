@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Knoq.Extensions.Authentication/Knoq.Extensions.Authentication.csproj" />
+  <Project Path="src/Knoq/Knoq.csproj" />
+</Solution>

@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+  </Folder>
   <Project Path="src/Knoq.Extensions.Authentication/Knoq.Extensions.Authentication.csproj" />
   <Project Path="src/Knoq/Knoq.csproj" />
 </Solution>

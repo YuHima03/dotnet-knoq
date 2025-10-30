@@ -10,24 +10,20 @@ namespace Knoq.Extensions.Authentication
         {
             return services
                 .AddOptions()
-                .AddSingleton<IConfigureOptions<KnoqApiClientOptions>>(sp =>
+                .AddKnoqApiClient((sp, options) =>
                 {
-                    return new ConfigureNamedOptions<KnoqApiClientOptions>(Options.DefaultName, options =>
-                    {
-                        // options
-                        var traqOptions = sp.GetRequiredService<IOptions<TraqApiClientOptions>>().Value;
-                        TraqAuthenticationInfo traqAuthInfo = new();
+                    // options
+                    var traqOptions = sp.GetRequiredService<IOptions<TraqApiClientOptions>>().Value;
+                    TraqAuthenticationInfo traqAuthInfo = new();
 
-                        // configure
-                        configureKnoq.Invoke(sp, options);
-                        configureTraqAuth.Invoke(sp, traqAuthInfo);
+                    // configure
+                    configureKnoq.Invoke(sp, options);
+                    configureTraqAuth.Invoke(sp, traqAuthInfo);
 
-                        var task = AuthenticationExtensions.GetKnoqAccessTokenAsync(options.BaseAddress, traqOptions.BaseAddress, traqAuthInfo, CancellationToken.None).AsTask();
-                        task.Wait();
-                        options.CookieAuthToken = task.Result;
-                    });
-                })
-                .AddSingleton<IKnoqApiClient, KnoqApiClient>();
+                    var task = AuthenticationExtensions.GetKnoqAccessTokenAsync(options.BaseAddress, traqOptions.BaseAddress, traqAuthInfo, CancellationToken.None).AsTask();
+                    task.Wait();
+                    options.CookieAuthToken = task.Result;
+                });
         }
     }
 }

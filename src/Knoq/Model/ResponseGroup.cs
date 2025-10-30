@@ -50,48 +50,18 @@ namespace Knoq.Model
         /// <param name="createdBy">createdBy (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public ResponseGroup(Guid groupId = default(Guid), string name = default(string), string description = default(string), bool open = default(bool), bool isTraQGroup = default(bool), List<Guid> members = default(List<Guid>), List<Guid> admins = default(List<Guid>), Guid createdBy = default(Guid), string createdAt = default(string), string updatedAt = default(string))
+        public ResponseGroup(Guid groupId = default, string name = default, string description = default, bool open = default, bool isTraQGroup = default, List<Guid> members = default, List<Guid> admins = default, Guid createdBy = default, string createdAt = default, string updatedAt = default)
         {
             this.GroupId = groupId;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for ResponseGroup and cannot be null");
-            }
-            this.Name = name;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for ResponseGroup and cannot be null");
-            }
-            this.Description = description;
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for ResponseGroup and cannot be null");
+            this.Description = description ?? throw new ArgumentNullException("description is a required property for ResponseGroup and cannot be null");
             this.Open = open;
             this.IsTraQGroup = isTraQGroup;
-            // to ensure "members" is required (not null)
-            if (members == null)
-            {
-                throw new ArgumentNullException("members is a required property for ResponseGroup and cannot be null");
-            }
-            this.Members = members;
-            // to ensure "admins" is required (not null)
-            if (admins == null)
-            {
-                throw new ArgumentNullException("admins is a required property for ResponseGroup and cannot be null");
-            }
-            this.Admins = admins;
+            this.Members = members ?? throw new ArgumentNullException("members is a required property for ResponseGroup and cannot be null");
+            this.Admins = admins ?? throw new ArgumentNullException("admins is a required property for ResponseGroup and cannot be null");
             this.CreatedBy = createdBy;
-            // to ensure "createdAt" is required (not null)
-            if (createdAt == null)
-            {
-                throw new ArgumentNullException("createdAt is a required property for ResponseGroup and cannot be null");
-            }
-            this.CreatedAt = createdAt;
-            // to ensure "updatedAt" is required (not null)
-            if (updatedAt == null)
-            {
-                throw new ArgumentNullException("updatedAt is a required property for ResponseGroup and cannot be null");
-            }
-            this.UpdatedAt = updatedAt;
+            this.CreatedAt = createdAt ?? throw new ArgumentNullException("createdAt is a required property for ResponseGroup and cannot be null");
+            this.UpdatedAt = updatedAt ?? throw new ArgumentNullException("updatedAt is a required property for ResponseGroup and cannot be null");
         }
 
         /// <summary>
@@ -177,18 +147,18 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class ResponseGroup {\n");
-            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Open: ").Append(Open).Append("\n");
-            sb.Append("  IsTraQGroup: ").Append(IsTraQGroup).Append("\n");
-            sb.Append("  Members: ").Append(Members).Append("\n");
-            sb.Append("  Admins: ").Append(Admins).Append("\n");
-            sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
-            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  GroupId: ").Append(GroupId).Append('\n');
+            sb.Append("  Name: ").Append(Name).Append('\n');
+            sb.Append("  Description: ").Append(Description).Append('\n');
+            sb.Append("  Open: ").Append(Open).Append('\n');
+            sb.Append("  IsTraQGroup: ").Append(IsTraQGroup).Append('\n');
+            sb.Append("  Members: ").Append(Members).Append('\n');
+            sb.Append("  Admins: ").Append(Admins).Append('\n');
+            sb.Append("  CreatedBy: ").Append(CreatedBy).Append('\n');
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append('\n');
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

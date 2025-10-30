@@ -50,41 +50,16 @@ namespace Knoq.Model
         /// <param name="open">グループ外のユーザーが参加予定を出来るか.</param>
         /// <param name="admins">編集権を持つユーザー (required).</param>
         /// <param name="tags">tags.</param>
-        public RequestEventStock(string name = default(string), string description = default(string), bool sharedRoom = default(bool), string timeStart = default(string), string timeEnd = default(string), Guid roomId = default(Guid), Guid groupId = default(Guid), bool open = default(bool), List<Guid> admins = default(List<Guid>), List<RequestEventInstantTagsInner> tags = default(List<RequestEventInstantTagsInner>))
+        public RequestEventStock(string name = default, string description = default, bool sharedRoom = default, string timeStart = default, string timeEnd = default, Guid roomId = default, Guid groupId = default, bool open = default, List<Guid> admins = default, List<RequestEventInstantTagsInner> tags = default)
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for RequestEventStock and cannot be null");
-            }
-            this.Name = name;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for RequestEventStock and cannot be null");
-            }
-            this.Description = description;
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for RequestEventStock and cannot be null");
+            this.Description = description ?? throw new ArgumentNullException("description is a required property for RequestEventStock and cannot be null");
             this.SharedRoom = sharedRoom;
-            // to ensure "timeStart" is required (not null)
-            if (timeStart == null)
-            {
-                throw new ArgumentNullException("timeStart is a required property for RequestEventStock and cannot be null");
-            }
-            this.TimeStart = timeStart;
-            // to ensure "timeEnd" is required (not null)
-            if (timeEnd == null)
-            {
-                throw new ArgumentNullException("timeEnd is a required property for RequestEventStock and cannot be null");
-            }
-            this.TimeEnd = timeEnd;
+            this.TimeStart = timeStart ?? throw new ArgumentNullException("timeStart is a required property for RequestEventStock and cannot be null");
+            this.TimeEnd = timeEnd ?? throw new ArgumentNullException("timeEnd is a required property for RequestEventStock and cannot be null");
             this.RoomId = roomId;
             this.GroupId = groupId;
-            // to ensure "admins" is required (not null)
-            if (admins == null)
-            {
-                throw new ArgumentNullException("admins is a required property for RequestEventStock and cannot be null");
-            }
-            this.Admins = admins;
+            this.Admins = admins ?? throw new ArgumentNullException("admins is a required property for RequestEventStock and cannot be null");
             this.Open = open;
             this.Tags = tags;
         }
@@ -170,18 +145,18 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class RequestEventStock {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  SharedRoom: ").Append(SharedRoom).Append("\n");
-            sb.Append("  TimeStart: ").Append(TimeStart).Append("\n");
-            sb.Append("  TimeEnd: ").Append(TimeEnd).Append("\n");
-            sb.Append("  RoomId: ").Append(RoomId).Append("\n");
-            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
-            sb.Append("  Open: ").Append(Open).Append("\n");
-            sb.Append("  Admins: ").Append(Admins).Append("\n");
-            sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append('\n');
+            sb.Append("  Description: ").Append(Description).Append('\n');
+            sb.Append("  SharedRoom: ").Append(SharedRoom).Append('\n');
+            sb.Append("  TimeStart: ").Append(TimeStart).Append('\n');
+            sb.Append("  TimeEnd: ").Append(TimeEnd).Append('\n');
+            sb.Append("  RoomId: ").Append(RoomId).Append('\n');
+            sb.Append("  GroupId: ").Append(GroupId).Append('\n');
+            sb.Append("  Open: ").Append(Open).Append('\n');
+            sb.Append("  Admins: ").Append(Admins).Append('\n');
+            sb.Append("  Tags: ").Append(Tags).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

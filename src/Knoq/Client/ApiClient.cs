@@ -35,11 +35,11 @@ namespace Knoq.Client
     /// <summary>
     /// To Serialize/Deserialize JSON using our custom logic, but only when ContentType is JSON.
     /// </summary>
-    internal class CustomJsonCodec
+    internal partial class CustomJsonCodec
     {
         private readonly IReadableConfiguration _configuration;
         private static readonly string _contentType = "application/json";
-        private readonly JsonSerializerSettings _serializerSettings = new JsonSerializerSettings
+        private readonly JsonSerializerSettings _serializerSettings = new()
         {
             // OpenAPI generated types generally hide default constructors.
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
@@ -95,7 +95,7 @@ namespace Knoq.Client
         /// <returns>Object representation of the JSON string.</returns>
         internal async Task<object> Deserialize(HttpResponseMessage response, Type type)
         {
-            IList<string> headers = new List<string>();
+            IList<string> headers = [];
             // process response headers, e.g. Access-Control-Allow-Methods
             foreach (var responseHeader in response.Headers)
             {
@@ -109,7 +109,7 @@ namespace Knoq.Client
             }
 
             // RFC 2183 & RFC 2616
-            var fileNameRegex = new Regex(@"Content-Disposition=.*filename=['""]?([^'""\s]+)['""]?$", RegexOptions.IgnoreCase);
+            var fileNameRegex = MyRegex();
             if (type == typeof(byte[])) // return byte array
             {
                 return await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
@@ -181,11 +181,14 @@ namespace Knoq.Client
         public string Namespace { get; set; }
         public string DateFormat { get; set; }
 
-        public string ContentType
+        public static string ContentType
         {
             get { return _contentType; }
             set { throw new InvalidOperationException("Not allowed to set content type."); }
         }
+
+        [GeneratedRegex(@"Content-Disposition=.*filename=['""]?([^'""\s]+)['""]?$", RegexOptions.IgnoreCase, "ja-JP")]
+        private static partial Regex MyRegex();
     }
     /// <summary>
     /// Provides a default implementation of an Api client (both synchronous and asynchronous implementations),
@@ -275,11 +278,10 @@ namespace Knoq.Client
         /// </remarks>
         public ApiClient(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client cannot be null");
             if (string.IsNullOrEmpty(basePath)) throw new ArgumentException("basePath cannot be empty");
 
             _httpClientHandler = handler;
-            _httpClient = client;
+            _httpClient = client ?? throw new ArgumentNullException("client cannot be null");
             _baseUrl = basePath;
         }
 
@@ -295,7 +297,7 @@ namespace Knoq.Client
         }
 
         /// Prepares multipart/form-data content
-        HttpContent PrepareMultipartFormDataContent(RequestOptions options)
+        static HttpContent PrepareMultipartFormDataContent(RequestOptions options)
         {
             string boundary = "---------" + Guid.NewGuid().ToString().ToUpperInvariant();
             var multipartContent = new MultipartFormDataContent(boundary);
@@ -337,17 +339,17 @@ namespace Knoq.Client
             RequestOptions options,
             IReadableConfiguration configuration)
         {
-            if (path == null) throw new ArgumentNullException("path");
-            if (options == null) throw new ArgumentNullException("options");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(path);
+            ArgumentNullException.ThrowIfNull(options);
+            ArgumentNullException.ThrowIfNull(configuration);
 
-            WebRequestPathBuilder builder = new WebRequestPathBuilder(_baseUrl, path);
+            WebRequestPathBuilder builder = new(_baseUrl, path);
 
             builder.AddPathParameters(options.PathParameters);
 
             builder.AddQueryParameters(options.QueryParameters);
 
-            HttpRequestMessage request = new HttpRequestMessage(method, builder.GetFullUri());
+            HttpRequestMessage request = new(method, builder.GetFullUri());
 
             if (configuration.UserAgent != null)
             {
@@ -374,18 +376,17 @@ namespace Knoq.Client
                 }
             }
 
-            List<Tuple<HttpContent, string, string>> contentList = new List<Tuple<HttpContent, string, string>>();
+            _ = [];
 
             string contentType = null;
-            if (options.HeaderParameters != null && options.HeaderParameters.ContainsKey("Content-Type"))
+            if (options.HeaderParameters != null && options.HeaderParameters.TryGetValue("Content-Type", out IList<string>? contentTypes))
             {
-                var contentTypes = options.HeaderParameters["Content-Type"];
                 contentType = contentTypes.FirstOrDefault();
             }
 
             if (contentType == "multipart/form-data")
             {
-                request.Content = PrepareMultipartFormDataContent(options);
+                request.Content = ApiClient.PrepareMultipartFormDataContent(options);
             }
             else if (contentType == "application/x-www-form-urlencoded")
             {
@@ -397,7 +398,7 @@ namespace Knoq.Client
                 {
                     if (options.Data is FileParameter fp)
                     {
-                        contentType = contentType ?? "application/octet-stream";
+                        contentType ??= "application/octet-stream";
 
                         var streamContent = new StreamContent(fp.Content);
                         streamContent.Headers.ContentType = new MediaTypeHeaderValue(contentType);
@@ -431,10 +432,10 @@ namespace Knoq.Client
             T result = (T)responseData;
             string rawContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
-            var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(), result, rawContent)
+            var transformed = new ApiResponse<T>(response.StatusCode, [], result, rawContent)
             {
                 ErrorText = response.ReasonPhrase,
-                Cookies = new List<Cookie>()
+                Cookies = []
             };
 
             // process response headers, e.g. Access-Control-Allow-Methods
@@ -477,7 +478,7 @@ namespace Knoq.Client
 
         private async Task<ApiResponse<T>> ExecAsync<T>(HttpRequestMessage req,
             IReadableConfiguration configuration,
-            System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+            System.Threading.CancellationToken cancellationToken = default)
         {
             CancellationTokenSource timeoutTokenSource = null;
             CancellationTokenSource finalTokenSource = null;
@@ -505,7 +506,7 @@ namespace Knoq.Client
                     _httpClientHandler.ClientCertificates.AddRange(configuration.ClientCertificates);
                 }
 
-                var cookieContainer = req.Properties.ContainsKey("CookieContainer") ? req.Properties["CookieContainer"] as List<Cookie> : null;
+                var cookieContainer = req.Properties.TryGetValue("CookieContainer", out object? value) ? value as List<Cookie> : null;
 
                 if (cookieContainer != null)
                 {
@@ -547,11 +548,11 @@ namespace Knoq.Client
                 // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
                 if (typeof(Knoq.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
                 {
-                    responseData = (T)typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
+                    responseData = (T)typeof(T).GetMethod("FromJson").Invoke(null, [response.Content]);
                 }
                 else if (typeof(T).Name == "Stream") // for binary response
                 {
-                    responseData = (T)(object)await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+                    responseData = (T)(object)await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
                 }
 
                 InterceptResponse(req, response);
@@ -569,15 +570,9 @@ namespace Knoq.Client
             }
             finally
             {
-                if (timeoutTokenSource != null)
-                {
-                    timeoutTokenSource.Dispose();
-                }
+                timeoutTokenSource?.Dispose();
 
-                if (finalTokenSource != null)
-                {
-                    finalTokenSource.Dispose();
-                }
+                finalTokenSource?.Dispose();
             }
         }
 
@@ -591,7 +586,7 @@ namespace Knoq.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> GetAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public Task<ApiResponse<T>> GetAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default)
         {
             var config = configuration ?? GlobalConfiguration.Instance;
             return ExecAsync<T>(NewRequest(HttpMethod.Get, path, options, config), config, cancellationToken);
@@ -606,7 +601,7 @@ namespace Knoq.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> PostAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public Task<ApiResponse<T>> PostAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default)
         {
             var config = configuration ?? GlobalConfiguration.Instance;
             return ExecAsync<T>(NewRequest(HttpMethod.Post, path, options, config), config, cancellationToken);
@@ -621,7 +616,7 @@ namespace Knoq.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> PutAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public Task<ApiResponse<T>> PutAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default)
         {
             var config = configuration ?? GlobalConfiguration.Instance;
             return ExecAsync<T>(NewRequest(HttpMethod.Put, path, options, config), config, cancellationToken);
@@ -636,7 +631,7 @@ namespace Knoq.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> DeleteAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public Task<ApiResponse<T>> DeleteAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default)
         {
             var config = configuration ?? GlobalConfiguration.Instance;
             return ExecAsync<T>(NewRequest(HttpMethod.Delete, path, options, config), config, cancellationToken);
@@ -651,7 +646,7 @@ namespace Knoq.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> HeadAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public Task<ApiResponse<T>> HeadAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default)
         {
             var config = configuration ?? GlobalConfiguration.Instance;
             return ExecAsync<T>(NewRequest(HttpMethod.Head, path, options, config), config, cancellationToken);
@@ -666,7 +661,7 @@ namespace Knoq.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> OptionsAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public Task<ApiResponse<T>> OptionsAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default)
         {
             var config = configuration ?? GlobalConfiguration.Instance;
             return ExecAsync<T>(NewRequest(HttpMethod.Options, path, options, config), config, cancellationToken);
@@ -681,7 +676,7 @@ namespace Knoq.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> PatchAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public Task<ApiResponse<T>> PatchAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default)
         {
             var config = configuration ?? GlobalConfiguration.Instance;
             return ExecAsync<T>(NewRequest(new HttpMethod("PATCH"), path, options, config), config, cancellationToken);

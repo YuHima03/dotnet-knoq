@@ -44,27 +44,12 @@ namespace Knoq.Model
         /// <param name="name">name (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public ResponseTag(Guid tagId = default(Guid), string name = default(string), string createdAt = default(string), string updatedAt = default(string))
+        public ResponseTag(Guid tagId = default, string name = default, string createdAt = default, string updatedAt = default)
         {
             this.TagId = tagId;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for ResponseTag and cannot be null");
-            }
-            this.Name = name;
-            // to ensure "createdAt" is required (not null)
-            if (createdAt == null)
-            {
-                throw new ArgumentNullException("createdAt is a required property for ResponseTag and cannot be null");
-            }
-            this.CreatedAt = createdAt;
-            // to ensure "updatedAt" is required (not null)
-            if (updatedAt == null)
-            {
-                throw new ArgumentNullException("updatedAt is a required property for ResponseTag and cannot be null");
-            }
-            this.UpdatedAt = updatedAt;
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for ResponseTag and cannot be null");
+            this.CreatedAt = createdAt ?? throw new ArgumentNullException("createdAt is a required property for ResponseTag and cannot be null");
+            this.UpdatedAt = updatedAt ?? throw new ArgumentNullException("updatedAt is a required property for ResponseTag and cannot be null");
         }
 
         /// <summary>
@@ -106,12 +91,12 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class ResponseTag {\n");
-            sb.Append("  TagId: ").Append(TagId).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  TagId: ").Append(TagId).Append('\n');
+            sb.Append("  Name: ").Append(Name).Append('\n');
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append('\n');
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

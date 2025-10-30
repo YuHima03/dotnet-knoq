@@ -115,7 +115,7 @@ namespace Knoq.Model
         {
             var sb = new StringBuilder();
             sb.Append("class RequestEvent {\n");
-            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
+            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -143,7 +143,7 @@ namespace Knoq.Model
                 return newRequestEvent;
             }
             int match = 0;
-            List<string> matchedTypes = new List<string>();
+            List<string> matchedTypes = [];
 
             try
             {
@@ -236,15 +236,12 @@ namespace Knoq.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            switch (reader.TokenType)
+            return reader.TokenType switch
             {
-                case JsonToken.StartObject:
-                    return RequestEvent.FromJson(JObject.Load(reader).ToString(Formatting.None));
-                case JsonToken.StartArray:
-                    return RequestEvent.FromJson(JArray.Load(reader).ToString(Formatting.None));
-                default:
-                    return null;
-            }
+                JsonToken.StartObject => RequestEvent.FromJson(JObject.Load(reader).ToString(Formatting.None)),
+                JsonToken.StartArray => RequestEvent.FromJson(JArray.Load(reader).ToString(Formatting.None)),
+                _ => null,
+            };
         }
 
         /// <summary>

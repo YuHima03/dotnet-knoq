@@ -46,27 +46,12 @@ namespace Knoq.Model
         /// <param name="icon">icon (required).</param>
         /// <param name="privileged">privileged (required).</param>
         /// <param name="state">ユーザーアカウント状態 0: 停止 1: 有効 2: 一時停止 (required).</param>
-        public ResponseUser(Guid userId = default(Guid), string name = default(string), string displayName = default(string), string icon = default(string), bool privileged = default(bool), int state = default(int))
+        public ResponseUser(Guid userId = default, string name = default, string displayName = default, string icon = default, bool privileged = default, int state = default)
         {
             this.UserId = userId;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for ResponseUser and cannot be null");
-            }
-            this.Name = name;
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for ResponseUser and cannot be null");
-            }
-            this.DisplayName = displayName;
-            // to ensure "icon" is required (not null)
-            if (icon == null)
-            {
-                throw new ArgumentNullException("icon is a required property for ResponseUser and cannot be null");
-            }
-            this.Icon = icon;
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for ResponseUser and cannot be null");
+            this.DisplayName = displayName ?? throw new ArgumentNullException("displayName is a required property for ResponseUser and cannot be null");
+            this.Icon = icon ?? throw new ArgumentNullException("icon is a required property for ResponseUser and cannot be null");
             this.Privileged = privileged;
             this.State = state;
         }
@@ -123,14 +108,14 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class ResponseUser {\n");
-            sb.Append("  UserId: ").Append(UserId).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  Icon: ").Append(Icon).Append("\n");
-            sb.Append("  Privileged: ").Append(Privileged).Append("\n");
-            sb.Append("  State: ").Append(State).Append("\n");
+            sb.Append("  UserId: ").Append(UserId).Append('\n');
+            sb.Append("  Name: ").Append(Name).Append('\n');
+            sb.Append("  DisplayName: ").Append(DisplayName).Append('\n');
+            sb.Append("  Icon: ").Append(Icon).Append('\n');
+            sb.Append("  Privileged: ").Append(Privileged).Append('\n');
+            sb.Append("  State: ").Append(State).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

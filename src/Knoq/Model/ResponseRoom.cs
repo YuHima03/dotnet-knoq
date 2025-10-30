@@ -51,47 +51,17 @@ namespace Knoq.Model
         /// <param name="createdBy">createdBy (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public ResponseRoom(Guid roomId = default(Guid), string place = default(string), string timeStart = default(string), string timeEnd = default(string), bool verified = default(bool), List<Duration> freeTimes = default(List<Duration>), List<Duration> sharedTimes = default(List<Duration>), List<Guid> admins = default(List<Guid>), Guid createdBy = default(Guid), string createdAt = default(string), string updatedAt = default(string))
+        public ResponseRoom(Guid roomId = default, string place = default, string timeStart = default, string timeEnd = default, bool verified = default, List<Duration> freeTimes = default, List<Duration> sharedTimes = default, List<Guid> admins = default, Guid createdBy = default, string createdAt = default, string updatedAt = default)
         {
             this.RoomId = roomId;
-            // to ensure "place" is required (not null)
-            if (place == null)
-            {
-                throw new ArgumentNullException("place is a required property for ResponseRoom and cannot be null");
-            }
-            this.Place = place;
-            // to ensure "timeStart" is required (not null)
-            if (timeStart == null)
-            {
-                throw new ArgumentNullException("timeStart is a required property for ResponseRoom and cannot be null");
-            }
-            this.TimeStart = timeStart;
-            // to ensure "timeEnd" is required (not null)
-            if (timeEnd == null)
-            {
-                throw new ArgumentNullException("timeEnd is a required property for ResponseRoom and cannot be null");
-            }
-            this.TimeEnd = timeEnd;
+            this.Place = place ?? throw new ArgumentNullException("place is a required property for ResponseRoom and cannot be null");
+            this.TimeStart = timeStart ?? throw new ArgumentNullException("timeStart is a required property for ResponseRoom and cannot be null");
+            this.TimeEnd = timeEnd ?? throw new ArgumentNullException("timeEnd is a required property for ResponseRoom and cannot be null");
             this.Verified = verified;
-            // to ensure "admins" is required (not null)
-            if (admins == null)
-            {
-                throw new ArgumentNullException("admins is a required property for ResponseRoom and cannot be null");
-            }
-            this.Admins = admins;
+            this.Admins = admins ?? throw new ArgumentNullException("admins is a required property for ResponseRoom and cannot be null");
             this.CreatedBy = createdBy;
-            // to ensure "createdAt" is required (not null)
-            if (createdAt == null)
-            {
-                throw new ArgumentNullException("createdAt is a required property for ResponseRoom and cannot be null");
-            }
-            this.CreatedAt = createdAt;
-            // to ensure "updatedAt" is required (not null)
-            if (updatedAt == null)
-            {
-                throw new ArgumentNullException("updatedAt is a required property for ResponseRoom and cannot be null");
-            }
-            this.UpdatedAt = updatedAt;
+            this.CreatedAt = createdAt ?? throw new ArgumentNullException("createdAt is a required property for ResponseRoom and cannot be null");
+            this.UpdatedAt = updatedAt ?? throw new ArgumentNullException("updatedAt is a required property for ResponseRoom and cannot be null");
             this.FreeTimes = freeTimes;
             this.SharedTimes = sharedTimes;
         }
@@ -187,19 +157,19 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class ResponseRoom {\n");
-            sb.Append("  RoomId: ").Append(RoomId).Append("\n");
-            sb.Append("  Place: ").Append(Place).Append("\n");
-            sb.Append("  TimeStart: ").Append(TimeStart).Append("\n");
-            sb.Append("  TimeEnd: ").Append(TimeEnd).Append("\n");
-            sb.Append("  Verified: ").Append(Verified).Append("\n");
-            sb.Append("  FreeTimes: ").Append(FreeTimes).Append("\n");
-            sb.Append("  SharedTimes: ").Append(SharedTimes).Append("\n");
-            sb.Append("  Admins: ").Append(Admins).Append("\n");
-            sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
-            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  RoomId: ").Append(RoomId).Append('\n');
+            sb.Append("  Place: ").Append(Place).Append('\n');
+            sb.Append("  TimeStart: ").Append(TimeStart).Append('\n');
+            sb.Append("  TimeEnd: ").Append(TimeEnd).Append('\n');
+            sb.Append("  Verified: ").Append(Verified).Append('\n');
+            sb.Append("  FreeTimes: ").Append(FreeTimes).Append('\n');
+            sb.Append("  SharedTimes: ").Append(SharedTimes).Append('\n');
+            sb.Append("  Admins: ").Append(Admins).Append('\n');
+            sb.Append("  CreatedBy: ").Append(CreatedBy).Append('\n');
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append('\n');
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

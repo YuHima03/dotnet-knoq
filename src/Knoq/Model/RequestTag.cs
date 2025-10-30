@@ -41,14 +41,9 @@ namespace Knoq.Model
         /// Initializes a new instance of the <see cref="RequestTag" /> class.
         /// </summary>
         /// <param name="name">name (required).</param>
-        public RequestTag(string name = default(string))
+        public RequestTag(string name = default)
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for RequestTag and cannot be null");
-            }
-            this.Name = name;
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for RequestTag and cannot be null");
         }
 
         /// <summary>
@@ -66,9 +61,9 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class RequestTag {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

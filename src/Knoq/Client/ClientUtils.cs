@@ -23,7 +23,7 @@ namespace Knoq.Client
     /// <summary>
     /// Utility functions providing some benefit to API client consumers.
     /// </summary>
-    public static class ClientUtils
+    public static partial class ClientUtils
     {
         /// <summary>
         /// Sanitize filename by removing the path
@@ -32,7 +32,7 @@ namespace Knoq.Client
         /// <returns>Filename</returns>
         public static string SanitizeFilename(string filename)
         {
-            Match match = Regex.Match(filename, @".*[/\\](.*)$");
+            Match match = MyRegex().Match(filename);
             return match.Success ? match.Groups[1].Value : filename;
         }
 
@@ -106,7 +106,7 @@ namespace Knoq.Client
                 return boolean ? "true" : "false";
             if (obj is ICollection collection)
             {
-                List<string> entries = new List<string>();
+                List<string> entries = [];
                 foreach (var entry in collection)
                     entries.Add(ParameterToString(entry, configuration));
                 return string.Join(",", entries);
@@ -144,11 +144,9 @@ namespace Knoq.Client
         /// <returns>Byte array</returns>
         public static byte[] ReadAsBytes(Stream inputStream)
         {
-            using (var ms = new MemoryStream())
-            {
-                inputStream.CopyTo(ms);
-                return ms.ToArray();
-            }
+            using var ms = new MemoryStream();
+            inputStream.CopyTo(ms);
+            return ms.ToArray();
         }
 
         /// <summary>
@@ -193,7 +191,7 @@ namespace Knoq.Client
         /// <summary>
         /// Provides a case-insensitive check that a provided content type is a known JSON-like content type.
         /// </summary>
-        public static readonly Regex JsonRegex = new Regex("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
+        public static readonly Regex JsonRegex = new("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
 
         /// <summary>
         /// Check if the given MIME is a JSON MIME.
@@ -219,8 +217,7 @@ namespace Knoq.Client
         /// <returns>true if found</returns>
         private static bool HasEnumMemberAttrValue(object enumVal)
         {
-            if (enumVal == null)
-                throw new ArgumentNullException(nameof(enumVal));
+            ArgumentNullException.ThrowIfNull(enumVal);
             var enumType = enumVal.GetType();
             var memInfo = enumType.GetMember(enumVal.ToString() ?? throw new InvalidOperationException());
             var attr = memInfo.FirstOrDefault()?.GetCustomAttributes(false).OfType<EnumMemberAttribute>().FirstOrDefault();
@@ -235,8 +232,7 @@ namespace Knoq.Client
         /// <returns>EnumMember value as string otherwise null</returns>
         private static string GetEnumMemberAttrValue(object enumVal)
         {
-            if (enumVal == null)
-                throw new ArgumentNullException(nameof(enumVal));
+            ArgumentNullException.ThrowIfNull(enumVal);
             var enumType = enumVal.GetType();
             var memInfo = enumType.GetMember(enumVal.ToString() ?? throw new InvalidOperationException());
             var attr = memInfo.FirstOrDefault()?.GetCustomAttributes(false).OfType<EnumMemberAttribute>().FirstOrDefault();
@@ -246,5 +242,8 @@ namespace Knoq.Client
             }
             return null;
         }
+
+        [GeneratedRegex(@".*[/\\](.*)$")]
+        private static partial Regex MyRegex();
     }
 }

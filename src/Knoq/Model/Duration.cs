@@ -42,20 +42,10 @@ namespace Knoq.Model
         /// </summary>
         /// <param name="timeStart">timeStart (required).</param>
         /// <param name="timeEnd">timeEnd (required).</param>
-        public Duration(string timeStart = default(string), string timeEnd = default(string))
+        public Duration(string timeStart = default, string timeEnd = default)
         {
-            // to ensure "timeStart" is required (not null)
-            if (timeStart == null)
-            {
-                throw new ArgumentNullException("timeStart is a required property for Duration and cannot be null");
-            }
-            this.TimeStart = timeStart;
-            // to ensure "timeEnd" is required (not null)
-            if (timeEnd == null)
-            {
-                throw new ArgumentNullException("timeEnd is a required property for Duration and cannot be null");
-            }
-            this.TimeEnd = timeEnd;
+            this.TimeStart = timeStart ?? throw new ArgumentNullException("timeStart is a required property for Duration and cannot be null");
+            this.TimeEnd = timeEnd ?? throw new ArgumentNullException("timeEnd is a required property for Duration and cannot be null");
         }
 
         /// <summary>
@@ -82,10 +72,10 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class Duration {\n");
-            sb.Append("  TimeStart: ").Append(TimeStart).Append("\n");
-            sb.Append("  TimeEnd: ").Append(TimeEnd).Append("\n");
+            sb.Append("  TimeStart: ").Append(TimeStart).Append('\n');
+            sb.Append("  TimeEnd: ").Append(TimeEnd).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

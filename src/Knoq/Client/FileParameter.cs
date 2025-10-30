@@ -75,6 +75,6 @@ namespace Knoq.Client
         /// </summary>
         /// <param name="s">Stream to convert</param>
         /// <returns>FileParameter</returns>
-        public static implicit operator FileParameter(Stream s) => new FileParameter(s);
+        public static implicit operator FileParameter(Stream s) => new(s);
     }
 }

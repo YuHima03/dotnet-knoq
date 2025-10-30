@@ -75,7 +75,7 @@ namespace Knoq.Model
         /// </summary>
         /// <param name="userId">userId (required).</param>
         /// <param name="schedule">pending or absent or attendance (required).</param>
-        public ResponseEventAttendeesInner(Guid userId = default(Guid), ScheduleEnum schedule = default(ScheduleEnum))
+        public ResponseEventAttendeesInner(Guid userId = default, ScheduleEnum schedule = default)
         {
             this.UserId = userId;
             this.Schedule = schedule;
@@ -93,10 +93,10 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class ResponseEventAttendeesInner {\n");
-            sb.Append("  UserId: ").Append(UserId).Append("\n");
-            sb.Append("  Schedule: ").Append(Schedule).Append("\n");
+            sb.Append("  UserId: ").Append(UserId).Append('\n');
+            sb.Append("  Schedule: ").Append(Schedule).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

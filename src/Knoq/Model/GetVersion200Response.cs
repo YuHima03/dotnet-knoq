@@ -29,19 +29,14 @@ namespace Knoq.Model
     /// <summary>
     /// GetVersion200Response
     /// </summary>
+    /// <remarks>
+    /// Initializes a new instance of the <see cref="GetVersion200Response" /> class.
+    /// </remarks>
+    /// <param name="varVersion">varVersion.</param>
+    /// <param name="revision">revision.</param>
     [DataContract(Name = "getVersion_200_response")]
-    public partial class GetVersion200Response : IValidatableObject
+    public partial class GetVersion200Response(string varVersion = default, string revision = default) : IValidatableObject
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetVersion200Response" /> class.
-        /// </summary>
-        /// <param name="varVersion">varVersion.</param>
-        /// <param name="revision">revision.</param>
-        public GetVersion200Response(string varVersion = default(string), string revision = default(string))
-        {
-            this.VarVersion = varVersion;
-            this.Revision = revision;
-        }
 
         /// <summary>
         /// Gets or Sets VarVersion
@@ -50,7 +45,7 @@ namespace Knoq.Model
         <example>v2.1.3</example>
         */
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public string VarVersion { get; set; }
+        public string VarVersion { get; set; } = varVersion;
 
         /// <summary>
         /// Gets or Sets Revision
@@ -59,7 +54,7 @@ namespace Knoq.Model
         <example>587c185</example>
         */
         [DataMember(Name = "revision", EmitDefaultValue = false)]
-        public string Revision { get; set; }
+        public string Revision { get; set; } = revision;
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -67,10 +62,10 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class GetVersion200Response {\n");
-            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
-            sb.Append("  Revision: ").Append(Revision).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append('\n');
+            sb.Append("  Revision: ").Append(Revision).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

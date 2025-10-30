@@ -57,90 +57,25 @@ namespace Knoq.Model
         /// <param name="createdBy">createdBy (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public ResponseEventDetail(Guid eventId = default(Guid), string name = default(string), string description = default(string), bool sharedRoom = default(bool), string timeStart = default(string), string timeEnd = default(string), string place = default(string), string groupName = default(string), bool open = default(bool), ResponseRoom room = default(ResponseRoom), ResponseGroup group = default(ResponseGroup), List<Guid> admins = default(List<Guid>), List<ResponseEventTagsInner> tags = default(List<ResponseEventTagsInner>), List<ResponseEventDetailAttendeesInner> attendees = default(List<ResponseEventDetailAttendeesInner>), Guid createdBy = default(Guid), string createdAt = default(string), string updatedAt = default(string))
+        public ResponseEventDetail(Guid eventId = default, string name = default, string description = default, bool sharedRoom = default, string timeStart = default, string timeEnd = default, string place = default, string groupName = default, bool open = default, ResponseRoom room = default, ResponseGroup group = default, List<Guid> admins = default, List<ResponseEventTagsInner> tags = default, List<ResponseEventDetailAttendeesInner> attendees = default, Guid createdBy = default, string createdAt = default, string updatedAt = default)
         {
             this.EventId = eventId;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for ResponseEventDetail and cannot be null");
-            }
-            this.Name = name;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for ResponseEventDetail and cannot be null");
-            }
-            this.Description = description;
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for ResponseEventDetail and cannot be null");
+            this.Description = description ?? throw new ArgumentNullException("description is a required property for ResponseEventDetail and cannot be null");
             this.SharedRoom = sharedRoom;
-            // to ensure "timeStart" is required (not null)
-            if (timeStart == null)
-            {
-                throw new ArgumentNullException("timeStart is a required property for ResponseEventDetail and cannot be null");
-            }
-            this.TimeStart = timeStart;
-            // to ensure "timeEnd" is required (not null)
-            if (timeEnd == null)
-            {
-                throw new ArgumentNullException("timeEnd is a required property for ResponseEventDetail and cannot be null");
-            }
-            this.TimeEnd = timeEnd;
-            // to ensure "place" is required (not null)
-            if (place == null)
-            {
-                throw new ArgumentNullException("place is a required property for ResponseEventDetail and cannot be null");
-            }
-            this.Place = place;
-            // to ensure "groupName" is required (not null)
-            if (groupName == null)
-            {
-                throw new ArgumentNullException("groupName is a required property for ResponseEventDetail and cannot be null");
-            }
-            this.GroupName = groupName;
+            this.TimeStart = timeStart ?? throw new ArgumentNullException("timeStart is a required property for ResponseEventDetail and cannot be null");
+            this.TimeEnd = timeEnd ?? throw new ArgumentNullException("timeEnd is a required property for ResponseEventDetail and cannot be null");
+            this.Place = place ?? throw new ArgumentNullException("place is a required property for ResponseEventDetail and cannot be null");
+            this.GroupName = groupName ?? throw new ArgumentNullException("groupName is a required property for ResponseEventDetail and cannot be null");
             this.Open = open;
-            // to ensure "room" is required (not null)
-            if (room == null)
-            {
-                throw new ArgumentNullException("room is a required property for ResponseEventDetail and cannot be null");
-            }
-            this.Room = room;
-            // to ensure "group" is required (not null)
-            if (group == null)
-            {
-                throw new ArgumentNullException("group is a required property for ResponseEventDetail and cannot be null");
-            }
-            this.Group = group;
-            // to ensure "admins" is required (not null)
-            if (admins == null)
-            {
-                throw new ArgumentNullException("admins is a required property for ResponseEventDetail and cannot be null");
-            }
-            this.Admins = admins;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for ResponseEventDetail and cannot be null");
-            }
-            this.Tags = tags;
-            // to ensure "attendees" is required (not null)
-            if (attendees == null)
-            {
-                throw new ArgumentNullException("attendees is a required property for ResponseEventDetail and cannot be null");
-            }
-            this.Attendees = attendees;
+            this.Room = room ?? throw new ArgumentNullException("room is a required property for ResponseEventDetail and cannot be null");
+            this.Group = group ?? throw new ArgumentNullException("group is a required property for ResponseEventDetail and cannot be null");
+            this.Admins = admins ?? throw new ArgumentNullException("admins is a required property for ResponseEventDetail and cannot be null");
+            this.Tags = tags ?? throw new ArgumentNullException("tags is a required property for ResponseEventDetail and cannot be null");
+            this.Attendees = attendees ?? throw new ArgumentNullException("attendees is a required property for ResponseEventDetail and cannot be null");
             this.CreatedBy = createdBy;
-            // to ensure "createdAt" is required (not null)
-            if (createdAt == null)
-            {
-                throw new ArgumentNullException("createdAt is a required property for ResponseEventDetail and cannot be null");
-            }
-            this.CreatedAt = createdAt;
-            // to ensure "updatedAt" is required (not null)
-            if (updatedAt == null)
-            {
-                throw new ArgumentNullException("updatedAt is a required property for ResponseEventDetail and cannot be null");
-            }
-            this.UpdatedAt = updatedAt;
+            this.CreatedAt = createdAt ?? throw new ArgumentNullException("createdAt is a required property for ResponseEventDetail and cannot be null");
+            this.UpdatedAt = updatedAt ?? throw new ArgumentNullException("updatedAt is a required property for ResponseEventDetail and cannot be null");
         }
 
         /// <summary>
@@ -278,25 +213,25 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class ResponseEventDetail {\n");
-            sb.Append("  EventId: ").Append(EventId).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  SharedRoom: ").Append(SharedRoom).Append("\n");
-            sb.Append("  TimeStart: ").Append(TimeStart).Append("\n");
-            sb.Append("  TimeEnd: ").Append(TimeEnd).Append("\n");
-            sb.Append("  Place: ").Append(Place).Append("\n");
-            sb.Append("  GroupName: ").Append(GroupName).Append("\n");
-            sb.Append("  Open: ").Append(Open).Append("\n");
-            sb.Append("  Room: ").Append(Room).Append("\n");
-            sb.Append("  Group: ").Append(Group).Append("\n");
-            sb.Append("  Admins: ").Append(Admins).Append("\n");
-            sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  Attendees: ").Append(Attendees).Append("\n");
-            sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
-            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  EventId: ").Append(EventId).Append('\n');
+            sb.Append("  Name: ").Append(Name).Append('\n');
+            sb.Append("  Description: ").Append(Description).Append('\n');
+            sb.Append("  SharedRoom: ").Append(SharedRoom).Append('\n');
+            sb.Append("  TimeStart: ").Append(TimeStart).Append('\n');
+            sb.Append("  TimeEnd: ").Append(TimeEnd).Append('\n');
+            sb.Append("  Place: ").Append(Place).Append('\n');
+            sb.Append("  GroupName: ").Append(GroupName).Append('\n');
+            sb.Append("  Open: ").Append(Open).Append('\n');
+            sb.Append("  Room: ").Append(Room).Append('\n');
+            sb.Append("  Group: ").Append(Group).Append('\n');
+            sb.Append("  Admins: ").Append(Admins).Append('\n');
+            sb.Append("  Tags: ").Append(Tags).Append('\n');
+            sb.Append("  Attendees: ").Append(Attendees).Append('\n');
+            sb.Append("  CreatedBy: ").Append(CreatedBy).Append('\n');
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append('\n');
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

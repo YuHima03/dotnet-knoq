@@ -44,32 +44,12 @@ namespace Knoq.Model
         /// <param name="timeStart">timeStart (required).</param>
         /// <param name="timeEnd">timeEnd (required).</param>
         /// <param name="admins">編集権を持つユーザー (required).</param>
-        public RequestRoom(string place = default(string), string timeStart = default(string), string timeEnd = default(string), List<Guid> admins = default(List<Guid>))
+        public RequestRoom(string place = default, string timeStart = default, string timeEnd = default, List<Guid> admins = default)
         {
-            // to ensure "place" is required (not null)
-            if (place == null)
-            {
-                throw new ArgumentNullException("place is a required property for RequestRoom and cannot be null");
-            }
-            this.Place = place;
-            // to ensure "timeStart" is required (not null)
-            if (timeStart == null)
-            {
-                throw new ArgumentNullException("timeStart is a required property for RequestRoom and cannot be null");
-            }
-            this.TimeStart = timeStart;
-            // to ensure "timeEnd" is required (not null)
-            if (timeEnd == null)
-            {
-                throw new ArgumentNullException("timeEnd is a required property for RequestRoom and cannot be null");
-            }
-            this.TimeEnd = timeEnd;
-            // to ensure "admins" is required (not null)
-            if (admins == null)
-            {
-                throw new ArgumentNullException("admins is a required property for RequestRoom and cannot be null");
-            }
-            this.Admins = admins;
+            this.Place = place ?? throw new ArgumentNullException("place is a required property for RequestRoom and cannot be null");
+            this.TimeStart = timeStart ?? throw new ArgumentNullException("timeStart is a required property for RequestRoom and cannot be null");
+            this.TimeEnd = timeEnd ?? throw new ArgumentNullException("timeEnd is a required property for RequestRoom and cannot be null");
+            this.Admins = admins ?? throw new ArgumentNullException("admins is a required property for RequestRoom and cannot be null");
         }
 
         /// <summary>
@@ -112,12 +92,12 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class RequestRoom {\n");
-            sb.Append("  Place: ").Append(Place).Append("\n");
-            sb.Append("  TimeStart: ").Append(TimeStart).Append("\n");
-            sb.Append("  TimeEnd: ").Append(TimeEnd).Append("\n");
-            sb.Append("  Admins: ").Append(Admins).Append("\n");
+            sb.Append("  Place: ").Append(Place).Append('\n');
+            sb.Append("  TimeStart: ").Append(TimeStart).Append('\n');
+            sb.Append("  TimeEnd: ").Append(TimeEnd).Append('\n');
+            sb.Append("  Admins: ").Append(Admins).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

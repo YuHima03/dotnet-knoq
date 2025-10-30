@@ -156,13 +156,10 @@ namespace Knoq.Client
             string basePath = "http://knoq.trap.jp/api") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
-                throw new ArgumentException("The provided basePath is invalid.", "basePath");
-            if (defaultHeaders == null)
-                throw new ArgumentNullException("defaultHeaders");
-            if (apiKey == null)
-                throw new ArgumentNullException("apiKey");
-            if (apiKeyPrefix == null)
-                throw new ArgumentNullException("apiKeyPrefix");
+                throw new ArgumentException("The provided basePath is invalid.", nameof(basePath));
+            ArgumentNullException.ThrowIfNull(defaultHeaders);
+            ArgumentNullException.ThrowIfNull(apiKey);
+            ArgumentNullException.ThrowIfNull(apiKeyPrefix);
 
             BasePath = basePath;
 
@@ -261,10 +258,8 @@ namespace Knoq.Client
         /// <returns>API key with prefix.</returns>
         public string GetApiKeyWithPrefix(string apiKeyIdentifier)
         {
-            string apiKeyValue;
-            ApiKey.TryGetValue(apiKeyIdentifier, out apiKeyValue);
-            string apiKeyPrefix;
-            if (ApiKeyPrefix.TryGetValue(apiKeyIdentifier, out apiKeyPrefix))
+            ApiKey.TryGetValue(apiKeyIdentifier, out string apiKeyValue);
+            if (ApiKeyPrefix.TryGetValue(apiKeyIdentifier, out string apiKeyPrefix))
             {
                 return apiKeyPrefix + " " + apiKeyValue;
             }
@@ -309,7 +304,7 @@ namespace Knoq.Client
                 }
 
                 // check if the path contains directory separator at the end
-                if (value[value.Length - 1] == Path.DirectorySeparatorChar)
+                if (value[^1] == Path.DirectorySeparatorChar)
                 {
                     _tempFolderPath = value;
                 }
@@ -367,11 +362,7 @@ namespace Knoq.Client
             get { return _apiKeyPrefix; }
             set
             {
-                if (value == null)
-                {
-                    throw new InvalidOperationException("ApiKeyPrefix collection may not be null.");
-                }
-                _apiKeyPrefix = value;
+                _apiKeyPrefix = value ?? throw new InvalidOperationException("ApiKeyPrefix collection may not be null.");
             }
         }
 
@@ -384,11 +375,7 @@ namespace Knoq.Client
             get { return _apiKey; }
             set
             {
-                if (value == null)
-                {
-                    throw new InvalidOperationException("ApiKey collection may not be null.");
-                }
-                _apiKey = value;
+                _apiKey = value ?? throw new InvalidOperationException("ApiKey collection may not be null.");
             }
         }
 
@@ -401,11 +388,7 @@ namespace Knoq.Client
             get { return _servers; }
             set
             {
-                if (value == null)
-                {
-                    throw new InvalidOperationException("Servers may not be null.");
-                }
-                _servers = value;
+                _servers = value ?? throw new InvalidOperationException("Servers may not be null.");
             }
         }
 
@@ -418,11 +401,7 @@ namespace Knoq.Client
             get { return _operationServers; }
             set
             {
-                if (value == null)
-                {
-                    throw new InvalidOperationException("Operation servers may not be null.");
-                }
-                _operationServers = value;
+                _operationServers = value ?? throw new InvalidOperationException("Operation servers may not be null.");
             }
         }
 
@@ -434,7 +413,7 @@ namespace Knoq.Client
         /// <return>The server URL.</return>
         public string GetServerUrl(int index)
         {
-            return GetServerUrl(Servers, index, null);
+            return Configuration.GetServerUrl(Servers, index, null);
         }
 
         /// <summary>
@@ -445,7 +424,7 @@ namespace Knoq.Client
         /// <return>The server URL.</return>
         public string GetServerUrl(int index, Dictionary<string, string> inputVariables)
         {
-            return GetServerUrl(Servers, index, inputVariables);
+            return Configuration.GetServerUrl(Servers, index, inputVariables);
         }
 
         /// <summary>
@@ -470,7 +449,7 @@ namespace Knoq.Client
         {
             if (operation != null && OperationServers.TryGetValue(operation, out var operationServer))
             {
-                return GetServerUrl(operationServer, index, inputVariables);
+                return Configuration.GetServerUrl(operationServer, index, inputVariables);
             }
 
             return null;
@@ -483,17 +462,14 @@ namespace Knoq.Client
         /// <param name="index">Array index of the server settings.</param>
         /// <param name="inputVariables">Dictionary of the variables and the corresponding values.</param>
         /// <return>The server URL.</return>
-        private string GetServerUrl(IList<IReadOnlyDictionary<string, object>> servers, int index, Dictionary<string, string> inputVariables)
+        private static string GetServerUrl(IList<IReadOnlyDictionary<string, object>> servers, int index, Dictionary<string, string> inputVariables)
         {
             if (index < 0 || index >= servers.Count)
             {
                 throw new InvalidOperationException($"Invalid index {index} when selecting the server. Must be less than {servers.Count}.");
             }
 
-            if (inputVariables == null)
-            {
-                inputVariables = new Dictionary<string, string>();
-            }
+            inputVariables ??= [];
 
             IReadOnlyDictionary<string, object> server = servers[index];
             string url = (string)server["url"];

@@ -168,7 +168,7 @@ namespace Knoq.Api
         /// <param name="dateEnd">特定の日時まで。 (optional)</param>
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <returns>List&lt;ResponseEvent&gt;</returns>
-        List<ResponseEvent> GetEvents(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?));
+        List<ResponseEvent> GetEvents(string? dateBegin = default, string? dateEnd = default, string? q = default);
 
         /// <summary>
         /// 使用宣言の情報を取得
@@ -181,7 +181,7 @@ namespace Knoq.Api
         /// <param name="dateEnd">特定の日時まで。 (optional)</param>
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseEvent&gt;</returns>
-        ApiResponse<List<ResponseEvent>> GetEventsWithHttpInfo(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?));
+        ApiResponse<List<ResponseEvent>> GetEventsWithHttpInfo(string? dateBegin = default, string? dateEnd = default, string? q = default);
         /// <summary>
         /// 
         /// </summary>
@@ -233,7 +233,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>List&lt;ResponseEvent&gt;</returns>
-        List<ResponseEvent> GetMyEvents(string? relation = default(string?));
+        List<ResponseEvent> GetMyEvents(string? relation = default);
 
         /// <summary>
         /// 
@@ -244,7 +244,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseEvent&gt;</returns>
-        ApiResponse<List<ResponseEvent>> GetMyEventsWithHttpInfo(string? relation = default(string?));
+        ApiResponse<List<ResponseEvent>> GetMyEventsWithHttpInfo(string? relation = default);
         /// <summary>
         /// 
         /// </summary>
@@ -255,7 +255,7 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>List&lt;ResponseEvent&gt;</returns>
-        List<ResponseEvent> GetUserEvents(Guid userID, string? relation = default(string?));
+        List<ResponseEvent> GetUserEvents(Guid userID, string? relation = default);
 
         /// <summary>
         /// 
@@ -267,7 +267,7 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseEvent&gt;</returns>
-        ApiResponse<List<ResponseEvent>> GetUserEventsWithHttpInfo(Guid userID, string? relation = default(string?));
+        ApiResponse<List<ResponseEvent>> GetUserEventsWithHttpInfo(Guid userID, string? relation = default);
         /// <summary>
         /// 部屋の使用宣言を更新
         /// </summary>
@@ -331,7 +331,7 @@ namespace Knoq.Api
         /// <param name="requestTag">イベントにタグを追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AddEventTagAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task AddEventTagAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// タグを追加
@@ -344,7 +344,7 @@ namespace Knoq.Api
         /// <param name="requestTag">イベントにタグを追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AddEventTagWithHttpInfoAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> AddEventTagWithHttpInfoAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 部屋の使用宣言を行う
         /// </summary>
@@ -355,7 +355,7 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseEventDetail</returns>
-        System.Threading.Tasks.Task<ResponseEventDetail> AddEventsAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResponseEventDetail> AddEventsAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 部屋の使用宣言を行う
@@ -367,7 +367,7 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseEventDetail)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseEventDetail>> AddEventsWithHttpInfoAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResponseEventDetail>> AddEventsWithHttpInfoAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 使用宣言を削除
         /// </summary>
@@ -378,7 +378,7 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteEventAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteEventAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 使用宣言を削除
@@ -390,7 +390,7 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEventWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEventWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// タグを削除
         /// </summary>
@@ -402,7 +402,7 @@ namespace Knoq.Api
         /// <param name="tagName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteEventTagAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteEventTagAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// タグを削除
@@ -415,7 +415,7 @@ namespace Knoq.Api
         /// <param name="tagName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEventTagWithHttpInfoAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEventTagWithHttpInfoAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -426,7 +426,7 @@ namespace Knoq.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventActivitiesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventActivitiesAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -438,7 +438,7 @@ namespace Knoq.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventActivitiesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventActivitiesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 一件取得
         /// </summary>
@@ -449,7 +449,7 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseEventDetail</returns>
-        System.Threading.Tasks.Task<ResponseEventDetail> GetEventDetailAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResponseEventDetail> GetEventDetailAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 一件取得
@@ -461,7 +461,7 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseEventDetail)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseEventDetail>> GetEventDetailWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResponseEventDetail>> GetEventDetailWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 使用宣言の情報を取得
         /// </summary>
@@ -474,7 +474,7 @@ namespace Knoq.Api
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsAsync(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsAsync(string? dateBegin = default, string? dateEnd = default, string? q = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 使用宣言の情報を取得
@@ -488,7 +488,7 @@ namespace Knoq.Api
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventsWithHttpInfoAsync(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventsWithHttpInfoAsync(string? dateBegin = default, string? dateEnd = default, string? q = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -499,7 +499,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -511,7 +511,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventsOfGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventsOfGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -522,7 +522,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -534,7 +534,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventsOfRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetEventsOfRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -545,7 +545,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseEvent>> GetMyEventsAsync(string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ResponseEvent>> GetMyEventsAsync(string? relation = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -557,7 +557,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetMyEventsWithHttpInfoAsync(string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetMyEventsWithHttpInfoAsync(string? relation = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -569,7 +569,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseEvent>> GetUserEventsAsync(Guid userID, string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ResponseEvent>> GetUserEventsAsync(Guid userID, string? relation = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -582,7 +582,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetUserEventsWithHttpInfoAsync(Guid userID, string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseEvent>>> GetUserEventsWithHttpInfoAsync(Guid userID, string? relation = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 部屋の使用宣言を更新
         /// </summary>
@@ -594,7 +594,7 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseEventDetail</returns>
-        System.Threading.Tasks.Task<ResponseEventDetail> UpdateEventAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResponseEventDetail> UpdateEventAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 部屋の使用宣言を更新
@@ -607,7 +607,7 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseEventDetail)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseEventDetail>> UpdateEventWithHttpInfoAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResponseEventDetail>> UpdateEventWithHttpInfoAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 自分の参加予定を編集
         /// </summary>
@@ -619,7 +619,7 @@ namespace Knoq.Api
         /// <param name="requestSchedule">イベントの参加予定を更新</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateScheduleAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UpdateScheduleAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 自分の参加予定を編集
@@ -632,7 +632,7 @@ namespace Knoq.Api
         /// <param name="requestSchedule">イベントの参加予定を更新</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateScheduleWithHttpInfoAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateScheduleWithHttpInfoAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -676,7 +676,7 @@ namespace Knoq.Api
                 new Knoq.Client.Configuration { BasePath = basePath }
             );
             this.ApiClient = new Knoq.Client.ApiClient(this.Configuration.BasePath);
-            this.Client =  this.ApiClient;
+            this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
@@ -691,7 +691,7 @@ namespace Knoq.Api
         /// <returns></returns>
         public EventsApi(Knoq.Client.Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
@@ -733,14 +733,14 @@ namespace Knoq.Api
         /// </remarks>
         public EventsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
                 new Knoq.Client.Configuration { BasePath = basePath }
             );
             this.ApiClient = new Knoq.Client.ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client =  this.ApiClient;
+            this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
@@ -759,8 +759,8 @@ namespace Knoq.Api
         /// </remarks>
         public EventsApi(HttpClient client, Knoq.Client.Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
@@ -782,13 +782,9 @@ namespace Knoq.Api
         /// <exception cref="ArgumentNullException"></exception>
         public EventsApi(Knoq.Client.ISynchronousClient client, Knoq.Client.IAsynchronousClient asyncClient, Knoq.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
-
-            this.Client = client;
-            this.AsynchronousClient = asyncClient;
-            this.Configuration = configuration;
+            this.Client = client ?? throw new ArgumentNullException(nameof(client));
+            this.AsynchronousClient = asyncClient ?? throw new ArgumentNullException(nameof(asyncClient));
+            this.Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -867,19 +863,14 @@ namespace Knoq.Api
         /// <returns>ApiResponse of Object(void)</returns>
         public Knoq.Client.ApiResponse<Object> AddEventTagWithHttpInfo(Guid eventID, RequestTag requestTag)
         {
-            // verify the required parameter 'requestTag' is set
-            if (requestTag == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestTag' when calling EventsApi->AddEventTag");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -888,7 +879,7 @@ namespace Knoq.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("eventID", Knoq.Client.ClientUtils.ParameterToString(eventID)); // path parameter
-            localVarRequestOptions.Data = requestTag;
+            localVarRequestOptions.Data = requestTag ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestTag' when calling EventsApi->AddEventTag");
 
 
             // make the HTTP request
@@ -911,7 +902,7 @@ namespace Knoq.Api
         /// <param name="requestTag">イベントにタグを追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AddEventTagAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task AddEventTagAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default)
         {
             await AddEventTagWithHttpInfoAsync(eventID, requestTag, cancellationToken).ConfigureAwait(false);
         }
@@ -924,22 +915,16 @@ namespace Knoq.Api
         /// <param name="requestTag">イベントにタグを追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> AddEventTagWithHttpInfoAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> AddEventTagWithHttpInfoAsync(Guid eventID, RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'requestTag' is set
-            if (requestTag == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestTag' when calling EventsApi->AddEventTag");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -949,7 +934,7 @@ namespace Knoq.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("eventID", Knoq.Client.ClientUtils.ParameterToString(eventID)); // path parameter
-            localVarRequestOptions.Data = requestTag;
+            localVarRequestOptions.Data = requestTag ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestTag' when calling EventsApi->AddEventTag");
 
 
             // make the HTTP request
@@ -985,20 +970,16 @@ namespace Knoq.Api
         /// <returns>ApiResponse of ResponseEventDetail</returns>
         public Knoq.Client.ApiResponse<ResponseEventDetail> AddEventsWithHttpInfo(RequestEvent requestEvent)
         {
-            // verify the required parameter 'requestEvent' is set
-            if (requestEvent == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestEvent' when calling EventsApi->AddEvents");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1006,7 +987,7 @@ namespace Knoq.Api
             var localVarAccept = Knoq.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = requestEvent;
+            localVarRequestOptions.Data = requestEvent ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestEvent' when calling EventsApi->AddEvents");
 
 
             // make the HTTP request
@@ -1028,7 +1009,7 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseEventDetail</returns>
-        public async System.Threading.Tasks.Task<ResponseEventDetail> AddEventsAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResponseEventDetail> AddEventsAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<ResponseEventDetail> localVarResponse = await AddEventsWithHttpInfoAsync(requestEvent, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1041,23 +1022,18 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseEventDetail)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseEventDetail>> AddEventsWithHttpInfoAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseEventDetail>> AddEventsWithHttpInfoAsync(RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'requestEvent' is set
-            if (requestEvent == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestEvent' when calling EventsApi->AddEvents");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1066,7 +1042,7 @@ namespace Knoq.Api
             var localVarAccept = Knoq.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = requestEvent;
+            localVarRequestOptions.Data = requestEvent ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestEvent' when calling EventsApi->AddEvents");
 
 
             // make the HTTP request
@@ -1101,14 +1077,12 @@ namespace Knoq.Api
         /// <returns>ApiResponse of Object(void)</returns>
         public Knoq.Client.ApiResponse<Object> DeleteEventWithHttpInfo(Guid eventID)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1138,7 +1112,7 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteEventAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteEventAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default)
         {
             await DeleteEventWithHttpInfoAsync(eventID, cancellationToken).ConfigureAwait(false);
         }
@@ -1150,17 +1124,15 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> DeleteEventWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> DeleteEventWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1210,14 +1182,12 @@ namespace Knoq.Api
             if (tagName == null)
                 throw new Knoq.Client.ApiException(400, "Missing required parameter 'tagName' when calling EventsApi->DeleteEventTag");
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1249,7 +1219,7 @@ namespace Knoq.Api
         /// <param name="tagName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteEventTagAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteEventTagAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default)
         {
             await DeleteEventTagWithHttpInfoAsync(eventID, tagName, cancellationToken).ConfigureAwait(false);
         }
@@ -1262,21 +1232,19 @@ namespace Knoq.Api
         /// <param name="tagName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> DeleteEventTagWithHttpInfoAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> DeleteEventTagWithHttpInfoAsync(Guid eventID, string tagName, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'tagName' is set
             if (tagName == null)
                 throw new Knoq.Client.ApiException(400, "Missing required parameter 'tagName' when calling EventsApi->DeleteEventTag");
 
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1322,15 +1290,14 @@ namespace Knoq.Api
         [Obsolete]
         public Knoq.Client.ApiResponse<List<ResponseEvent>> GetEventActivitiesWithHttpInfo()
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1359,7 +1326,7 @@ namespace Knoq.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventActivitiesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventActivitiesAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = await GetEventActivitiesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1372,18 +1339,17 @@ namespace Knoq.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventActivitiesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventActivitiesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1427,15 +1393,14 @@ namespace Knoq.Api
         /// <returns>ApiResponse of ResponseEventDetail</returns>
         public Knoq.Client.ApiResponse<ResponseEventDetail> GetEventDetailWithHttpInfo(Guid eventID)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1465,7 +1430,7 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseEventDetail</returns>
-        public async System.Threading.Tasks.Task<ResponseEventDetail> GetEventDetailAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResponseEventDetail> GetEventDetailAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<ResponseEventDetail> localVarResponse = await GetEventDetailWithHttpInfoAsync(eventID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1478,18 +1443,17 @@ namespace Knoq.Api
         /// <param name="eventID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseEventDetail)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseEventDetail>> GetEventDetailWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseEventDetail>> GetEventDetailWithHttpInfoAsync(Guid eventID, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1522,7 +1486,7 @@ namespace Knoq.Api
         /// <param name="dateEnd">特定の日時まで。 (optional)</param>
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <returns>List&lt;ResponseEvent&gt;</returns>
-        public List<ResponseEvent> GetEvents(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?))
+        public List<ResponseEvent> GetEvents(string? dateBegin = default, string? dateEnd = default, string? q = default)
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = GetEventsWithHttpInfo(dateBegin, dateEnd, q);
             return localVarResponse.Data;
@@ -1536,17 +1500,16 @@ namespace Knoq.Api
         /// <param name="dateEnd">特定の日時まで。 (optional)</param>
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseEvent&gt;</returns>
-        public Knoq.Client.ApiResponse<List<ResponseEvent>> GetEventsWithHttpInfo(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?))
+        public Knoq.Client.ApiResponse<List<ResponseEvent>> GetEventsWithHttpInfo(string? dateBegin = default, string? dateEnd = default, string? q = default)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1589,7 +1552,7 @@ namespace Knoq.Api
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsAsync(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsAsync(string? dateBegin = default, string? dateEnd = default, string? q = default, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = await GetEventsWithHttpInfoAsync(dateBegin, dateEnd, q, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1604,18 +1567,17 @@ namespace Knoq.Api
         /// <param name="q">Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( \&quot;||\&quot; | \&quot;&amp;&amp;\&quot; ) term)*&lt;br&gt; term : cmp | \&quot;(\&quot; expr \&quot;)\&quot;&lt;br&gt; cmp  : Attr ( \&quot;&#x3D;&#x3D;\&quot; | \&quot;!&#x3D;\&quot; ) UUID&lt;br&gt; Attr : \&quot;event\&quot; | \&quot;user\&quot; | \&quot;group\&quot; | \&quot;tag\&quot;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventsWithHttpInfoAsync(string? dateBegin = default(string?), string? dateEnd = default(string?), string? q = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventsWithHttpInfoAsync(string? dateBegin = default, string? dateEnd = default, string? q = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1671,15 +1633,14 @@ namespace Knoq.Api
         /// <returns>ApiResponse of List&lt;ResponseEvent&gt;</returns>
         public Knoq.Client.ApiResponse<List<ResponseEvent>> GetEventsOfGroupWithHttpInfo(Guid groupID)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1709,7 +1670,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = await GetEventsOfGroupWithHttpInfoAsync(groupID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1722,18 +1683,17 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventsOfGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventsOfGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1778,15 +1738,14 @@ namespace Knoq.Api
         /// <returns>ApiResponse of List&lt;ResponseEvent&gt;</returns>
         public Knoq.Client.ApiResponse<List<ResponseEvent>> GetEventsOfRoomWithHttpInfo(Guid roomID)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1816,7 +1775,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetEventsOfRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = await GetEventsOfRoomWithHttpInfoAsync(roomID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1829,18 +1788,17 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventsOfRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetEventsOfRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1871,7 +1829,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>List&lt;ResponseEvent&gt;</returns>
-        public List<ResponseEvent> GetMyEvents(string? relation = default(string?))
+        public List<ResponseEvent> GetMyEvents(string? relation = default)
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = GetMyEventsWithHttpInfo(relation);
             return localVarResponse.Data;
@@ -1883,17 +1841,16 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseEvent&gt;</returns>
-        public Knoq.Client.ApiResponse<List<ResponseEvent>> GetMyEventsWithHttpInfo(string? relation = default(string?))
+        public Knoq.Client.ApiResponse<List<ResponseEvent>> GetMyEventsWithHttpInfo(string? relation = default)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1926,7 +1883,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetMyEventsAsync(string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetMyEventsAsync(string? relation = default, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = await GetMyEventsWithHttpInfoAsync(relation, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1939,18 +1896,17 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetMyEventsWithHttpInfoAsync(string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetMyEventsWithHttpInfoAsync(string? relation = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1985,7 +1941,7 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>List&lt;ResponseEvent&gt;</returns>
-        public List<ResponseEvent> GetUserEvents(Guid userID, string? relation = default(string?))
+        public List<ResponseEvent> GetUserEvents(Guid userID, string? relation = default)
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = GetUserEventsWithHttpInfo(userID, relation);
             return localVarResponse.Data;
@@ -1998,17 +1954,16 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseEvent&gt;</returns>
-        public Knoq.Client.ApiResponse<List<ResponseEvent>> GetUserEventsWithHttpInfo(Guid userID, string? relation = default(string?))
+        public Knoq.Client.ApiResponse<List<ResponseEvent>> GetUserEventsWithHttpInfo(Guid userID, string? relation = default)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -2043,7 +1998,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseEvent&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetUserEventsAsync(Guid userID, string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ResponseEvent>> GetUserEventsAsync(Guid userID, string? relation = default, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<List<ResponseEvent>> localVarResponse = await GetUserEventsWithHttpInfoAsync(userID, relation, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2057,18 +2012,17 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetUserEventsWithHttpInfoAsync(Guid userID, string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseEvent>>> GetUserEventsWithHttpInfoAsync(Guid userID, string? relation = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -2119,20 +2073,16 @@ namespace Knoq.Api
         /// <returns>ApiResponse of ResponseEventDetail</returns>
         public Knoq.Client.ApiResponse<ResponseEventDetail> UpdateEventWithHttpInfo(Guid eventID, RequestEvent requestEvent)
         {
-            // verify the required parameter 'requestEvent' is set
-            if (requestEvent == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestEvent' when calling EventsApi->UpdateEvent");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -2141,7 +2091,7 @@ namespace Knoq.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("eventID", Knoq.Client.ClientUtils.ParameterToString(eventID)); // path parameter
-            localVarRequestOptions.Data = requestEvent;
+            localVarRequestOptions.Data = requestEvent ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestEvent' when calling EventsApi->UpdateEvent");
 
 
             // make the HTTP request
@@ -2164,7 +2114,7 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseEventDetail</returns>
-        public async System.Threading.Tasks.Task<ResponseEventDetail> UpdateEventAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResponseEventDetail> UpdateEventAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<ResponseEventDetail> localVarResponse = await UpdateEventWithHttpInfoAsync(eventID, requestEvent, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2178,23 +2128,18 @@ namespace Knoq.Api
         /// <param name="requestEvent">予約の編集</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseEventDetail)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseEventDetail>> UpdateEventWithHttpInfoAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseEventDetail>> UpdateEventWithHttpInfoAsync(Guid eventID, RequestEvent requestEvent, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'requestEvent' is set
-            if (requestEvent == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestEvent' when calling EventsApi->UpdateEvent");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -2204,7 +2149,7 @@ namespace Knoq.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("eventID", Knoq.Client.ClientUtils.ParameterToString(eventID)); // path parameter
-            localVarRequestOptions.Data = requestEvent;
+            localVarRequestOptions.Data = requestEvent ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestEvent' when calling EventsApi->UpdateEvent");
 
 
             // make the HTTP request
@@ -2241,19 +2186,14 @@ namespace Knoq.Api
         /// <returns>ApiResponse of Object(void)</returns>
         public Knoq.Client.ApiResponse<Object> UpdateScheduleWithHttpInfo(Guid eventID, RequestSchedule requestSchedule)
         {
-            // verify the required parameter 'requestSchedule' is set
-            if (requestSchedule == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestSchedule' when calling EventsApi->UpdateSchedule");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -2262,7 +2202,7 @@ namespace Knoq.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("eventID", Knoq.Client.ClientUtils.ParameterToString(eventID)); // path parameter
-            localVarRequestOptions.Data = requestSchedule;
+            localVarRequestOptions.Data = requestSchedule ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestSchedule' when calling EventsApi->UpdateSchedule");
 
 
             // make the HTTP request
@@ -2285,7 +2225,7 @@ namespace Knoq.Api
         /// <param name="requestSchedule">イベントの参加予定を更新</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateScheduleAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateScheduleAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default)
         {
             await UpdateScheduleWithHttpInfoAsync(eventID, requestSchedule, cancellationToken).ConfigureAwait(false);
         }
@@ -2298,22 +2238,16 @@ namespace Knoq.Api
         /// <param name="requestSchedule">イベントの参加予定を更新</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> UpdateScheduleWithHttpInfoAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> UpdateScheduleWithHttpInfoAsync(Guid eventID, RequestSchedule requestSchedule, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'requestSchedule' is set
-            if (requestSchedule == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestSchedule' when calling EventsApi->UpdateSchedule");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -2323,7 +2257,7 @@ namespace Knoq.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("eventID", Knoq.Client.ClientUtils.ParameterToString(eventID)); // path parameter
-            localVarRequestOptions.Data = requestSchedule;
+            localVarRequestOptions.Data = requestSchedule ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestSchedule' when calling EventsApi->UpdateSchedule");
 
 
             // make the HTTP request

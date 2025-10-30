@@ -43,15 +43,10 @@ namespace Knoq.Model
         /// <param name="tagId">tagId (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="locked">locked.</param>
-        public ResponseEventTagsInner(Guid tagId = default(Guid), string name = default(string), bool locked = default(bool))
+        public ResponseEventTagsInner(Guid tagId = default, string name = default, bool locked = default)
         {
             this.TagId = tagId;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for ResponseEventTagsInner and cannot be null");
-            }
-            this.Name = name;
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for ResponseEventTagsInner and cannot be null");
             this.Locked = locked;
         }
 
@@ -82,11 +77,11 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class ResponseEventTagsInner {\n");
-            sb.Append("  TagId: ").Append(TagId).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Locked: ").Append(Locked).Append("\n");
+            sb.Append("  TagId: ").Append(TagId).Append('\n');
+            sb.Append("  Name: ").Append(Name).Append('\n');
+            sb.Append("  Locked: ").Append(Locked).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

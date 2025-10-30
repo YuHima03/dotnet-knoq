@@ -41,14 +41,9 @@ namespace Knoq.Model
         /// Initializes a new instance of the <see cref="AuthParams" /> class.
         /// </summary>
         /// <param name="url">url (required).</param>
-        public AuthParams(string url = default(string))
+        public AuthParams(string url = default)
         {
-            // to ensure "url" is required (not null)
-            if (url == null)
-            {
-                throw new ArgumentNullException("url is a required property for AuthParams and cannot be null");
-            }
-            this.Url = url;
+            this.Url = url ?? throw new ArgumentNullException("url is a required property for AuthParams and cannot be null");
         }
 
         /// <summary>
@@ -66,9 +61,9 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class AuthParams {\n");
-            sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

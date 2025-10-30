@@ -56,74 +56,24 @@ namespace Knoq.Model
         /// <param name="createdBy">createdBy (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public ResponseEvent(Guid eventId = default(Guid), string name = default(string), string description = default(string), bool sharedRoom = default(bool), string timeStart = default(string), string timeEnd = default(string), string place = default(string), Guid roomId = default(Guid), Guid groupId = default(Guid), bool open = default(bool), List<Guid> admins = default(List<Guid>), List<ResponseEventTagsInner> tags = default(List<ResponseEventTagsInner>), List<Guid> attendees = default(List<Guid>), Guid createdBy = default(Guid), string createdAt = default(string), string updatedAt = default(string))
+        public ResponseEvent(Guid eventId = default, string name = default, string description = default, bool sharedRoom = default, string timeStart = default, string timeEnd = default, string place = default, Guid roomId = default, Guid groupId = default, bool open = default, List<Guid> admins = default, List<ResponseEventTagsInner> tags = default, List<Guid> attendees = default, Guid createdBy = default, string createdAt = default, string updatedAt = default)
         {
             this.EventId = eventId;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for ResponseEvent and cannot be null");
-            }
-            this.Name = name;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for ResponseEvent and cannot be null");
-            }
-            this.Description = description;
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for ResponseEvent and cannot be null");
+            this.Description = description ?? throw new ArgumentNullException("description is a required property for ResponseEvent and cannot be null");
             this.SharedRoom = sharedRoom;
-            // to ensure "timeStart" is required (not null)
-            if (timeStart == null)
-            {
-                throw new ArgumentNullException("timeStart is a required property for ResponseEvent and cannot be null");
-            }
-            this.TimeStart = timeStart;
-            // to ensure "timeEnd" is required (not null)
-            if (timeEnd == null)
-            {
-                throw new ArgumentNullException("timeEnd is a required property for ResponseEvent and cannot be null");
-            }
-            this.TimeEnd = timeEnd;
-            // to ensure "place" is required (not null)
-            if (place == null)
-            {
-                throw new ArgumentNullException("place is a required property for ResponseEvent and cannot be null");
-            }
-            this.Place = place;
+            this.TimeStart = timeStart ?? throw new ArgumentNullException("timeStart is a required property for ResponseEvent and cannot be null");
+            this.TimeEnd = timeEnd ?? throw new ArgumentNullException("timeEnd is a required property for ResponseEvent and cannot be null");
+            this.Place = place ?? throw new ArgumentNullException("place is a required property for ResponseEvent and cannot be null");
             this.RoomId = roomId;
             this.GroupId = groupId;
             this.Open = open;
-            // to ensure "admins" is required (not null)
-            if (admins == null)
-            {
-                throw new ArgumentNullException("admins is a required property for ResponseEvent and cannot be null");
-            }
-            this.Admins = admins;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for ResponseEvent and cannot be null");
-            }
-            this.Tags = tags;
-            // to ensure "attendees" is required (not null)
-            if (attendees == null)
-            {
-                throw new ArgumentNullException("attendees is a required property for ResponseEvent and cannot be null");
-            }
-            this.Attendees = attendees;
+            this.Admins = admins ?? throw new ArgumentNullException("admins is a required property for ResponseEvent and cannot be null");
+            this.Tags = tags ?? throw new ArgumentNullException("tags is a required property for ResponseEvent and cannot be null");
+            this.Attendees = attendees ?? throw new ArgumentNullException("attendees is a required property for ResponseEvent and cannot be null");
             this.CreatedBy = createdBy;
-            // to ensure "createdAt" is required (not null)
-            if (createdAt == null)
-            {
-                throw new ArgumentNullException("createdAt is a required property for ResponseEvent and cannot be null");
-            }
-            this.CreatedAt = createdAt;
-            // to ensure "updatedAt" is required (not null)
-            if (updatedAt == null)
-            {
-                throw new ArgumentNullException("updatedAt is a required property for ResponseEvent and cannot be null");
-            }
-            this.UpdatedAt = updatedAt;
+            this.CreatedAt = createdAt ?? throw new ArgumentNullException("createdAt is a required property for ResponseEvent and cannot be null");
+            this.UpdatedAt = updatedAt ?? throw new ArgumentNullException("updatedAt is a required property for ResponseEvent and cannot be null");
         }
 
         /// <summary>
@@ -252,24 +202,24 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class ResponseEvent {\n");
-            sb.Append("  EventId: ").Append(EventId).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  SharedRoom: ").Append(SharedRoom).Append("\n");
-            sb.Append("  TimeStart: ").Append(TimeStart).Append("\n");
-            sb.Append("  TimeEnd: ").Append(TimeEnd).Append("\n");
-            sb.Append("  Place: ").Append(Place).Append("\n");
-            sb.Append("  RoomId: ").Append(RoomId).Append("\n");
-            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
-            sb.Append("  Open: ").Append(Open).Append("\n");
-            sb.Append("  Admins: ").Append(Admins).Append("\n");
-            sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  Attendees: ").Append(Attendees).Append("\n");
-            sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
-            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  EventId: ").Append(EventId).Append('\n');
+            sb.Append("  Name: ").Append(Name).Append('\n');
+            sb.Append("  Description: ").Append(Description).Append('\n');
+            sb.Append("  SharedRoom: ").Append(SharedRoom).Append('\n');
+            sb.Append("  TimeStart: ").Append(TimeStart).Append('\n');
+            sb.Append("  TimeEnd: ").Append(TimeEnd).Append('\n');
+            sb.Append("  Place: ").Append(Place).Append('\n');
+            sb.Append("  RoomId: ").Append(RoomId).Append('\n');
+            sb.Append("  GroupId: ").Append(GroupId).Append('\n');
+            sb.Append("  Open: ").Append(Open).Append('\n');
+            sb.Append("  Admins: ").Append(Admins).Append('\n');
+            sb.Append("  Tags: ").Append(Tags).Append('\n');
+            sb.Append("  Attendees: ").Append(Attendees).Append('\n');
+            sb.Append("  CreatedBy: ").Append(CreatedBy).Append('\n');
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append('\n');
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

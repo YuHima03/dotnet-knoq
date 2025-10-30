@@ -160,7 +160,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>List&lt;Guid&gt;</returns>
-        List<Guid> GetMyGroups(string? relation = default(string?));
+        List<Guid> GetMyGroups(string? relation = default);
 
         /// <summary>
         /// 
@@ -171,7 +171,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>ApiResponse of List&lt;Guid&gt;</returns>
-        ApiResponse<List<Guid>> GetMyGroupsWithHttpInfo(string? relation = default(string?));
+        ApiResponse<List<Guid>> GetMyGroupsWithHttpInfo(string? relation = default);
         /// <summary>
         /// 
         /// </summary>
@@ -182,7 +182,7 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>List&lt;Guid&gt;</returns>
-        List<Guid> GetUserGroups(Guid userID, string? relation = default(string?));
+        List<Guid> GetUserGroups(Guid userID, string? relation = default);
 
         /// <summary>
         /// 
@@ -194,7 +194,7 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>ApiResponse of List&lt;Guid&gt;</returns>
-        ApiResponse<List<Guid>> GetUserGroupsWithHttpInfo(Guid userID, string? relation = default(string?));
+        ApiResponse<List<Guid>> GetUserGroupsWithHttpInfo(Guid userID, string? relation = default);
         /// <summary>
         /// 
         /// </summary>
@@ -237,7 +237,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AddMeToGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task AddMeToGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 自分を追加。open&#x3D;true
@@ -249,7 +249,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AddMeToGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> AddMeToGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// グループ作成
         /// </summary>
@@ -260,7 +260,7 @@ namespace Knoq.Api
         /// <param name="requestGroup">グループの追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseGroup</returns>
-        System.Threading.Tasks.Task<ResponseGroup> CreateGroupAsync(RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResponseGroup> CreateGroupAsync(RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// グループ作成
@@ -272,7 +272,7 @@ namespace Knoq.Api
         /// <param name="requestGroup">グループの追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseGroup)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseGroup>> CreateGroupWithHttpInfoAsync(RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResponseGroup>> CreateGroupWithHttpInfoAsync(RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete group
         /// </summary>
@@ -283,7 +283,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete group
@@ -295,7 +295,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 自分しか削除出来ない。open&#x3D;true
         /// </summary>
@@ -306,7 +306,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteMeFromGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteMeFromGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 自分しか削除出来ない。open&#x3D;true
@@ -318,7 +318,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteMeFromGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteMeFromGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 一件取得
         /// </summary>
@@ -329,7 +329,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseGroup</returns>
-        System.Threading.Tasks.Task<ResponseGroup> GetGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResponseGroup> GetGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 一件取得
@@ -341,7 +341,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseGroup)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseGroup>> GetGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResponseGroup>> GetGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// グループを全て取得
         /// </summary>
@@ -351,7 +351,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseGroup&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseGroup>> GetGroupsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ResponseGroup>> GetGroupsAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// グループを全て取得
@@ -362,7 +362,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseGroup&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseGroup>>> GetGroupsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseGroup>>> GetGroupsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -373,7 +373,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Guid&gt;</returns>
-        System.Threading.Tasks.Task<List<Guid>> GetMyGroupsAsync(string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Guid>> GetMyGroupsAsync(string? relation = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -385,7 +385,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Guid&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Guid>>> GetMyGroupsWithHttpInfoAsync(string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Guid>>> GetMyGroupsWithHttpInfoAsync(string? relation = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -397,7 +397,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Guid&gt;</returns>
-        System.Threading.Tasks.Task<List<Guid>> GetUserGroupsAsync(Guid userID, string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Guid>> GetUserGroupsAsync(Guid userID, string? relation = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -410,7 +410,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Guid&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Guid>>> GetUserGroupsWithHttpInfoAsync(Guid userID, string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Guid>>> GetUserGroupsWithHttpInfoAsync(Guid userID, string? relation = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -422,7 +422,7 @@ namespace Knoq.Api
         /// <param name="requestGroup">グループの追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseGroup</returns>
-        System.Threading.Tasks.Task<ResponseGroup> UpdateGroupAsync(Guid groupID, RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResponseGroup> UpdateGroupAsync(Guid groupID, RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -435,7 +435,7 @@ namespace Knoq.Api
         /// <param name="requestGroup">グループの追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseGroup)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseGroup>> UpdateGroupWithHttpInfoAsync(Guid groupID, RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResponseGroup>> UpdateGroupWithHttpInfoAsync(Guid groupID, RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -479,7 +479,7 @@ namespace Knoq.Api
                 new Knoq.Client.Configuration { BasePath = basePath }
             );
             this.ApiClient = new Knoq.Client.ApiClient(this.Configuration.BasePath);
-            this.Client =  this.ApiClient;
+            this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
@@ -494,7 +494,7 @@ namespace Knoq.Api
         /// <returns></returns>
         public GroupsApi(Knoq.Client.Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
@@ -536,14 +536,14 @@ namespace Knoq.Api
         /// </remarks>
         public GroupsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
                 new Knoq.Client.Configuration { BasePath = basePath }
             );
             this.ApiClient = new Knoq.Client.ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client =  this.ApiClient;
+            this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
@@ -562,8 +562,8 @@ namespace Knoq.Api
         /// </remarks>
         public GroupsApi(HttpClient client, Knoq.Client.Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
@@ -585,13 +585,9 @@ namespace Knoq.Api
         /// <exception cref="ArgumentNullException"></exception>
         public GroupsApi(Knoq.Client.ISynchronousClient client, Knoq.Client.IAsynchronousClient asyncClient, Knoq.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
-
-            this.Client = client;
-            this.AsynchronousClient = asyncClient;
-            this.Configuration = configuration;
+            this.Client = client ?? throw new ArgumentNullException(nameof(client));
+            this.AsynchronousClient = asyncClient ?? throw new ArgumentNullException(nameof(asyncClient));
+            this.Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -668,14 +664,12 @@ namespace Knoq.Api
         /// <returns>ApiResponse of Object(void)</returns>
         public Knoq.Client.ApiResponse<Object> AddMeToGroupWithHttpInfo(Guid groupID)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -705,7 +699,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AddMeToGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task AddMeToGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default)
         {
             await AddMeToGroupWithHttpInfoAsync(groupID, cancellationToken).ConfigureAwait(false);
         }
@@ -717,17 +711,15 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> AddMeToGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> AddMeToGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -772,20 +764,16 @@ namespace Knoq.Api
         /// <returns>ApiResponse of ResponseGroup</returns>
         public Knoq.Client.ApiResponse<ResponseGroup> CreateGroupWithHttpInfo(RequestGroup requestGroup)
         {
-            // verify the required parameter 'requestGroup' is set
-            if (requestGroup == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestGroup' when calling GroupsApi->CreateGroup");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -793,7 +781,7 @@ namespace Knoq.Api
             var localVarAccept = Knoq.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = requestGroup;
+            localVarRequestOptions.Data = requestGroup ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestGroup' when calling GroupsApi->CreateGroup");
 
 
             // make the HTTP request
@@ -815,7 +803,7 @@ namespace Knoq.Api
         /// <param name="requestGroup">グループの追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseGroup</returns>
-        public async System.Threading.Tasks.Task<ResponseGroup> CreateGroupAsync(RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResponseGroup> CreateGroupAsync(RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<ResponseGroup> localVarResponse = await CreateGroupWithHttpInfoAsync(requestGroup, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -828,23 +816,18 @@ namespace Knoq.Api
         /// <param name="requestGroup">グループの追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseGroup)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseGroup>> CreateGroupWithHttpInfoAsync(RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseGroup>> CreateGroupWithHttpInfoAsync(RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'requestGroup' is set
-            if (requestGroup == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestGroup' when calling GroupsApi->CreateGroup");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -853,7 +836,7 @@ namespace Knoq.Api
             var localVarAccept = Knoq.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = requestGroup;
+            localVarRequestOptions.Data = requestGroup ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestGroup' when calling GroupsApi->CreateGroup");
 
 
             // make the HTTP request
@@ -888,14 +871,12 @@ namespace Knoq.Api
         /// <returns>ApiResponse of Object(void)</returns>
         public Knoq.Client.ApiResponse<Object> DeleteGroupWithHttpInfo(Guid groupID)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -925,7 +906,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default)
         {
             await DeleteGroupWithHttpInfoAsync(groupID, cancellationToken).ConfigureAwait(false);
         }
@@ -937,17 +918,15 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> DeleteGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> DeleteGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -991,14 +970,12 @@ namespace Knoq.Api
         /// <returns>ApiResponse of Object(void)</returns>
         public Knoq.Client.ApiResponse<Object> DeleteMeFromGroupWithHttpInfo(Guid groupID)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1028,7 +1005,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteMeFromGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteMeFromGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default)
         {
             await DeleteMeFromGroupWithHttpInfoAsync(groupID, cancellationToken).ConfigureAwait(false);
         }
@@ -1040,17 +1017,15 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> DeleteMeFromGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> DeleteMeFromGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1095,15 +1070,14 @@ namespace Knoq.Api
         /// <returns>ApiResponse of ResponseGroup</returns>
         public Knoq.Client.ApiResponse<ResponseGroup> GetGroupWithHttpInfo(Guid groupID)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1133,7 +1107,7 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseGroup</returns>
-        public async System.Threading.Tasks.Task<ResponseGroup> GetGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResponseGroup> GetGroupAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<ResponseGroup> localVarResponse = await GetGroupWithHttpInfoAsync(groupID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1146,18 +1120,17 @@ namespace Knoq.Api
         /// <param name="groupID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseGroup)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseGroup>> GetGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseGroup>> GetGroupWithHttpInfoAsync(Guid groupID, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1200,15 +1173,14 @@ namespace Knoq.Api
         /// <returns>ApiResponse of List&lt;ResponseGroup&gt;</returns>
         public Knoq.Client.ApiResponse<List<ResponseGroup>> GetGroupsWithHttpInfo()
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1236,7 +1208,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseGroup&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseGroup>> GetGroupsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ResponseGroup>> GetGroupsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<List<ResponseGroup>> localVarResponse = await GetGroupsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1248,18 +1220,17 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseGroup&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseGroup>>> GetGroupsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseGroup>>> GetGroupsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1289,7 +1260,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>List&lt;Guid&gt;</returns>
-        public List<Guid> GetMyGroups(string? relation = default(string?))
+        public List<Guid> GetMyGroups(string? relation = default)
         {
             Knoq.Client.ApiResponse<List<Guid>> localVarResponse = GetMyGroupsWithHttpInfo(relation);
             return localVarResponse.Data;
@@ -1301,17 +1272,16 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>ApiResponse of List&lt;Guid&gt;</returns>
-        public Knoq.Client.ApiResponse<List<Guid>> GetMyGroupsWithHttpInfo(string? relation = default(string?))
+        public Knoq.Client.ApiResponse<List<Guid>> GetMyGroupsWithHttpInfo(string? relation = default)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1344,7 +1314,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Guid&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Guid>> GetMyGroupsAsync(string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Guid>> GetMyGroupsAsync(string? relation = default, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<List<Guid>> localVarResponse = await GetMyGroupsWithHttpInfoAsync(relation, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1357,18 +1327,17 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Guid&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<Guid>>> GetMyGroupsWithHttpInfoAsync(string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<Guid>>> GetMyGroupsWithHttpInfoAsync(string? relation = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1403,7 +1372,7 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>List&lt;Guid&gt;</returns>
-        public List<Guid> GetUserGroups(Guid userID, string? relation = default(string?))
+        public List<Guid> GetUserGroups(Guid userID, string? relation = default)
         {
             Knoq.Client.ApiResponse<List<Guid>> localVarResponse = GetUserGroupsWithHttpInfo(userID, relation);
             return localVarResponse.Data;
@@ -1416,17 +1385,16 @@ namespace Knoq.Api
         /// <param name="userID"></param>
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <returns>ApiResponse of List&lt;Guid&gt;</returns>
-        public Knoq.Client.ApiResponse<List<Guid>> GetUserGroupsWithHttpInfo(Guid userID, string? relation = default(string?))
+        public Knoq.Client.ApiResponse<List<Guid>> GetUserGroupsWithHttpInfo(Guid userID, string? relation = default)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1461,7 +1429,7 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Guid&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Guid>> GetUserGroupsAsync(Guid userID, string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Guid>> GetUserGroupsAsync(Guid userID, string? relation = default, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<List<Guid>> localVarResponse = await GetUserGroupsWithHttpInfoAsync(userID, relation, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1475,18 +1443,17 @@ namespace Knoq.Api
         /// <param name="relation">どのような関係性でユーザーと結びつけるか。 取り得る値は、 admins(ユーザーが管理者), belongs(ユーザーが所属している),  belongs-or-admins(ユーザーが管理者または所属している)  イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Guid&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<Guid>>> GetUserGroupsWithHttpInfoAsync(Guid userID, string? relation = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<Guid>>> GetUserGroupsWithHttpInfoAsync(Guid userID, string? relation = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1537,20 +1504,16 @@ namespace Knoq.Api
         /// <returns>ApiResponse of ResponseGroup</returns>
         public Knoq.Client.ApiResponse<ResponseGroup> UpdateGroupWithHttpInfo(Guid groupID, RequestGroup requestGroup)
         {
-            // verify the required parameter 'requestGroup' is set
-            if (requestGroup == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestGroup' when calling GroupsApi->UpdateGroup");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1559,7 +1522,7 @@ namespace Knoq.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupID", Knoq.Client.ClientUtils.ParameterToString(groupID)); // path parameter
-            localVarRequestOptions.Data = requestGroup;
+            localVarRequestOptions.Data = requestGroup ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestGroup' when calling GroupsApi->UpdateGroup");
 
 
             // make the HTTP request
@@ -1582,7 +1545,7 @@ namespace Knoq.Api
         /// <param name="requestGroup">グループの追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseGroup</returns>
-        public async System.Threading.Tasks.Task<ResponseGroup> UpdateGroupAsync(Guid groupID, RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResponseGroup> UpdateGroupAsync(Guid groupID, RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<ResponseGroup> localVarResponse = await UpdateGroupWithHttpInfoAsync(groupID, requestGroup, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1596,23 +1559,18 @@ namespace Knoq.Api
         /// <param name="requestGroup">グループの追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseGroup)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseGroup>> UpdateGroupWithHttpInfoAsync(Guid groupID, RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseGroup>> UpdateGroupWithHttpInfoAsync(Guid groupID, RequestGroup requestGroup, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'requestGroup' is set
-            if (requestGroup == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestGroup' when calling GroupsApi->UpdateGroup");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1622,7 +1580,7 @@ namespace Knoq.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupID", Knoq.Client.ClientUtils.ParameterToString(groupID)); // path parameter
-            localVarRequestOptions.Data = requestGroup;
+            localVarRequestOptions.Data = requestGroup ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestGroup' when calling GroupsApi->UpdateGroup");
 
 
             // make the HTTP request

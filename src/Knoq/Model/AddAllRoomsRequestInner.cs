@@ -29,63 +29,54 @@ namespace Knoq.Model
     /// <summary>
     /// AddAllRoomsRequestInner
     /// </summary>
+    /// <remarks>
+    /// Initializes a new instance of the <see cref="AddAllRoomsRequestInner" /> class.
+    /// </remarks>
+    /// <param name="subject">subject.</param>
+    /// <param name="startDate">startDate.</param>
+    /// <param name="endDate">endDate.</param>
+    /// <param name="startTime">startTime.</param>
+    /// <param name="endTime">endTime.</param>
+    /// <param name="location">location.</param>
     [DataContract(Name = "addAllRooms_request_inner")]
-    public partial class AddAllRoomsRequestInner : IValidatableObject
+    public partial class AddAllRoomsRequestInner(string subject = default, string startDate = default, string endDate = default, string startTime = default, string endTime = default, string location = default) : IValidatableObject
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AddAllRoomsRequestInner" /> class.
-        /// </summary>
-        /// <param name="subject">subject.</param>
-        /// <param name="startDate">startDate.</param>
-        /// <param name="endDate">endDate.</param>
-        /// <param name="startTime">startTime.</param>
-        /// <param name="endTime">endTime.</param>
-        /// <param name="location">location.</param>
-        public AddAllRoomsRequestInner(string subject = default(string), string startDate = default(string), string endDate = default(string), string startTime = default(string), string endTime = default(string), string location = default(string))
-        {
-            this.Subject = subject;
-            this.StartDate = startDate;
-            this.EndDate = endDate;
-            this.StartTime = startTime;
-            this.EndTime = endTime;
-            this.Location = location;
-        }
 
         /// <summary>
         /// Gets or Sets Subject
         /// </summary>
         [DataMember(Name = "Subject", EmitDefaultValue = false)]
-        public string Subject { get; set; }
+        public string Subject { get; set; } = subject;
 
         /// <summary>
         /// Gets or Sets StartDate
         /// </summary>
         [DataMember(Name = "Start date", EmitDefaultValue = false)]
-        public string StartDate { get; set; }
+        public string StartDate { get; set; } = startDate;
 
         /// <summary>
         /// Gets or Sets EndDate
         /// </summary>
         [DataMember(Name = "End date", EmitDefaultValue = false)]
-        public string EndDate { get; set; }
+        public string EndDate { get; set; } = endDate;
 
         /// <summary>
         /// Gets or Sets StartTime
         /// </summary>
         [DataMember(Name = "Start time", EmitDefaultValue = false)]
-        public string StartTime { get; set; }
+        public string StartTime { get; set; } = startTime;
 
         /// <summary>
         /// Gets or Sets EndTime
         /// </summary>
         [DataMember(Name = "End time", EmitDefaultValue = false)]
-        public string EndTime { get; set; }
+        public string EndTime { get; set; } = endTime;
 
         /// <summary>
         /// Gets or Sets Location
         /// </summary>
         [DataMember(Name = "Location", EmitDefaultValue = false)]
-        public string Location { get; set; }
+        public string Location { get; set; } = location;
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -93,14 +84,14 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class AddAllRoomsRequestInner {\n");
-            sb.Append("  Subject: ").Append(Subject).Append("\n");
-            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
-            sb.Append("  EndDate: ").Append(EndDate).Append("\n");
-            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
-            sb.Append("  EndTime: ").Append(EndTime).Append("\n");
-            sb.Append("  Location: ").Append(Location).Append("\n");
+            sb.Append("  Subject: ").Append(Subject).Append('\n');
+            sb.Append("  StartDate: ").Append(StartDate).Append('\n');
+            sb.Append("  EndDate: ").Append(EndDate).Append('\n');
+            sb.Append("  StartTime: ").Append(StartTime).Append('\n');
+            sb.Append("  EndTime: ").Append(EndTime).Append('\n');
+            sb.Append("  Location: ").Append(Location).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

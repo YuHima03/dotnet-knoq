@@ -22,7 +22,7 @@ namespace Knoq.Model
         /// <summary>
         ///  Custom JSON serializer
         /// </summary>
-        static public readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
+        static public readonly JsonSerializerSettings SerializerSettings = new()
         {
             // OpenAPI generated types generally hide default constructors.
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
@@ -39,7 +39,7 @@ namespace Knoq.Model
         /// <summary>
         ///  Custom JSON serializer for objects with additional properties
         /// </summary>
-        static public readonly JsonSerializerSettings AdditionalPropertiesSerializerSettings = new JsonSerializerSettings
+        static public readonly JsonSerializerSettings AdditionalPropertiesSerializerSettings = new()
         {
             // OpenAPI generated types generally hide default constructors.
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,

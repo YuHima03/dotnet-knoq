@@ -29,19 +29,14 @@ namespace Knoq.Model
     /// <summary>
     /// RequestEventInstantTagsInner
     /// </summary>
+    /// <remarks>
+    /// Initializes a new instance of the <see cref="RequestEventInstantTagsInner" /> class.
+    /// </remarks>
+    /// <param name="name">name.</param>
+    /// <param name="locked">locked.</param>
     [DataContract(Name = "RequestEventInstant_tags_inner")]
-    public partial class RequestEventInstantTagsInner : IValidatableObject
+    public partial class RequestEventInstantTagsInner(string name = default, bool locked = default) : IValidatableObject
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RequestEventInstantTagsInner" /> class.
-        /// </summary>
-        /// <param name="name">name.</param>
-        /// <param name="locked">locked.</param>
-        public RequestEventInstantTagsInner(string name = default(string), bool locked = default(bool))
-        {
-            this.Name = name;
-            this.Locked = locked;
-        }
 
         /// <summary>
         /// Gets or Sets Name
@@ -50,13 +45,13 @@ namespace Knoq.Model
         <example>Vue</example>
         */
         [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
+        public string Name { get; set; } = name;
 
         /// <summary>
         /// Gets or Sets Locked
         /// </summary>
         [DataMember(Name = "locked", EmitDefaultValue = true)]
-        public bool Locked { get; set; }
+        public bool Locked { get; set; } = locked;
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,10 +59,10 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class RequestEventInstantTagsInner {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Locked: ").Append(Locked).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append('\n');
+            sb.Append("  Locked: ").Append(Locked).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

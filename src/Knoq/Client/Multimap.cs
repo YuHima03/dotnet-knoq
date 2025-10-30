@@ -34,7 +34,7 @@ namespace Knoq.Client
         /// </summary>
         public Multimap()
         {
-            _dictionary = new Dictionary<TKey, IList<TValue>>();
+            _dictionary = [];
         }
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace Knoq.Client
                 }
                 else
                 {
-                    list = new List<TValue>(value);
+                    list = [.. value];
                     if (!TryAdd(key, list))
                         throw new InvalidOperationException("Could not add values to Multimap.");
                 }
@@ -254,7 +254,7 @@ namespace Knoq.Client
                 }
                 else
                 {
-                    list = new List<TValue> { value };
+                    list = [value];
                     if (!TryAdd(key, list))
                         throw new InvalidOperationException("Could not add value to Multimap.");
                 }

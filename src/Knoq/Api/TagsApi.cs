@@ -85,7 +85,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseTag&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseTag>> GetTagAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ResponseTag>> GetTagAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// タグを全て取得
@@ -96,7 +96,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseTag&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseTag>>> GetTagWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseTag>>> GetTagWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// タグを作成。
         /// </summary>
@@ -107,7 +107,7 @@ namespace Knoq.Api
         /// <param name="requestTag">タグ自体の追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseTag</returns>
-        System.Threading.Tasks.Task<ResponseTag> PostTagAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResponseTag> PostTagAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// タグを作成。
@@ -119,7 +119,7 @@ namespace Knoq.Api
         /// <param name="requestTag">タグ自体の追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseTag)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseTag>> PostTagWithHttpInfoAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResponseTag>> PostTagWithHttpInfoAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -163,7 +163,7 @@ namespace Knoq.Api
                 new Knoq.Client.Configuration { BasePath = basePath }
             );
             this.ApiClient = new Knoq.Client.ApiClient(this.Configuration.BasePath);
-            this.Client =  this.ApiClient;
+            this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
@@ -178,7 +178,7 @@ namespace Knoq.Api
         /// <returns></returns>
         public TagsApi(Knoq.Client.Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
@@ -220,14 +220,14 @@ namespace Knoq.Api
         /// </remarks>
         public TagsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
                 new Knoq.Client.Configuration { BasePath = basePath }
             );
             this.ApiClient = new Knoq.Client.ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client =  this.ApiClient;
+            this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
@@ -246,8 +246,8 @@ namespace Knoq.Api
         /// </remarks>
         public TagsApi(HttpClient client, Knoq.Client.Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
@@ -269,13 +269,9 @@ namespace Knoq.Api
         /// <exception cref="ArgumentNullException"></exception>
         public TagsApi(Knoq.Client.ISynchronousClient client, Knoq.Client.IAsynchronousClient asyncClient, Knoq.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
-
-            this.Client = client;
-            this.AsynchronousClient = asyncClient;
-            this.Configuration = configuration;
+            this.Client = client ?? throw new ArgumentNullException(nameof(client));
+            this.AsynchronousClient = asyncClient ?? throw new ArgumentNullException(nameof(asyncClient));
+            this.Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -351,15 +347,14 @@ namespace Knoq.Api
         /// <returns>ApiResponse of List&lt;ResponseTag&gt;</returns>
         public Knoq.Client.ApiResponse<List<ResponseTag>> GetTagWithHttpInfo()
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -387,7 +382,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseTag&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseTag>> GetTagAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ResponseTag>> GetTagAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<List<ResponseTag>> localVarResponse = await GetTagWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -399,18 +394,17 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseTag&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseTag>>> GetTagWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseTag>>> GetTagWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -454,20 +448,16 @@ namespace Knoq.Api
         /// <returns>ApiResponse of ResponseTag</returns>
         public Knoq.Client.ApiResponse<ResponseTag> PostTagWithHttpInfo(RequestTag requestTag)
         {
-            // verify the required parameter 'requestTag' is set
-            if (requestTag == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestTag' when calling TagsApi->PostTag");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -475,7 +465,7 @@ namespace Knoq.Api
             var localVarAccept = Knoq.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = requestTag;
+            localVarRequestOptions.Data = requestTag ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestTag' when calling TagsApi->PostTag");
 
 
             // make the HTTP request
@@ -497,7 +487,7 @@ namespace Knoq.Api
         /// <param name="requestTag">タグ自体の追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseTag</returns>
-        public async System.Threading.Tasks.Task<ResponseTag> PostTagAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResponseTag> PostTagAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<ResponseTag> localVarResponse = await PostTagWithHttpInfoAsync(requestTag, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -510,23 +500,18 @@ namespace Knoq.Api
         /// <param name="requestTag">タグ自体の追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseTag)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseTag>> PostTagWithHttpInfoAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseTag>> PostTagWithHttpInfoAsync(RequestTag requestTag, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'requestTag' is set
-            if (requestTag == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestTag' when calling TagsApi->PostTag");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -535,7 +520,7 @@ namespace Knoq.Api
             var localVarAccept = Knoq.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = requestTag;
+            localVarRequestOptions.Data = requestTag ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestTag' when calling TagsApi->PostTag");
 
 
             // make the HTTP request

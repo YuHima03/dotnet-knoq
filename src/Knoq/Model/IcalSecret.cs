@@ -41,14 +41,9 @@ namespace Knoq.Model
         /// Initializes a new instance of the <see cref="IcalSecret" /> class.
         /// </summary>
         /// <param name="secret">secret (required).</param>
-        public IcalSecret(string secret = default(string))
+        public IcalSecret(string secret = default)
         {
-            // to ensure "secret" is required (not null)
-            if (secret == null)
-            {
-                throw new ArgumentNullException("secret is a required property for IcalSecret and cannot be null");
-            }
-            this.Secret = secret;
+            this.Secret = secret ?? throw new ArgumentNullException("secret is a required property for IcalSecret and cannot be null");
         }
 
         /// <summary>
@@ -63,9 +58,9 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class IcalSecret {\n");
-            sb.Append("  Secret: ").Append(Secret).Append("\n");
+            sb.Append("  Secret: ").Append(Secret).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -63,12 +63,12 @@ namespace Knoq.Client
         /// </summary>
         public RequestOptions()
         {
-            PathParameters = new Dictionary<string, string>();
-            QueryParameters = new Multimap<string, string>();
-            HeaderParameters = new Multimap<string, string>();
-            FormParameters = new Dictionary<string, string>();
-            FileParameters = new Multimap<string, FileParameter>();
-            Cookies = new List<Cookie>();
+            PathParameters = [];
+            QueryParameters = [];
+            HeaderParameters = [];
+            FormParameters = [];
+            FileParameters = [];
+            Cookies = [];
         }
     }
 }

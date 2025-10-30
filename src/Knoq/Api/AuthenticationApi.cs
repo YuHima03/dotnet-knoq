@@ -87,7 +87,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AuthParams</returns>
-        System.Threading.Tasks.Task<AuthParams> GetAuthParamsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AuthParams> GetAuthParamsAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -98,7 +98,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuthParams)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuthParams>> GetAuthParamsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AuthParams>> GetAuthParamsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -110,7 +110,7 @@ namespace Knoq.Api
         /// <param name="code">OAuth2.0のcode</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetCallbackAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task GetCallbackAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -123,7 +123,7 @@ namespace Knoq.Api
         /// <param name="code">OAuth2.0のcode</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetCallbackWithHttpInfoAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetCallbackWithHttpInfoAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -167,7 +167,7 @@ namespace Knoq.Api
                 new Knoq.Client.Configuration { BasePath = basePath }
             );
             this.ApiClient = new Knoq.Client.ApiClient(this.Configuration.BasePath);
-            this.Client =  this.ApiClient;
+            this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
@@ -182,7 +182,7 @@ namespace Knoq.Api
         /// <returns></returns>
         public AuthenticationApi(Knoq.Client.Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
@@ -224,14 +224,14 @@ namespace Knoq.Api
         /// </remarks>
         public AuthenticationApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
                 new Knoq.Client.Configuration { BasePath = basePath }
             );
             this.ApiClient = new Knoq.Client.ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client =  this.ApiClient;
+            this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
@@ -250,8 +250,8 @@ namespace Knoq.Api
         /// </remarks>
         public AuthenticationApi(HttpClient client, Knoq.Client.Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
@@ -273,13 +273,9 @@ namespace Knoq.Api
         /// <exception cref="ArgumentNullException"></exception>
         public AuthenticationApi(Knoq.Client.ISynchronousClient client, Knoq.Client.IAsynchronousClient asyncClient, Knoq.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
-
-            this.Client = client;
-            this.AsynchronousClient = asyncClient;
-            this.Configuration = configuration;
+            this.Client = client ?? throw new ArgumentNullException(nameof(client));
+            this.AsynchronousClient = asyncClient ?? throw new ArgumentNullException(nameof(asyncClient));
+            this.Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -355,15 +351,14 @@ namespace Knoq.Api
         /// <returns>ApiResponse of AuthParams</returns>
         public Knoq.Client.ApiResponse<AuthParams> GetAuthParamsWithHttpInfo()
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -391,7 +386,7 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AuthParams</returns>
-        public async System.Threading.Tasks.Task<AuthParams> GetAuthParamsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AuthParams> GetAuthParamsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<AuthParams> localVarResponse = await GetAuthParamsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -403,18 +398,17 @@ namespace Knoq.Api
         /// <exception cref="Knoq.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuthParams)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<AuthParams>> GetAuthParamsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<AuthParams>> GetAuthParamsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -467,14 +461,12 @@ namespace Knoq.Api
             if (code == null)
                 throw new Knoq.Client.ApiException(400, "Missing required parameter 'code' when calling AuthenticationApi->GetCallback");
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -505,7 +497,7 @@ namespace Knoq.Api
         /// <param name="code">OAuth2.0のcode</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetCallbackAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task GetCallbackAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default)
         {
             await GetCallbackWithHttpInfoAsync(session, code, cancellationToken).ConfigureAwait(false);
         }
@@ -518,7 +510,7 @@ namespace Knoq.Api
         /// <param name="code">OAuth2.0のcode</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> GetCallbackWithHttpInfoAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> GetCallbackWithHttpInfoAsync(string session, string code, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'session' is set
             if (session == null)
@@ -529,14 +521,12 @@ namespace Knoq.Api
                 throw new Knoq.Client.ApiException(400, "Missing required parameter 'code' when calling AuthenticationApi->GetCallback");
 
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);

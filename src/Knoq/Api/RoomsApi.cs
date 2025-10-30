@@ -79,7 +79,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <returns></returns>
-        void DeleteRoom(Guid roomID, Guid? excludeEventID = default(Guid?));
+        void DeleteRoom(Guid roomID, Guid? excludeEventID = default);
 
         /// <summary>
         /// 部屋の情報を削除
@@ -91,7 +91,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteRoomWithHttpInfo(Guid roomID, Guid? excludeEventID = default(Guid?));
+        ApiResponse<Object> DeleteRoomWithHttpInfo(Guid roomID, Guid? excludeEventID = default);
         /// <summary>
         /// 一件取得する
         /// </summary>
@@ -102,7 +102,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <returns>ResponseRoom</returns>
-        ResponseRoom GetRoom(Guid roomID, Guid? excludeEventID = default(Guid?));
+        ResponseRoom GetRoom(Guid roomID, Guid? excludeEventID = default);
 
         /// <summary>
         /// 一件取得する
@@ -114,7 +114,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <returns>ApiResponse of ResponseRoom</returns>
-        ApiResponse<ResponseRoom> GetRoomWithHttpInfo(Guid roomID, Guid? excludeEventID = default(Guid?));
+        ApiResponse<ResponseRoom> GetRoomWithHttpInfo(Guid roomID, Guid? excludeEventID = default);
         /// <summary>
         /// 進捗部屋の情報を取得
         /// </summary>
@@ -126,7 +126,7 @@ namespace Knoq.Api
         /// <param name="dateEnd">特定の日時まで。 (optional)</param>
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <returns>List&lt;ResponseRoom&gt;</returns>
-        List<ResponseRoom> GetRooms(string? dateBegin = default(string?), string? dateEnd = default(string?), Guid? excludeEventID = default(Guid?));
+        List<ResponseRoom> GetRooms(string? dateBegin = default, string? dateEnd = default, Guid? excludeEventID = default);
 
         /// <summary>
         /// 進捗部屋の情報を取得
@@ -139,7 +139,7 @@ namespace Knoq.Api
         /// <param name="dateEnd">特定の日時まで。 (optional)</param>
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseRoom&gt;</returns>
-        ApiResponse<List<ResponseRoom>> GetRoomsWithHttpInfo(string? dateBegin = default(string?), string? dateEnd = default(string?), Guid? excludeEventID = default(Guid?));
+        ApiResponse<List<ResponseRoom>> GetRoomsWithHttpInfo(string? dateBegin = default, string? dateEnd = default, Guid? excludeEventID = default);
         /// <summary>
         /// 部屋を未確認にする
         /// </summary>
@@ -201,7 +201,7 @@ namespace Knoq.Api
         /// <param name="addAllRoomsRequestInner">進捗部屋情報</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseRoom&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseRoom>> AddAllRoomsAsync(List<AddAllRoomsRequestInner> addAllRoomsRequestInner, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ResponseRoom>> AddAllRoomsAsync(List<AddAllRoomsRequestInner> addAllRoomsRequestInner, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// traPで確保した部屋の情報追加
@@ -213,7 +213,7 @@ namespace Knoq.Api
         /// <param name="addAllRoomsRequestInner">進捗部屋情報</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseRoom&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseRoom>>> AddAllRoomsWithHttpInfoAsync(List<AddAllRoomsRequestInner> addAllRoomsRequestInner, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseRoom>>> AddAllRoomsWithHttpInfoAsync(List<AddAllRoomsRequestInner> addAllRoomsRequestInner, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 部屋の情報追加
         /// </summary>
@@ -224,7 +224,7 @@ namespace Knoq.Api
         /// <param name="requestRoom">部屋の追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseRoom</returns>
-        System.Threading.Tasks.Task<ResponseRoom> AddRoomsAsync(RequestRoom requestRoom, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResponseRoom> AddRoomsAsync(RequestRoom requestRoom, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 部屋の情報追加
@@ -236,7 +236,7 @@ namespace Knoq.Api
         /// <param name="requestRoom">部屋の追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseRoom)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseRoom>> AddRoomsWithHttpInfoAsync(RequestRoom requestRoom, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResponseRoom>> AddRoomsWithHttpInfoAsync(RequestRoom requestRoom, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 部屋の情報を削除
         /// </summary>
@@ -248,7 +248,7 @@ namespace Knoq.Api
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteRoomAsync(Guid roomID, Guid? excludeEventID = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteRoomAsync(Guid roomID, Guid? excludeEventID = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 部屋の情報を削除
@@ -261,7 +261,7 @@ namespace Knoq.Api
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRoomWithHttpInfoAsync(Guid roomID, Guid? excludeEventID = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRoomWithHttpInfoAsync(Guid roomID, Guid? excludeEventID = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 一件取得する
         /// </summary>
@@ -273,7 +273,7 @@ namespace Knoq.Api
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseRoom</returns>
-        System.Threading.Tasks.Task<ResponseRoom> GetRoomAsync(Guid roomID, Guid? excludeEventID = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResponseRoom> GetRoomAsync(Guid roomID, Guid? excludeEventID = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 一件取得する
@@ -286,7 +286,7 @@ namespace Knoq.Api
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseRoom)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseRoom>> GetRoomWithHttpInfoAsync(Guid roomID, Guid? excludeEventID = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResponseRoom>> GetRoomWithHttpInfoAsync(Guid roomID, Guid? excludeEventID = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 進捗部屋の情報を取得
         /// </summary>
@@ -299,7 +299,7 @@ namespace Knoq.Api
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseRoom&gt;</returns>
-        System.Threading.Tasks.Task<List<ResponseRoom>> GetRoomsAsync(string? dateBegin = default(string?), string? dateEnd = default(string?), Guid? excludeEventID = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ResponseRoom>> GetRoomsAsync(string? dateBegin = default, string? dateEnd = default, Guid? excludeEventID = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 進捗部屋の情報を取得
@@ -313,7 +313,7 @@ namespace Knoq.Api
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseRoom&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ResponseRoom>>> GetRoomsWithHttpInfoAsync(string? dateBegin = default(string?), string? dateEnd = default(string?), Guid? excludeEventID = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ResponseRoom>>> GetRoomsWithHttpInfoAsync(string? dateBegin = default, string? dateEnd = default, Guid? excludeEventID = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 部屋を未確認にする
         /// </summary>
@@ -324,7 +324,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UnverifyRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UnverifyRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 部屋を未確認にする
@@ -336,7 +336,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UnverifyRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> UnverifyRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 部屋を確認する
         /// </summary>
@@ -347,7 +347,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task VerifyRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task VerifyRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 部屋を確認する
@@ -359,7 +359,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VerifyRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> VerifyRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -403,7 +403,7 @@ namespace Knoq.Api
                 new Knoq.Client.Configuration { BasePath = basePath }
             );
             this.ApiClient = new Knoq.Client.ApiClient(this.Configuration.BasePath);
-            this.Client =  this.ApiClient;
+            this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
@@ -418,7 +418,7 @@ namespace Knoq.Api
         /// <returns></returns>
         public RoomsApi(Knoq.Client.Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            ArgumentNullException.ThrowIfNull(configuration);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
@@ -460,14 +460,14 @@ namespace Knoq.Api
         /// </remarks>
         public RoomsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
                 new Knoq.Client.Configuration { BasePath = basePath }
             );
             this.ApiClient = new Knoq.Client.ApiClient(client, this.Configuration.BasePath, handler);
-            this.Client =  this.ApiClient;
+            this.Client = this.ApiClient;
             this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
@@ -486,8 +486,8 @@ namespace Knoq.Api
         /// </remarks>
         public RoomsApi(HttpClient client, Knoq.Client.Configuration configuration, HttpClientHandler handler = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (client == null) throw new ArgumentNullException("client");
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
 
             this.Configuration = Knoq.Client.Configuration.MergeConfigurations(
                 Knoq.Client.GlobalConfiguration.Instance,
@@ -509,13 +509,9 @@ namespace Knoq.Api
         /// <exception cref="ArgumentNullException"></exception>
         public RoomsApi(Knoq.Client.ISynchronousClient client, Knoq.Client.IAsynchronousClient asyncClient, Knoq.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
-
-            this.Client = client;
-            this.AsynchronousClient = asyncClient;
-            this.Configuration = configuration;
+            this.Client = client ?? throw new ArgumentNullException(nameof(client));
+            this.AsynchronousClient = asyncClient ?? throw new ArgumentNullException(nameof(asyncClient));
+            this.Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             this.ExceptionFactory = Knoq.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -593,20 +589,16 @@ namespace Knoq.Api
         /// <returns>ApiResponse of List&lt;ResponseRoom&gt;</returns>
         public Knoq.Client.ApiResponse<List<ResponseRoom>> AddAllRoomsWithHttpInfo(List<AddAllRoomsRequestInner> addAllRoomsRequestInner)
         {
-            // verify the required parameter 'addAllRoomsRequestInner' is set
-            if (addAllRoomsRequestInner == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'addAllRoomsRequestInner' when calling RoomsApi->AddAllRooms");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "text/csv"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -614,7 +606,7 @@ namespace Knoq.Api
             var localVarAccept = Knoq.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = addAllRoomsRequestInner;
+            localVarRequestOptions.Data = addAllRoomsRequestInner ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'addAllRoomsRequestInner' when calling RoomsApi->AddAllRooms");
 
 
             // make the HTTP request
@@ -636,7 +628,7 @@ namespace Knoq.Api
         /// <param name="addAllRoomsRequestInner">進捗部屋情報</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseRoom&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseRoom>> AddAllRoomsAsync(List<AddAllRoomsRequestInner> addAllRoomsRequestInner, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ResponseRoom>> AddAllRoomsAsync(List<AddAllRoomsRequestInner> addAllRoomsRequestInner, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<List<ResponseRoom>> localVarResponse = await AddAllRoomsWithHttpInfoAsync(addAllRoomsRequestInner, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -649,23 +641,18 @@ namespace Knoq.Api
         /// <param name="addAllRoomsRequestInner">進捗部屋情報</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseRoom&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseRoom>>> AddAllRoomsWithHttpInfoAsync(List<AddAllRoomsRequestInner> addAllRoomsRequestInner, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseRoom>>> AddAllRoomsWithHttpInfoAsync(List<AddAllRoomsRequestInner> addAllRoomsRequestInner, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'addAllRoomsRequestInner' is set
-            if (addAllRoomsRequestInner == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'addAllRoomsRequestInner' when calling RoomsApi->AddAllRooms");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "text/csv"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -674,7 +661,7 @@ namespace Knoq.Api
             var localVarAccept = Knoq.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = addAllRoomsRequestInner;
+            localVarRequestOptions.Data = addAllRoomsRequestInner ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'addAllRoomsRequestInner' when calling RoomsApi->AddAllRooms");
 
 
             // make the HTTP request
@@ -710,20 +697,16 @@ namespace Knoq.Api
         /// <returns>ApiResponse of ResponseRoom</returns>
         public Knoq.Client.ApiResponse<ResponseRoom> AddRoomsWithHttpInfo(RequestRoom requestRoom)
         {
-            // verify the required parameter 'requestRoom' is set
-            if (requestRoom == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestRoom' when calling RoomsApi->AddRooms");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -731,7 +714,7 @@ namespace Knoq.Api
             var localVarAccept = Knoq.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = requestRoom;
+            localVarRequestOptions.Data = requestRoom ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestRoom' when calling RoomsApi->AddRooms");
 
 
             // make the HTTP request
@@ -753,7 +736,7 @@ namespace Knoq.Api
         /// <param name="requestRoom">部屋の追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseRoom</returns>
-        public async System.Threading.Tasks.Task<ResponseRoom> AddRoomsAsync(RequestRoom requestRoom, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResponseRoom> AddRoomsAsync(RequestRoom requestRoom, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<ResponseRoom> localVarResponse = await AddRoomsWithHttpInfoAsync(requestRoom, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -766,23 +749,18 @@ namespace Knoq.Api
         /// <param name="requestRoom">部屋の追加</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseRoom)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseRoom>> AddRoomsWithHttpInfoAsync(RequestRoom requestRoom, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseRoom>> AddRoomsWithHttpInfoAsync(RequestRoom requestRoom, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'requestRoom' is set
-            if (requestRoom == null)
-                throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestRoom' when calling RoomsApi->AddRooms");
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
+            string[] _contentTypes = [
                 "application/json"
-            };
+            ];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -791,7 +769,7 @@ namespace Knoq.Api
             var localVarAccept = Knoq.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = requestRoom;
+            localVarRequestOptions.Data = requestRoom ?? throw new Knoq.Client.ApiException(400, "Missing required parameter 'requestRoom' when calling RoomsApi->AddRooms");
 
 
             // make the HTTP request
@@ -814,7 +792,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <returns></returns>
-        public void DeleteRoom(Guid roomID, Guid? excludeEventID = default(Guid?))
+        public void DeleteRoom(Guid roomID, Guid? excludeEventID = default)
         {
             DeleteRoomWithHttpInfo(roomID, excludeEventID);
         }
@@ -826,16 +804,14 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Knoq.Client.ApiResponse<Object> DeleteRoomWithHttpInfo(Guid roomID, Guid? excludeEventID = default(Guid?))
+        public Knoq.Client.ApiResponse<Object> DeleteRoomWithHttpInfo(Guid roomID, Guid? excludeEventID = default)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -870,7 +846,7 @@ namespace Knoq.Api
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteRoomAsync(Guid roomID, Guid? excludeEventID = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteRoomAsync(Guid roomID, Guid? excludeEventID = default, System.Threading.CancellationToken cancellationToken = default)
         {
             await DeleteRoomWithHttpInfoAsync(roomID, excludeEventID, cancellationToken).ConfigureAwait(false);
         }
@@ -883,17 +859,15 @@ namespace Knoq.Api
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> DeleteRoomWithHttpInfoAsync(Guid roomID, Guid? excludeEventID = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> DeleteRoomWithHttpInfoAsync(Guid roomID, Guid? excludeEventID = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -929,7 +903,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <returns>ResponseRoom</returns>
-        public ResponseRoom GetRoom(Guid roomID, Guid? excludeEventID = default(Guid?))
+        public ResponseRoom GetRoom(Guid roomID, Guid? excludeEventID = default)
         {
             Knoq.Client.ApiResponse<ResponseRoom> localVarResponse = GetRoomWithHttpInfo(roomID, excludeEventID);
             return localVarResponse.Data;
@@ -942,17 +916,16 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <returns>ApiResponse of ResponseRoom</returns>
-        public Knoq.Client.ApiResponse<ResponseRoom> GetRoomWithHttpInfo(Guid roomID, Guid? excludeEventID = default(Guid?))
+        public Knoq.Client.ApiResponse<ResponseRoom> GetRoomWithHttpInfo(Guid roomID, Guid? excludeEventID = default)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -987,7 +960,7 @@ namespace Knoq.Api
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseRoom</returns>
-        public async System.Threading.Tasks.Task<ResponseRoom> GetRoomAsync(Guid roomID, Guid? excludeEventID = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResponseRoom> GetRoomAsync(Guid roomID, Guid? excludeEventID = default, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<ResponseRoom> localVarResponse = await GetRoomWithHttpInfoAsync(roomID, excludeEventID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1001,18 +974,17 @@ namespace Knoq.Api
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseRoom)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseRoom>> GetRoomWithHttpInfoAsync(Guid roomID, Guid? excludeEventID = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<ResponseRoom>> GetRoomWithHttpInfoAsync(Guid roomID, Guid? excludeEventID = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1049,7 +1021,7 @@ namespace Knoq.Api
         /// <param name="dateEnd">特定の日時まで。 (optional)</param>
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <returns>List&lt;ResponseRoom&gt;</returns>
-        public List<ResponseRoom> GetRooms(string? dateBegin = default(string?), string? dateEnd = default(string?), Guid? excludeEventID = default(Guid?))
+        public List<ResponseRoom> GetRooms(string? dateBegin = default, string? dateEnd = default, Guid? excludeEventID = default)
         {
             Knoq.Client.ApiResponse<List<ResponseRoom>> localVarResponse = GetRoomsWithHttpInfo(dateBegin, dateEnd, excludeEventID);
             return localVarResponse.Data;
@@ -1063,17 +1035,16 @@ namespace Knoq.Api
         /// <param name="dateEnd">特定の日時まで。 (optional)</param>
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <returns>ApiResponse of List&lt;ResponseRoom&gt;</returns>
-        public Knoq.Client.ApiResponse<List<ResponseRoom>> GetRoomsWithHttpInfo(string? dateBegin = default(string?), string? dateEnd = default(string?), Guid? excludeEventID = default(Guid?))
+        public Knoq.Client.ApiResponse<List<ResponseRoom>> GetRoomsWithHttpInfo(string? dateBegin = default, string? dateEnd = default, Guid? excludeEventID = default)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1116,7 +1087,7 @@ namespace Knoq.Api
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ResponseRoom&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ResponseRoom>> GetRoomsAsync(string? dateBegin = default(string?), string? dateEnd = default(string?), Guid? excludeEventID = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ResponseRoom>> GetRoomsAsync(string? dateBegin = default, string? dateEnd = default, Guid? excludeEventID = default, System.Threading.CancellationToken cancellationToken = default)
         {
             Knoq.Client.ApiResponse<List<ResponseRoom>> localVarResponse = await GetRoomsWithHttpInfoAsync(dateBegin, dateEnd, excludeEventID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1131,18 +1102,17 @@ namespace Knoq.Api
         /// <param name="excludeEventID">除外するイベントのID。 (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ResponseRoom&gt;)</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseRoom>>> GetRoomsWithHttpInfoAsync(string? dateBegin = default(string?), string? dateEnd = default(string?), Guid? excludeEventID = default(Guid?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<List<ResponseRoom>>> GetRoomsWithHttpInfoAsync(string? dateBegin = default, string? dateEnd = default, Guid? excludeEventID = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
+            string[] _accepts = [
                 "application/json"
-            };
+            ];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1197,14 +1167,12 @@ namespace Knoq.Api
         /// <returns>ApiResponse of Object(void)</returns>
         public Knoq.Client.ApiResponse<Object> UnverifyRoomWithHttpInfo(Guid roomID)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1234,7 +1202,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UnverifyRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UnverifyRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default)
         {
             await UnverifyRoomWithHttpInfoAsync(roomID, cancellationToken).ConfigureAwait(false);
         }
@@ -1246,17 +1214,15 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> UnverifyRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> UnverifyRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1300,14 +1266,12 @@ namespace Knoq.Api
         /// <returns>ApiResponse of Object(void)</returns>
         public Knoq.Client.ApiResponse<Object> VerifyRoomWithHttpInfo(Guid roomID)
         {
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1337,7 +1301,7 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task VerifyRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task VerifyRoomAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default)
         {
             await VerifyRoomWithHttpInfoAsync(roomID, cancellationToken).ConfigureAwait(false);
         }
@@ -1349,17 +1313,15 @@ namespace Knoq.Api
         /// <param name="roomID"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> VerifyRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Knoq.Client.ApiResponse<Object>> VerifyRoomWithHttpInfoAsync(Guid roomID, System.Threading.CancellationToken cancellationToken = default)
         {
 
-            Knoq.Client.RequestOptions localVarRequestOptions = new Knoq.Client.RequestOptions();
+            Knoq.Client.RequestOptions localVarRequestOptions = new();
 
-            string[] _contentTypes = new string[] {
-            };
+            string[] _contentTypes = [];
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
+            string[] _accepts = [];
 
 
             var localVarContentType = Knoq.Client.ClientUtils.SelectHeaderContentType(_contentTypes);

@@ -15,39 +15,34 @@ namespace Knoq.Client
     /// <summary>
     /// A URI builder
     /// </summary>
-    class WebRequestPathBuilder
+    class WebRequestPathBuilder(string baseUrl, string path)
     {
-            private string _baseUrl;
-            private string _path;
-            private string _query = "?";
-            public WebRequestPathBuilder(string baseUrl, string path)
-            {
-                _baseUrl = (baseUrl[^1]=='/') ? baseUrl[..^1] : baseUrl;
-                _path = path;
-            }
+        private readonly string _baseUrl = (baseUrl[^1] == '/') ? baseUrl[..^1] : baseUrl;
+        private string _path = path;
+        private string _query = "?";
 
-            public void AddPathParameters(Dictionary<string, string> parameters)
+        public void AddPathParameters(Dictionary<string, string> parameters)
+        {
+            foreach (var parameter in parameters)
             {
-                foreach (var parameter in parameters)
+                _path = _path.Replace("{" + parameter.Key + "}", Uri.EscapeDataString(parameter.Value));
+            }
+        }
+
+        public void AddQueryParameters(Multimap<string, string> parameters)
+        {
+            foreach (var parameter in parameters)
+            {
+                foreach (var value in parameter.Value)
                 {
-                    _path = _path.Replace("{" + parameter.Key + "}", Uri.EscapeDataString(parameter.Value));
+                    _query = _query + parameter.Key + "=" + Uri.EscapeDataString(value) + "&";
                 }
             }
+        }
 
-            public void AddQueryParameters(Multimap<string, string> parameters)
-            {
-                foreach (var parameter in parameters)
-                {
-                    foreach (var value in parameter.Value)
-                    {
-                        _query = _query + parameter.Key + "=" + Uri.EscapeDataString(value) + "&";
-                    }
-                }
-            }
-
-            public string GetFullUri()
-            {
-                return _baseUrl + _path + _query.Substring(0, _query.Length - 1);
-            }
+        public string GetFullUri()
+        {
+            return _baseUrl + _path + _query[..^1];
+        }
     }
 }

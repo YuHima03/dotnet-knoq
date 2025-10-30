@@ -74,7 +74,7 @@ namespace Knoq.Model
         /// Initializes a new instance of the <see cref="RequestSchedule" /> class.
         /// </summary>
         /// <param name="schedule">pending or absent or attendance (required).</param>
-        public RequestSchedule(ScheduleEnum schedule = default(ScheduleEnum))
+        public RequestSchedule(ScheduleEnum schedule = default)
         {
             this.Schedule = schedule;
         }
@@ -85,9 +85,9 @@ namespace Knoq.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("class RequestSchedule {\n");
-            sb.Append("  Schedule: ").Append(Schedule).Append("\n");
+            sb.Append("  Schedule: ").Append(Schedule).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

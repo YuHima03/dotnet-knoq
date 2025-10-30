@@ -376,8 +376,6 @@ namespace Knoq.Client
                 }
             }
 
-            _ = [];
-
             string contentType = null;
             if (options.HeaderParameters != null && options.HeaderParameters.TryGetValue("Content-Type", out IList<string>? contentTypes))
             {

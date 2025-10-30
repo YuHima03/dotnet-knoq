@@ -10,7 +10,8 @@ namespace Knoq.Extensions.Authentication
         {
             return services
                 .AddOptions()
-                .AddSingleton<IConfigureOptions<KnoqApiClientOptions>>(sp => {
+                .AddSingleton<IConfigureOptions<KnoqApiClientOptions>>(sp =>
+                {
                     return new ConfigureNamedOptions<KnoqApiClientOptions>(Options.DefaultName, options =>
                     {
                         // options

@@ -10,7 +10,8 @@ namespace Knoq.Extensions.Authentication
         {
             return services
                 .AddOptions()
-                .AddKnoqApiClient((sp, options) => {
+                .AddKnoqApiClient((sp, options) =>
+                {
                     // options
                     var traqOptions = sp.GetRequiredService<IOptions<TraqApiClientOptions>>().Value;
                     TraqAuthenticationInfo traqAuthInfo = new();

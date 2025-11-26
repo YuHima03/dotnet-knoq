@@ -3,5 +3,6 @@
     <File Path=".editorconfig" />
   </Folder>
   <Project Path="src/Knoq.Extensions.Authentication/Knoq.Extensions.Authentication.csproj" />
+  <Project Path="src/Knoq.Tests/Knoq.Tests.csproj" Id="b143d150-9597-4ef2-802d-2e60708fd020" />
   <Project Path="src/Knoq/Knoq.csproj" />
 </Solution>

@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Diagnostics;
+using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Authentication;
 using Microsoft.Kiota.Http.HttpClientLibrary;
 using System.Diagnostics.CodeAnalysis;
@@ -69,14 +70,18 @@ namespace Knoq.Extensions.Authentication
                         }
                     }
                 }
+                else
+                {
+                    ThrowHelperInternal.Throw("Failed to access OAuth2 authorization endpoint.");
+                }
             }
 
             // Finally, approve the consent.
             // It should be redirected to the callback url of the knoQ service.
             {
                 var reqInfo = traqApiClient.Oauth2.Authorize.Decide.ToPostRequestInformation(new() { Submit = "approve" });
-                using StreamContent reqContent = new(reqInfo.Content);
-                using var res = await client.PostAsync(reqInfo.URI, reqContent, ct).ConfigureAwait(false);
+                using var reqContent = getStreamContent(reqInfo);
+                using var res = await client.PostAsync(reqInfo.URI, reqContent, ct);
                 if (res.StatusCode == System.Net.HttpStatusCode.Found)
                 {
                     if (Uri.TryCreate(res.Headers.GetValues("Location").FirstOrDefault(), UriKind.RelativeOrAbsolute, out var location))
@@ -84,19 +89,33 @@ namespace Knoq.Extensions.Authentication
                         using var redirectRes = await client.GetAsync(location, ct).ConfigureAwait(false); // Should be redirected to https://knoq.trap.jp/api/callback
                         if (redirectRes.StatusCode != System.Net.HttpStatusCode.Found && !redirectRes.IsSuccessStatusCode)
                         {
-                            ThrowHelperInternal.Throw("Http request failed.");
+                            ThrowHelperInternal.Throw("Error response from the redirected endpoint.");
                         }
                     }
                 }
+                else
+                {
+                    ThrowHelperInternal.Throw("Failed to approve OAuth2 authorization.");
+                }
             }
-
             UriBuilder cookieUri = new(knoqBaseAddress)
             {
+                Scheme = Uri.UriSchemeHttp,
                 Fragment = "",
                 Path = "",
-                Query = ""
+                Query = "",
             };
             return clientHandler.CookieContainer.GetCookies(cookieUri.Uri).Where(c => c.Name == "session").First().Value; // Extract the session cookie to access to the knoQ API.
+
+            static StreamContent getStreamContent(RequestInformation requestInfo)
+            {
+                StreamContent content = new(requestInfo.Content);
+                foreach (var (key, values) in requestInfo.Headers)
+                {
+                    content.Headers.Add(key, values);
+                }
+                return content;
+            }
         }
     }
 

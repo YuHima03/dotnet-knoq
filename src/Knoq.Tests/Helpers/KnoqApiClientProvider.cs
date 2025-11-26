@@ -7,29 +7,38 @@ namespace Knoq.Tests.Helpers
     {
         public static async Task<KnoqApiClient> GetKnoqApiClientAsync(IConfiguration config, CancellationToken ct = default)
         {
-            var knoqConfig = config.Get<KnoqApiClientConfiguration>()!;
-            var traqConfig = config.Get<TraqApiClientConfiguration>()!;
-            if (!string.IsNullOrWhiteSpace(knoqConfig.CookieAuthToken))
+            try
             {
-                return KnoqApiClientHelper.CreateFromOptions(new KnoqApiClientOptions { BaseAddress = knoqConfig.BaseAddress, CookieAuthToken = knoqConfig.CookieAuthToken });
+                var knoqConfig = config.Get<KnoqApiClientConfiguration>()!;
+                var traqConfig = config.Get<TraqApiClientConfiguration>()!;
+                if (!string.IsNullOrWhiteSpace(knoqConfig.CookieAuthToken))
+                {
+                    return KnoqApiClientHelper.CreateFromOptions(new KnoqApiClientOptions { BaseAddress = knoqConfig.BaseAddress, CookieAuthToken = knoqConfig.CookieAuthToken });
+                }
+                TraqAuthenticationInfo traqAuthInfo = new();
+                if (traqConfig.CookieAuthToken is not null)
+                {
+                    traqAuthInfo.UseCookieAuthentication(traqConfig.CookieAuthToken);
+                }
+                if (!string.IsNullOrWhiteSpace(traqConfig.Username) && !string.IsNullOrWhiteSpace(traqConfig.Password))
+                {
+                    traqAuthInfo.UsePasswordAuthentication(traqConfig.Username, traqConfig.Password);
+                }
+                var knoqCookieToken = await AuthenticationExtensions.GetKnoqAccessTokenAsync(
+                    knoqConfig.BaseAddress,
+                    traqConfig.BaseAddress,
+                    traqAuthInfo,
+                    ct
+                ).ConfigureAwait(false);
+                return KnoqApiClientHelper.CreateFromOptions(new KnoqApiClientOptions { BaseAddress = knoqConfig.BaseAddress, CookieAuthToken = knoqCookieToken });
             }
-            TraqAuthenticationInfo traqAuthInfo = new();
-            if (traqConfig.CookieAuthToken is not null)
+            catch (Exception ex)
             {
-                traqAuthInfo.UseCookieAuthentication(traqConfig.CookieAuthToken);
+                throw new KnoqApiClientCreationFailedException("Failed to create a KnoqApiClient from the configuration.", ex);
             }
-            if (!string.IsNullOrWhiteSpace(traqConfig.Username) && !string.IsNullOrWhiteSpace(traqConfig.Password))
-            {
-                traqAuthInfo.UsePasswordAuthentication(traqConfig.Username, traqConfig.Password);
-            }
-            var knoqCookieToken = await AuthenticationExtensions.GetKnoqAccessTokenAsync(
-                knoqConfig.BaseAddress,
-                traqConfig.BaseAddress,
-                traqAuthInfo,
-                ct
-            ).ConfigureAwait(false);
-            return KnoqApiClientHelper.CreateFromOptions(new KnoqApiClientOptions { BaseAddress = knoqConfig.BaseAddress, CookieAuthToken = knoqCookieToken });
         }
+
+        public sealed class KnoqApiClientCreationFailedException(string message, Exception? innerException) : Exception(message, innerException);
     }
 
     file class KnoqApiClientConfiguration

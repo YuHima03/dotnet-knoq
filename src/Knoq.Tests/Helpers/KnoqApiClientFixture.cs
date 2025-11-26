@@ -10,11 +10,17 @@ namespace Knoq.Tests.Helpers
 
         public KnoqApiClientFixture()
         {
-            using var envFileStream = File.OpenRead(Path.Combine(Environment.CurrentDirectory ?? "", ".env"));
-            var config = new ConfigurationBuilder()
-                .AddEnvironmentVariables()
-                .AddIniStream(envFileStream)
-                .Build();
+            var configBuilder = new ConfigurationBuilder()
+                .AddEnvironmentVariables();
+
+            var envFilePath = Path.Combine(Environment.CurrentDirectory ?? "", ".env");
+            using var envFileStream = File.Exists(envFilePath) ? File.OpenRead(envFilePath) : null;
+            if (envFileStream is not null)
+            {
+                configBuilder.AddIniStream(envFileStream);
+            }
+
+            var config = configBuilder.Build();
             ClientTask = KnoqApiClientProvider.GetKnoqApiClientAsync(config, _cts.Token);
         }
 

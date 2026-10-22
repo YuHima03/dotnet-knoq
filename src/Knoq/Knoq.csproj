@@ -27,7 +27,7 @@
     <PackageId>KnoqNet</PackageId>
     <NeutralLanguage>ja</NeutralLanguage>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>Add supports for .NET 10.</PackageReleaseNotes>
+    <PackageReleaseNotes>Add supports for knoQ API v2.5.16.</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <PackageTags>knoq</PackageTags>

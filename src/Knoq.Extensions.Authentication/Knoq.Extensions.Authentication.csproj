@@ -22,7 +22,7 @@
   <PropertyGroup>
     <PackageId>KnoqNet.Extensions.Authentication</PackageId>
     <NeutralLanguage>ja</NeutralLanguage>
-    <PackageReleaseNotes>Fix critical bug when creating an API client.</PackageReleaseNotes>
+    <PackageReleaseNotes>Stable release.</PackageReleaseNotes>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>

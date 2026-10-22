@@ -14,15 +14,15 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>1.0.0-alpha.2</Version>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageId>KnoqNet.Extensions.Authentication</PackageId>
     <NeutralLanguage>ja</NeutralLanguage>
-    <PackageReleaseNotes>Fix critical bug when creating an API client.</PackageReleaseNotes>
+    <PackageReleaseNotes>Stable release.</PackageReleaseNotes>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
@@ -43,7 +43,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Traq" Version="1.0.0-alpha.1" />
+    <PackageReference Include="Traq" Version="3.30.0" />
   </ItemGroup>
 
   <ItemGroup>

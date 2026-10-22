@@ -3,6 +3,7 @@
 using Knoq.Activity;
 using Knoq.AuthParams;
 using Knoq.Callback;
+using Knoq.DraftEvents;
 using Knoq.Events;
 using Knoq.Groups;
 using Knoq.Ical;
@@ -42,6 +43,11 @@ namespace Knoq
         public global::Knoq.Callback.CallbackRequestBuilder Callback
         {
             get => new global::Knoq.Callback.CallbackRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The draftEvents property</summary>
+        public global::Knoq.DraftEvents.DraftEventsRequestBuilder DraftEvents
+        {
+            get => new global::Knoq.DraftEvents.DraftEventsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The events property</summary>
         public global::Knoq.Events.EventsRequestBuilder Events

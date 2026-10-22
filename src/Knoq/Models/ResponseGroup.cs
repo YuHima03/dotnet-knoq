@@ -14,7 +14,7 @@ namespace Knoq.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>編集権を持つユーザー</summary>
+        /// <summary>ユーザーIDの配列</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Guid?>? Admins { get; set; }
@@ -23,13 +23,7 @@ namespace Knoq.Models
         public List<Guid?> Admins { get; set; }
 #endif
         /// <summary>The createdAt property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CreatedAt { get; set; }
-#nullable restore
-#else
-        public string CreatedAt { get; set; }
-#endif
+        public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The createdBy property</summary>
         public Guid? CreatedBy { get; set; }
         /// <summary>The description property</summary>
@@ -44,7 +38,7 @@ namespace Knoq.Models
         public Guid? GroupId { get; set; }
         /// <summary>The isTraQGroup property</summary>
         public bool? IsTraQGroup { get; set; }
-        /// <summary>グループのメンバー</summary>
+        /// <summary>ユーザーIDの配列</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Guid?>? Members { get; set; }
@@ -63,13 +57,7 @@ namespace Knoq.Models
         /// <summary>The open property</summary>
         public bool? Open { get; set; }
         /// <summary>The updatedAt property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UpdatedAt { get; set; }
-#nullable restore
-#else
-        public string UpdatedAt { get; set; }
-#endif
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Knoq.Models.ResponseGroup"/> and sets the default values.
         /// </summary>
@@ -84,7 +72,7 @@ namespace Knoq.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Knoq.Models.ResponseGroup CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Knoq.Models.ResponseGroup();
         }
         /// <summary>
@@ -96,7 +84,7 @@ namespace Knoq.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "admins", n => { Admins = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
-                { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
+                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "createdBy", n => { CreatedBy = n.GetGuidValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "groupId", n => { GroupId = n.GetGuidValue(); } },
@@ -104,7 +92,7 @@ namespace Knoq.Models
                 { "members", n => { Members = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "open", n => { Open = n.GetBoolValue(); } },
-                { "updatedAt", n => { UpdatedAt = n.GetStringValue(); } },
+                { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -113,9 +101,9 @@ namespace Knoq.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<Guid?>("admins", Admins);
-            writer.WriteStringValue("createdAt", CreatedAt);
+            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteGuidValue("createdBy", CreatedBy);
             writer.WriteStringValue("description", Description);
             writer.WriteGuidValue("groupId", GroupId);
@@ -123,7 +111,7 @@ namespace Knoq.Models
             writer.WriteCollectionOfPrimitiveValues<Guid?>("members", Members);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("open", Open);
-            writer.WriteStringValue("updatedAt", UpdatedAt);
+            writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

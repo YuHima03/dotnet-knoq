@@ -33,7 +33,7 @@ namespace Knoq.Callback
         {
         }
         /// <summary>
-        /// コールバックを検知して、トークンを取得します。
+        /// コールバックを検知して，トークンを取得します。
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -50,7 +50,7 @@ namespace Knoq.Callback
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// コールバックを検知して、トークンを取得します。
+        /// コールバックを検知して，トークンを取得します。
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -77,7 +77,7 @@ namespace Knoq.Callback
             return new global::Knoq.Callback.CallbackRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// コールバックを検知して、トークンを取得します。
+        /// コールバックを検知して，トークンを取得します。
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CallbackRequestBuilderGetQueryParameters 

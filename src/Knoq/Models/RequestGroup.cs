@@ -14,7 +14,7 @@ namespace Knoq.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>編集権を持つユーザー</summary>
+        /// <summary>ユーザーIDの配列</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Guid?>? Admins { get; set; }
@@ -30,7 +30,7 @@ namespace Knoq.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>グループのメンバー</summary>
+        /// <summary>ユーザーIDの配列</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Guid?>? Members { get; set; }
@@ -62,7 +62,7 @@ namespace Knoq.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Knoq.Models.RequestGroup CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Knoq.Models.RequestGroup();
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace Knoq.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<Guid?>("admins", Admins);
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("members", Members);

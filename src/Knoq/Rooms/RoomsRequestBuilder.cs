@@ -54,7 +54,7 @@ namespace Knoq.Rooms
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RoomsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rooms{?dateBegin*,dateEnd*,excludeEventID*}", pathParameters)
+        public RoomsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rooms{?dateBegin*,dateEnd*,excludeEventID*,onlyVerified*}", pathParameters)
         {
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Knoq.Rooms
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RoomsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rooms{?dateBegin*,dateEnd*,excludeEventID*}", rawUrl)
+        public RoomsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rooms{?dateBegin*,dateEnd*,excludeEventID*,onlyVerified*}", rawUrl)
         {
         }
         /// <summary>
@@ -100,7 +100,7 @@ namespace Knoq.Rooms
         public async Task<global::Knoq.Models.ResponseRoom> PostAsync(global::Knoq.Models.RequestRoom body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Knoq.Models.ResponseRoom>(requestInfo, global::Knoq.Models.ResponseRoom.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -138,7 +138,7 @@ namespace Knoq.Rooms
         public RequestInformation ToPostRequestInformation(global::Knoq.Models.RequestRoom body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
@@ -161,28 +161,17 @@ namespace Knoq.Rooms
         public partial class RoomsRequestBuilderGetQueryParameters 
         {
             /// <summary>特定の日時から。</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("dateBegin")]
-            public string? DateBegin { get; set; }
-#nullable restore
-#else
-            [QueryParameter("dateBegin")]
-            public string DateBegin { get; set; }
-#endif
+            public DateTimeOffset? DateBegin { get; set; }
             /// <summary>特定の日時まで。</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("dateEnd")]
-            public string? DateEnd { get; set; }
-#nullable restore
-#else
-            [QueryParameter("dateEnd")]
-            public string DateEnd { get; set; }
-#endif
+            public DateTimeOffset? DateEnd { get; set; }
             /// <summary>除外するイベントのID。</summary>
             [QueryParameter("excludeEventID")]
             public Guid? ExcludeEventID { get; set; }
+            /// <summary>verified のみ取得するためのフィルタ</summary>
+            [QueryParameter("onlyVerified")]
+            public bool? OnlyVerified { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

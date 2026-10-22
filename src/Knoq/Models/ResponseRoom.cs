@@ -14,7 +14,7 @@ namespace Knoq.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>編集権を持つユーザー</summary>
+        /// <summary>ユーザーIDの配列</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Guid?>? Admins { get; set; }
@@ -23,13 +23,7 @@ namespace Knoq.Models
         public List<Guid?> Admins { get; set; }
 #endif
         /// <summary>The createdAt property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CreatedAt { get; set; }
-#nullable restore
-#else
-        public string CreatedAt { get; set; }
-#endif
+        public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The createdBy property</summary>
         public Guid? CreatedBy { get; set; }
         /// <summary>どのイベントも使用していない時間帯</summary>
@@ -50,7 +44,7 @@ namespace Knoq.Models
 #endif
         /// <summary>The roomId property</summary>
         public Guid? RoomId { get; set; }
-        /// <summary>部屋を共用すれば、使用できる時間帯</summary>
+        /// <summary>部屋を共用すれば，使用できる時間帯</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Knoq.Models.Duration>? SharedTimes { get; set; }
@@ -59,29 +53,11 @@ namespace Knoq.Models
         public List<global::Knoq.Models.Duration> SharedTimes { get; set; }
 #endif
         /// <summary>The timeEnd property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TimeEnd { get; set; }
-#nullable restore
-#else
-        public string TimeEnd { get; set; }
-#endif
+        public DateTimeOffset? TimeEnd { get; set; }
         /// <summary>The timeStart property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TimeStart { get; set; }
-#nullable restore
-#else
-        public string TimeStart { get; set; }
-#endif
+        public DateTimeOffset? TimeStart { get; set; }
         /// <summary>The updatedAt property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UpdatedAt { get; set; }
-#nullable restore
-#else
-        public string UpdatedAt { get; set; }
-#endif
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>部屋が使えることを保証する</summary>
         public bool? Verified { get; set; }
         /// <summary>
@@ -98,7 +74,7 @@ namespace Knoq.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Knoq.Models.ResponseRoom CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Knoq.Models.ResponseRoom();
         }
         /// <summary>
@@ -110,15 +86,15 @@ namespace Knoq.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "admins", n => { Admins = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
-                { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
+                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "createdBy", n => { CreatedBy = n.GetGuidValue(); } },
                 { "freeTimes", n => { FreeTimes = n.GetCollectionOfObjectValues<global::Knoq.Models.Duration>(global::Knoq.Models.Duration.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "place", n => { Place = n.GetStringValue(); } },
                 { "roomId", n => { RoomId = n.GetGuidValue(); } },
                 { "sharedTimes", n => { SharedTimes = n.GetCollectionOfObjectValues<global::Knoq.Models.Duration>(global::Knoq.Models.Duration.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "timeEnd", n => { TimeEnd = n.GetStringValue(); } },
-                { "timeStart", n => { TimeStart = n.GetStringValue(); } },
-                { "updatedAt", n => { UpdatedAt = n.GetStringValue(); } },
+                { "timeEnd", n => { TimeEnd = n.GetDateTimeOffsetValue(); } },
+                { "timeStart", n => { TimeStart = n.GetDateTimeOffsetValue(); } },
+                { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "verified", n => { Verified = n.GetBoolValue(); } },
             };
         }
@@ -128,17 +104,17 @@ namespace Knoq.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<Guid?>("admins", Admins);
-            writer.WriteStringValue("createdAt", CreatedAt);
+            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteGuidValue("createdBy", CreatedBy);
             writer.WriteCollectionOfObjectValues<global::Knoq.Models.Duration>("freeTimes", FreeTimes);
             writer.WriteStringValue("place", Place);
             writer.WriteGuidValue("roomId", RoomId);
             writer.WriteCollectionOfObjectValues<global::Knoq.Models.Duration>("sharedTimes", SharedTimes);
-            writer.WriteStringValue("timeEnd", TimeEnd);
-            writer.WriteStringValue("timeStart", TimeStart);
-            writer.WriteStringValue("updatedAt", UpdatedAt);
+            writer.WriteDateTimeOffsetValue("timeEnd", TimeEnd);
+            writer.WriteDateTimeOffsetValue("timeStart", TimeStart);
+            writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteBoolValue("verified", Verified);
             writer.WriteAdditionalData(AdditionalData);
         }

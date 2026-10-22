@@ -53,7 +53,7 @@ namespace Knoq.Tags
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// すでにある場合は、error
+        /// すでにある場合は，error
         /// </summary>
         /// <returns>A <see cref="global::Knoq.Models.ResponseTag"/></returns>
         /// <param name="body">The request body</param>
@@ -68,7 +68,7 @@ namespace Knoq.Tags
         public async Task<global::Knoq.Models.ResponseTag> PostAsync(global::Knoq.Models.RequestTag body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Knoq.Models.ResponseTag>(requestInfo, global::Knoq.Models.ResponseTag.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -92,7 +92,7 @@ namespace Knoq.Tags
             return requestInfo;
         }
         /// <summary>
-        /// すでにある場合は、error
+        /// すでにある場合は，error
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -106,7 +106,7 @@ namespace Knoq.Tags
         public RequestInformation ToPostRequestInformation(global::Knoq.Models.RequestTag body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

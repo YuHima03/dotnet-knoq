@@ -60,7 +60,7 @@ namespace Knoq.Events
         {
         }
         /// <summary>
-        /// 使用宣言の情報を取得。
+        /// 使用宣言の情報を取得
         /// </summary>
         /// <returns>A List&lt;global::Knoq.Models.ResponseEvent&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -79,7 +79,7 @@ namespace Knoq.Events
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// 部屋の使用宣言を行う。
+        /// 部屋の使用宣言を行う
         /// </summary>
         /// <returns>A <see cref="global::Knoq.Models.ResponseEventDetail"/></returns>
         /// <param name="body">The request body</param>
@@ -94,12 +94,12 @@ namespace Knoq.Events
         public async Task<global::Knoq.Models.ResponseEventDetail> PostAsync(global::Knoq.Models.RequestEvent body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Knoq.Models.ResponseEventDetail>(requestInfo, global::Knoq.Models.ResponseEventDetail.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// 使用宣言の情報を取得。
+        /// 使用宣言の情報を取得
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -118,7 +118,7 @@ namespace Knoq.Events
             return requestInfo;
         }
         /// <summary>
-        /// 部屋の使用宣言を行う。
+        /// 部屋の使用宣言を行う
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -132,7 +132,7 @@ namespace Knoq.Events
         public RequestInformation ToPostRequestInformation(global::Knoq.Models.RequestEvent body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
@@ -149,18 +149,32 @@ namespace Knoq.Events
             return new global::Knoq.Events.EventsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// 使用宣言の情報を取得。
+        /// 使用宣言の情報を取得
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EventsRequestBuilderGetQueryParameters 
         {
             /// <summary>特定の日時から。</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("dateBegin")]
-            public DateTimeOffset? DateBegin { get; set; }
+            public string? DateBegin { get; set; }
+#nullable restore
+#else
+            [QueryParameter("dateBegin")]
+            public string DateBegin { get; set; }
+#endif
             /// <summary>特定の日時まで。</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("dateEnd")]
-            public DateTimeOffset? DateEnd { get; set; }
-            /// <summary>Syntax: top: ε | expr, expr: term ((&apos;||&apos; | &apos;&amp;&amp;&apos;) term)*, term: cmp | &apos;(&apos; expr &apos;)&apos;, cmp: Attr (&apos;==&apos; | &apos;!=&apos;) UUID, Attr: &apos;event&apos; | &apos;user&apos; | &apos;group&apos; | &apos;tag&apos;</summary>
+            public string? DateEnd { get; set; }
+#nullable restore
+#else
+            [QueryParameter("dateEnd")]
+            public string DateEnd { get; set; }
+#endif
+            /// <summary>Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( &quot;||&quot; | &quot;&amp;&amp;&quot; ) term)*&lt;br&gt; term : cmp | &quot;(&quot; expr &quot;)&quot;&lt;br&gt; cmp  : Attr ( &quot;==&quot; | &quot;!=&quot; ) UUID&lt;br&gt; Attr : &quot;event&quot; | &quot;user&quot; | &quot;group&quot; | &quot;tag&quot; </summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("q")]

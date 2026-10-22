@@ -15,7 +15,7 @@ namespace Knoq.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>pending or absent or attendance</summary>
-        public global::Knoq.Models.Schedule? Schedule { get; set; }
+        public global::Knoq.Models.RequestSchedule_schedule? Schedule { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Knoq.Models.RequestSchedule"/> and sets the default values.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Knoq.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Knoq.Models.RequestSchedule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new global::Knoq.Models.RequestSchedule();
         }
         /// <summary>
@@ -41,7 +41,7 @@ namespace Knoq.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "schedule", n => { Schedule = n.GetEnumValue<global::Knoq.Models.Schedule>(); } },
+                { "schedule", n => { Schedule = n.GetEnumValue<global::Knoq.Models.RequestSchedule_schedule>(); } },
             };
         }
         /// <summary>
@@ -50,8 +50,8 @@ namespace Knoq.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Knoq.Models.Schedule>("schedule", Schedule);
+            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Knoq.Models.RequestSchedule_schedule>("schedule", Schedule);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

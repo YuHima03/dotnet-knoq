@@ -87,12 +87,26 @@ namespace Knoq.Users.Me.Events
         public partial class EventsRequestBuilderGetQueryParameters 
         {
             /// <summary>特定の日時から。</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("dateBegin")]
-            public DateTimeOffset? DateBegin { get; set; }
+            public string? DateBegin { get; set; }
+#nullable restore
+#else
+            [QueryParameter("dateBegin")]
+            public string DateBegin { get; set; }
+#endif
             /// <summary>特定の日時まで。</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("dateEnd")]
-            public DateTimeOffset? DateEnd { get; set; }
-            /// <summary>どのような関係性でユーザーと結びつけるか。取り得る値は，admins(ユーザーが管理者), belongs(ユーザーが所属している),belongs-or-admins(ユーザーが管理者または所属している)イベントはさらに，attendees(not absent)値がない場合は，belongs として振る舞う</summary>
+            public string? DateEnd { get; set; }
+#nullable restore
+#else
+            [QueryParameter("dateEnd")]
+            public string DateEnd { get; set; }
+#endif
+            /// <summary>どのような関係性でユーザーと結びつけるか。 取り得る値は、admins(ユーザーが管理者), belongs(ユーザーが所属している), belongs-or-admins(ユーザーが管理者または所属している) イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う</summary>
             [Obsolete("This property is deprecated, use RelationAsGetRelationQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -103,7 +117,7 @@ namespace Knoq.Users.Me.Events
             [QueryParameter("relation")]
             public string Relation { get; set; }
 #endif
-            /// <summary>どのような関係性でユーザーと結びつけるか。取り得る値は，admins(ユーザーが管理者), belongs(ユーザーが所属している),belongs-or-admins(ユーザーが管理者または所属している)イベントはさらに，attendees(not absent)値がない場合は，belongs として振る舞う</summary>
+            /// <summary>どのような関係性でユーザーと結びつけるか。 取り得る値は、admins(ユーザーが管理者), belongs(ユーザーが所属している), belongs-or-admins(ユーザーが管理者または所属している) イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う</summary>
             [QueryParameter("relation")]
             public global::Knoq.Users.Me.Events.GetRelationQueryParameterType? RelationAsGetRelationQueryParameterType { get; set; }
         }

@@ -14,7 +14,7 @@ namespace Knoq.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>ユーザーIDの配列</summary>
+        /// <summary>編集権を持つユーザー</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Guid?>? Admins { get; set; }
@@ -25,13 +25,19 @@ namespace Knoq.Models
         /// <summary>The attendees property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Knoq.Models.Attendee>? Attendees { get; set; }
+        public List<global::Knoq.Models.ResponseEventDetail_attendees>? Attendees { get; set; }
 #nullable restore
 #else
-        public List<global::Knoq.Models.Attendee> Attendees { get; set; }
+        public List<global::Knoq.Models.ResponseEventDetail_attendees> Attendees { get; set; }
 #endif
         /// <summary>The createdAt property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedAt { get; set; }
+#nullable restore
+#else
+        public string CreatedAt { get; set; }
+#endif
         /// <summary>The createdBy property</summary>
         public Guid? CreatedBy { get; set; }
         /// <summary>The description property</summary>
@@ -91,17 +97,35 @@ namespace Knoq.Models
         /// <summary>The tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Knoq.Models.EventTag>? Tags { get; set; }
+        public List<global::Knoq.Models.ResponseEventDetail_tags>? Tags { get; set; }
 #nullable restore
 #else
-        public List<global::Knoq.Models.EventTag> Tags { get; set; }
+        public List<global::Knoq.Models.ResponseEventDetail_tags> Tags { get; set; }
 #endif
         /// <summary>The timeEnd property</summary>
-        public DateTimeOffset? TimeEnd { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TimeEnd { get; set; }
+#nullable restore
+#else
+        public string TimeEnd { get; set; }
+#endif
         /// <summary>The timeStart property</summary>
-        public DateTimeOffset? TimeStart { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TimeStart { get; set; }
+#nullable restore
+#else
+        public string TimeStart { get; set; }
+#endif
         /// <summary>The updatedAt property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UpdatedAt { get; set; }
+#nullable restore
+#else
+        public string UpdatedAt { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Knoq.Models.ResponseEventDetail"/> and sets the default values.
         /// </summary>
@@ -116,7 +140,7 @@ namespace Knoq.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Knoq.Models.ResponseEventDetail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new global::Knoq.Models.ResponseEventDetail();
         }
         /// <summary>
@@ -128,8 +152,8 @@ namespace Knoq.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "admins", n => { Admins = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
-                { "attendees", n => { Attendees = n.GetCollectionOfObjectValues<global::Knoq.Models.Attendee>(global::Knoq.Models.Attendee.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "attendees", n => { Attendees = n.GetCollectionOfObjectValues<global::Knoq.Models.ResponseEventDetail_attendees>(global::Knoq.Models.ResponseEventDetail_attendees.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
                 { "createdBy", n => { CreatedBy = n.GetGuidValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "eventId", n => { EventId = n.GetGuidValue(); } },
@@ -140,10 +164,10 @@ namespace Knoq.Models
                 { "place", n => { Place = n.GetStringValue(); } },
                 { "room", n => { Room = n.GetObjectValue<global::Knoq.Models.ResponseRoom>(global::Knoq.Models.ResponseRoom.CreateFromDiscriminatorValue); } },
                 { "sharedRoom", n => { SharedRoom = n.GetBoolValue(); } },
-                { "tags", n => { Tags = n.GetCollectionOfObjectValues<global::Knoq.Models.EventTag>(global::Knoq.Models.EventTag.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "timeEnd", n => { TimeEnd = n.GetDateTimeOffsetValue(); } },
-                { "timeStart", n => { TimeStart = n.GetDateTimeOffsetValue(); } },
-                { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfObjectValues<global::Knoq.Models.ResponseEventDetail_tags>(global::Knoq.Models.ResponseEventDetail_tags.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "timeEnd", n => { TimeEnd = n.GetStringValue(); } },
+                { "timeStart", n => { TimeStart = n.GetStringValue(); } },
+                { "updatedAt", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -152,10 +176,10 @@ namespace Knoq.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<Guid?>("admins", Admins);
-            writer.WriteCollectionOfObjectValues<global::Knoq.Models.Attendee>("attendees", Attendees);
-            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteCollectionOfObjectValues<global::Knoq.Models.ResponseEventDetail_attendees>("attendees", Attendees);
+            writer.WriteStringValue("createdAt", CreatedAt);
             writer.WriteGuidValue("createdBy", CreatedBy);
             writer.WriteStringValue("description", Description);
             writer.WriteGuidValue("eventId", EventId);
@@ -166,10 +190,10 @@ namespace Knoq.Models
             writer.WriteStringValue("place", Place);
             writer.WriteObjectValue<global::Knoq.Models.ResponseRoom>("room", Room);
             writer.WriteBoolValue("sharedRoom", SharedRoom);
-            writer.WriteCollectionOfObjectValues<global::Knoq.Models.EventTag>("tags", Tags);
-            writer.WriteDateTimeOffsetValue("timeEnd", TimeEnd);
-            writer.WriteDateTimeOffsetValue("timeStart", TimeStart);
-            writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
+            writer.WriteCollectionOfObjectValues<global::Knoq.Models.ResponseEventDetail_tags>("tags", Tags);
+            writer.WriteStringValue("timeEnd", TimeEnd);
+            writer.WriteStringValue("timeStart", TimeStart);
+            writer.WriteStringValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

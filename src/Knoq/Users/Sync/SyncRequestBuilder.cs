@@ -33,7 +33,7 @@ namespace Knoq.Users.Sync
         {
         }
         /// <summary>
-        /// 管理者権限が必要。traQのuserと同期します。存在していないユーザーは作成されます。stateが同期されます。
+        /// 管理者権限が必要。 traQのuserと同期します。 存在していないユーザーは作成されます。 stateが同期されます。
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -50,7 +50,7 @@ namespace Knoq.Users.Sync
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// 管理者権限が必要。traQのuserと同期します。存在していないユーザーは作成されます。stateが同期されます。
+        /// 管理者権限が必要。 traQのuserと同期します。 存在していないユーザーは作成されます。 stateが同期されます。
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -96,7 +96,7 @@ namespace Knoq.Groups.Item
         public async Task<global::Knoq.Models.ResponseGroup> PutAsync(global::Knoq.Models.RequestGroup body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Knoq.Models.ResponseGroup>(requestInfo, global::Knoq.Models.ResponseGroup.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -152,7 +152,7 @@ namespace Knoq.Groups.Item
         public RequestInformation ToPutRequestInformation(global::Knoq.Models.RequestGroup body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

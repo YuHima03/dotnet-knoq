@@ -15,13 +15,7 @@ namespace Knoq.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The createdAt property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CreatedAt { get; set; }
-#nullable restore
-#else
-        public string CreatedAt { get; set; }
-#endif
+        public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,13 +27,7 @@ namespace Knoq.Models
         /// <summary>The tagId property</summary>
         public Guid? TagId { get; set; }
         /// <summary>The updatedAt property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UpdatedAt { get; set; }
-#nullable restore
-#else
-        public string UpdatedAt { get; set; }
-#endif
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Knoq.Models.ResponseTag"/> and sets the default values.
         /// </summary>
@@ -54,7 +42,7 @@ namespace Knoq.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Knoq.Models.ResponseTag CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Knoq.Models.ResponseTag();
         }
         /// <summary>
@@ -65,10 +53,10 @@ namespace Knoq.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
+                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "tagId", n => { TagId = n.GetGuidValue(); } },
-                { "updatedAt", n => { UpdatedAt = n.GetStringValue(); } },
+                { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -77,11 +65,11 @@ namespace Knoq.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("createdAt", CreatedAt);
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("tagId", TagId);
-            writer.WriteStringValue("updatedAt", UpdatedAt);
+            writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -87,11 +87,25 @@ namespace Knoq.Rooms.Item.Events
         public partial class EventsRequestBuilderGetQueryParameters 
         {
             /// <summary>特定の日時から。</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("dateBegin")]
-            public DateTimeOffset? DateBegin { get; set; }
+            public string? DateBegin { get; set; }
+#nullable restore
+#else
+            [QueryParameter("dateBegin")]
+            public string DateBegin { get; set; }
+#endif
             /// <summary>特定の日時まで。</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("dateEnd")]
-            public DateTimeOffset? DateEnd { get; set; }
+            public string? DateEnd { get; set; }
+#nullable restore
+#else
+            [QueryParameter("dateEnd")]
+            public string DateEnd { get; set; }
+#endif
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

@@ -22,7 +22,7 @@ tasks:
       - |
         echo "TargetTagName: ${KNOQ_TAG_NAME}"
       - |
-        docker run --user "$(id -u):$(id -g)" --rm -v "${PWD}/src/${CLIENT_NAMESPACE}":/local \
+        docker run -u 0:0 --rm -v "${PWD}/src/${CLIENT_NAMESPACE}":/local \
         mcr.microsoft.com/openapi/kiota generate \
           -d {{.OPENAPI_SPEC_URL}} \
           -o /local \

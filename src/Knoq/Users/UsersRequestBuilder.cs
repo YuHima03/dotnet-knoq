@@ -124,7 +124,7 @@ namespace Knoq.Users
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class UsersRequestBuilderGetQueryParameters 
         {
-            /// <summary>アカウントがアクティブでないユーザーを含めるかどうか。</summary>
+            /// <summary>アカウントがアクティブでないユーザーを含めるかどうか。 | traQ由来のquery。 | de</summary>
             [QueryParameter("include%2Dsuspended")]
             public bool? IncludeSuspended { get; set; }
         }

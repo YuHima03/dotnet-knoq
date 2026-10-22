@@ -84,7 +84,7 @@ namespace Knoq.Ical.V1.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithIcalTokenItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>Syntax: top: ε | expr, expr: term ((&apos;||&apos; | &apos;&amp;&amp;&apos;) term)*, term: cmp | &apos;(&apos; expr &apos;)&apos;, cmp: Attr (&apos;==&apos; | &apos;!=&apos;) UUID, Attr: &apos;event&apos; | &apos;user&apos; | &apos;group&apos; | &apos;tag&apos;</summary>
+            /// <summary>Syntax: &lt;br&gt; top  : ε | expr, expr : term ( ( &quot;||&quot; | &quot;&amp;&amp;&quot; ) term)*&lt;br&gt; term : cmp | &quot;(&quot; expr &quot;)&quot;&lt;br&gt; cmp  : Attr ( &quot;==&quot; | &quot;!=&quot; ) UUID&lt;br&gt; Attr : &quot;event&quot; | &quot;user&quot; | &quot;group&quot; | &quot;tag&quot; </summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("q")]

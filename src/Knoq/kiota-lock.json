@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "95CD723C8B7080755B97D05352C725419579C8EA45BF5EBCE8861889F5C45A3EC9C5421F365EAA68EE9E0510E431E1678A6DF322446FE05DAFCC28B3DEDB8A81",
-  "descriptionLocation": "https://raw.githubusercontent.com/traPtitech/knoQ/v2.5.16/docs/swagger.yaml",
+  "descriptionHash": "7B0B90245DD763BB38AE5235A1C907C936C78C63FF9F5D03750E001F4D88EE04B3E47BDFF0AECA5FB4737DEA5FBB12EE0F96F803CA5C0E9E6AADD1B000FEC4CD",
+  "descriptionLocation": "https://raw.githubusercontent.com/traPtitech/knoQ/v2.5.12/docs/swagger.yaml",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.31.1",
+  "kiotaVersion": "1.28.0",
   "clientClassName": "KnoqApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Knoq",

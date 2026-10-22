@@ -85,7 +85,7 @@ namespace Knoq.Users.Me.Groups
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class GroupsRequestBuilderGetQueryParameters 
         {
-            /// <summary>どのような関係性でユーザーと結びつけるか。取り得る値は，admins(ユーザーが管理者), belongs(ユーザーが所属している),belongs-or-admins(ユーザーが管理者または所属している)イベントはさらに，attendees(not absent)値がない場合は，belongs として振る舞う</summary>
+            /// <summary>どのような関係性でユーザーと結びつけるか。 取り得る値は、admins(ユーザーが管理者), belongs(ユーザーが所属している), belongs-or-admins(ユーザーが管理者または所属している) イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う</summary>
             [Obsolete("This property is deprecated, use RelationAsGetRelationQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -96,7 +96,7 @@ namespace Knoq.Users.Me.Groups
             [QueryParameter("relation")]
             public string Relation { get; set; }
 #endif
-            /// <summary>どのような関係性でユーザーと結びつけるか。取り得る値は，admins(ユーザーが管理者), belongs(ユーザーが所属している),belongs-or-admins(ユーザーが管理者または所属している)イベントはさらに，attendees(not absent)値がない場合は，belongs として振る舞う</summary>
+            /// <summary>どのような関係性でユーザーと結びつけるか。 取り得る値は、admins(ユーザーが管理者), belongs(ユーザーが所属している), belongs-or-admins(ユーザーが管理者または所属している) イベントはさらに、attendees(not absent) 値がない場合は、belongs として振る舞う</summary>
             [QueryParameter("relation")]
             public global::Knoq.Users.Me.Groups.GetRelationQueryParameterType? RelationAsGetRelationQueryParameterType { get; set; }
         }
